@@ -57,7 +57,7 @@ class MyCustomSignupForm(SignupForm):
             required=True,
             label="",
             widget=forms.TextInput(
-                attrs={"class": "form-control",  "placeholder": "First Name"}
+                attrs={"class": "form-control", "placeholder": "First Name"}
             ),
         )
         self.fields["last_name"] = forms.CharField(
@@ -71,21 +71,21 @@ class MyCustomSignupForm(SignupForm):
             required=True,
             label="",
             widget=forms.TextInput(
-                attrs={"class": "form-control", "type": "number", "placeholder": "Phone Number"}
+                attrs={"class": "form-control", "placeholder": "Phone Number"}
             ),
         )
         self.fields["create_pin"] = forms.CharField(
             required=True,
             label="",
             widget=forms.TextInput(
-                attrs={"class": "form-control", "type": "number", "placeholder": "Create Pin"}
+                attrs={"class": "form-control", "placeholder": "Create Pin"}
             ),
         )
         self.fields["company_name"] = forms.ChoiceField(
-            required=True, choices=COMPANY_CATEGORY
+            required=True, label="Select your Company", choices=COMPANY_CATEGORY
         )
         self.fields["designation_name"] = forms.ChoiceField(
-            required=True, choices=DESIGNATION_CATEGORY
+            required=True, label="Select your Designation", choices=DESIGNATION_CATEGORY
         )
 
     @transaction.atomic
