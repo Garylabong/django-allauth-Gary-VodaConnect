@@ -1,6 +1,7 @@
 {% extends "account/base.html" %}
 
 {% load crispy_forms_tags %}
+{% crispy form form.helper %}
 
 {% load i18n %}
 {% load account socialaccount %}
@@ -48,42 +49,6 @@
     text-align: center;
   }
 
-
-  .login-box .user-box {
-    position: relative;
-  }
-
-  .login-box .user-box input {
-    width: 100%;
-    padding: 10px 0;
-    font-size: 16px;
-    color: #fff;
-    margin-bottom: 30px;
-    border: none;
-    border-bottom: 1px solid #fff;
-    outline: none;
-    background: transparent;
-  }
-
-  .login-box .user-box label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 10px 0;
-    font-size: 16px;
-    color: rgb(255, 255, 255);
-    pointer-events: none;
-    transition: .5s;
-  }
-
-  .login-box .user-box input:focus~label,
-  .login-box .user-box input:valid~label {
-    top: -20px;
-    left: 0;
-    color: #ed5fdc;
-    font-size: 12px;
-  }
-
   .login-box form button {
     position: relative;
     display: inline-block;
@@ -95,21 +60,25 @@
     overflow: hidden;
     transition: .5s;
     letter-spacing: 3px;
-    margin-top: 50px;
+    margin-top: 20px;
     top: -30px;
     border-radius: 20px;
     margin-left: 95px;
-    background: linear-gradient(-135deg, #162b3a, #382809);
+    background: linear-gradient(-135deg, #030a43, #01430c);
+  }
+
+  .login-box i{
+    margin-top: -20px;
   }
 
   .login-box i a {
-    text-align: justify;
+
     text-decoration: none;
     color: #ed5fdc;
     margin-left: 40px;
     font-size: small;
     font-style: normal;
-    padding-top: -20%;
+    margin-top: -20px;
   }
 
   .login-box i a:hover {
@@ -117,6 +86,54 @@
     color: rgb(243, 166, 226);
     box-shadow: none;
   }
+
+  .requiredField{
+      display: none;
+    }
+
+  .form-check-label{
+    color: rgb(240, 88, 194);
+    font-size: small;
+  }
+
+  .form-group input{
+    font-size: small;
+  }
+
+ .form-control:focus,
+ .form-control:valid{
+    border-radius: 5px;
+    box-shadow: #ed5fdc;
+    border-color: #ed5fdc;
+ }
+
+.form-group{
+  height: 40px;
+  width: 100%;
+}
+
+
+.textinput{
+   font-size: medium;
+ }
+
+.alert{
+  background-color: rgb(250, 132, 105);
+  border: none;
+  margin-top: -20px;
+  transition: all .10s;
+}
+
+.alert ul{
+  font-size: small;
+  color: #fff;
+}
+
+::marker{
+  display: none;
+  color: transparent;
+}
+
 
   .login-box i button {
     text-align: justify;
@@ -147,6 +164,7 @@
   .login-box button span {
     position: absolute;
     display: block;
+    border-radius: 5px;
   }
 
   .login-box button span:nth-child(1) {
@@ -249,10 +267,10 @@
         <span></span>
         <span></span>{% trans "Sign In" %}</button>
   </div>
-  <i><a href="{% url 'account_reset_password' %}"">Forgot password? </a></i>
+  <i><a href="{% url 'account_reset_password' %}">Forgot password?</a></i>
   <i><a href=" {{ signup_url }}" class="ml-5">create one</a></i>
   </form>
 </div>
-</div>
+
 
 {% endblock %}

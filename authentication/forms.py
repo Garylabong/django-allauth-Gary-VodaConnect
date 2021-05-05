@@ -57,7 +57,7 @@ class MyCustomSignupForm(SignupForm):
             required=True,
             label="",
             widget=forms.TextInput(
-                attrs={"class": "form-control", "placeholder": "First Name"}
+                attrs={"class": "form-control",  "placeholder": "First Name"}
             ),
         )
         self.fields["last_name"] = forms.CharField(
@@ -71,14 +71,14 @@ class MyCustomSignupForm(SignupForm):
             required=True,
             label="",
             widget=forms.TextInput(
-                attrs={"class": "form-control", "placeholder": "Phone Number"}
+                attrs={"class": "form-control", "type": "number", "placeholder": "Phone Number"}
             ),
         )
         self.fields["create_pin"] = forms.CharField(
             required=True,
             label="",
             widget=forms.TextInput(
-                attrs={"class": "form-control", "placeholder": "Create Pin"}
+                attrs={"class": "form-control", "type": "number", "placeholder": "Create Pin"}
             ),
         )
         self.fields["company_name"] = forms.ChoiceField(

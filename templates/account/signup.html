@@ -47,10 +47,14 @@
       background-image: url(/static/subsInventory/img/backgrounds/gpg.png);
       background-repeat: no-repeat;
       background-position: center;
-      background-size: 70%;
+      background-size: 68%;
       padding: 25px 30px;
       border-radius: 5px;
       box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+    }
+
+    .select option{
+      font-size: small;
     }
 
     .container .title {
@@ -73,8 +77,10 @@
     .content form .user-details {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
-      margin: 20px 0 12px 0;
+      justify-content: space-evenly;
+      margin-left: -15px;
+      margin-right: 25px;
+      
     }
 
     form .user-details .input-box {
@@ -88,58 +94,37 @@
       margin-bottom: 5px;
     }
 
-    .user-details .input-box input {
-      height: 45px;
-      width: 100%;
-      outline: none;
-      font-size: 16px;
-      border-radius: 5px;
-      padding-left: 15px;
-      border: 1px solid #ccc;
-      border-bottom-width: 2px;
-      transition: all 0.3s ease;
+    .form-group input{
+      width: 120%;
     }
 
-    .user-details .input-box input:focus,
-    .user-details .input-box input:valid {
+    .form-group input:focus,
+    .form-group input:valid {
       border-color: #9b59b6;
     }
-
-    form .gender-details .gender-title {
-      font-size: 20px;
-      font-weight: 500;
-    }
-
-    form .category {
-      display: flex;
-      width: 80%;
-      margin: 14px 0;
-      justify-content: space-between;
-    }
-
-    form .category label {
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-    }
-
-    form .category label .dot {
-      height: 18px;
-      width: 18px;
-      border-radius: 50%;
-      margin-right: 10px;
-      background: #d9d9d9;
-      border: 5px solid transparent;
-      transition: all 0.3s ease;
-    }
-
+    
     form .button {
       height: 45px;
       margin: 35px;
       margin-left: 60px;
     }
 
-    form .button input {
+    form .button a{
+      color: #ed5fdc;
+      font-size: small;
+    }
+
+    form .button a:hover {
+    background: transparent;
+    color: rgb(243, 166, 226);
+    box-shadow: none;
+  }
+
+    .content label{
+      display: none;
+    }
+
+    form .button button {
       margin-top: -30px;
       height: 100%;
       width: 20%;
@@ -156,7 +141,7 @@
 
 
 
-    form .button input:hover {
+    form .button button:hover {
       transform: scale(0.9);
       background: linear-gradient(-135deg, #71b7e6, #9b59b6);
     }
@@ -187,13 +172,17 @@
           {{ form | crispy }}
           {% if redirect_field_value %}
           <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+            </div>
           {% endif %}
-          <button type="submit">{% trans "Sign Up" %} &raquo;</button>
+          
         </div>
         <div class="button text-center">
-          <input type="submit" value="Register">
+          <button type="submit">{% trans "Sign Up" %}</button>
           <div class="text-cente mt-2">
-            <a style="text-decoration: none; color:  #ec75de;" href="{{ login_url }}">Sign-in</a>
+            <a style="text-decoration: none;" href="{{ login_url }}">Sign-in</a>
           </div>
         </div>
 
