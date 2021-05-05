@@ -25,6 +25,34 @@ class MyCustomSignupForm(SignupForm):
             ("PsalmsGlobal.Com", "PsalmsGlobal.Com"),
             ("Affiliate Partner", "Affiliate Partner"),
         )
+        self.fields["email"] = forms.CharField(
+            required=True,
+            label="",
+            widget=forms.TextInput(
+                attrs={"class": "form-control", "placeholder": "Email"}
+            ),
+        )
+        self.fields["username"] = forms.CharField(
+            required=True,
+            label="",
+            widget=forms.TextInput(
+                attrs={"class": "form-control", "placeholder": "Username"}
+            ),
+        )
+        self.fields["password1"] = forms.CharField(
+            required=True,
+            label="",
+            widget=forms.TextInput(
+                attrs={"class": "form-control", "placeholder": "Password"}
+            ),
+        )
+        self.fields["password2"] = forms.CharField(
+            required=True,
+            label="",
+            widget=forms.TextInput(
+                attrs={"class": "form-control", "placeholder": "Confirm Password"}
+            ),
+        )
         self.fields["first_name"] = forms.CharField(
             required=True,
             label="",
