@@ -5,8 +5,89 @@
 {% block head_title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
 
 {% block content %}
+<style>
+    html {
+   height: 100%;
+ }
+
+ body {
+   margin: 0;
+   padding: 0;
+   font-family: sans-serif;
+   background: linear-gradient(#141e30, #243b55);
+ }
+
+ .login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 800px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: #243b55;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80%;
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+    border-radius: 10px;
+  }
+
+  .login-box h1{
+      color: rgb(245, 241, 241);
+  }
+
+  .login-box p{
+      color: rgb(238, 111, 170);
+      font-size: smaller;
+  }
+
+  .requiredField{
+      display: none;
+  }
+
+.textinput{
+   font-size: medium;
+ }
+
+ .input {
+     color: #ed5fdc;
+ }
+
+ .form-control:focus,
+ .form-control:valid{
+    border-radius: 5px;
+    box-shadow: #ed5fdc;
+    border-color: #ed5fdc;
+ }
+
+button, input{
+    background-color: #f3f0f3;
+    height: 35px;
+    width: 80px;
+    border-radius: 10px;
+}
+.button input{
+    margin-left: 120px;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    color: rgb(253, 253, 253);
+    box-shadow: none;
+    border-color: none;
+}
+
+.button input:hover{
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+    transform: scale(0.9);
+}
+
+
+
+</style>
+
+<div class="login-box">
+    
     <h1>{% trans "Verify Your E-mail Address" %}</h1>
 
     <p>{% blocktrans %}We have sent an e-mail to you for verification. Follow the link provided to finalize the signup process. Please contact us if you do not receive it within a few minutes.{% endblocktrans %}</p>
-
+</div>
 {% endblock %}

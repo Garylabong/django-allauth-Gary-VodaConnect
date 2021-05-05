@@ -5,6 +5,8 @@ from django.db import transaction
 import datetime
 
 
+
+
 class MyCustomSignupForm(SignupForm):
     class Meta:
         model = User
@@ -43,14 +45,14 @@ class MyCustomSignupForm(SignupForm):
             required=True,
             label="",
             widget=forms.TextInput(
-                attrs={"class": "form-control", "placeholder": "Password"}
+                attrs={"class": "form-control", "type": "password", "placeholder": "Password"}
             ),
         )
         self.fields["password2"] = forms.CharField(
             required=True,
             label="",
             widget=forms.TextInput(
-                attrs={"class": "form-control", "placeholder": "Confirm Password"}
+                attrs={"class": "form-control", "type": "password", "placeholder": "Confirm Password"}
             ),
         )
         self.fields["first_name"] = forms.CharField(

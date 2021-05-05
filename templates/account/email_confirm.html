@@ -7,6 +7,84 @@
 
 
 {% block content %}
+<style>
+    html {
+   height: 100%;
+ }
+
+ body {
+   margin: 0;
+   padding: 0;
+   font-family: sans-serif;
+   background: linear-gradient(#141e30, #243b55);
+ }
+
+ .login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: #243b55;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80%;
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+    border-radius: 10px;
+  }
+
+  .login-box h1{
+      color: rgb(245, 241, 241);
+      margin-left: 10px;
+  }
+
+  .login-box p{
+      color: rgb(238, 111, 170);
+      font-size: smaller;
+  }
+
+  .requiredField{
+      display: none;
+  }
+
+.textinput{
+   font-size: medium;
+ }
+
+ .input {
+     color: #ed5fdc;
+ }
+
+ .form-control:focus,
+ .form-control:valid{
+    border-radius: 5px;
+    box-shadow: #ed5fdc;
+    border-color: #ed5fdc;
+ }
+
+button {
+    margin-left: 40%;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    color: rgb(253, 253, 253);
+    box-shadow: none;
+    border-color: none;
+    height: 35px;
+    width: 100px;
+    border-radius: 10px;
+}
+
+button:hover{
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+    transform: scale(0.9);
+}
+
+
+
+</style>
+
+<div class="login-box">
 <h1>{% trans "Confirm E-mail Address" %}</h1>
 
 {% if confirmation %}
@@ -27,5 +105,6 @@
 <p>{% blocktrans %}This e-mail confirmation link expired or is invalid. Please <a href="{{ email_url }}">issue a new e-mail confirmation request</a>.{% endblocktrans %}</p>
 
 {% endif %}
+</div>
 
 {% endblock %}
