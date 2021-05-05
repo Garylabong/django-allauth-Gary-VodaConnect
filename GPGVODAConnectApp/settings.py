@@ -199,9 +199,9 @@ ACCOUNT_FORMS = {"signup": "authentication.forms.MyCustomSignupForm"}
 
 # LOGOUT_REDIRECT_URL = "home"
 
-LOGIN_REDIRECT_URL = "login"
+LOGIN_REDIRECT_URL = "home"
 
-ACCOUNT_LOGOUT_REDIRECT_URL = "login"
+ACCOUNT_LOGOUT_REDIRECT_URL = "home"
 
 # Email activation
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"

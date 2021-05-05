@@ -25,10 +25,34 @@ class MyCustomSignupForm(SignupForm):
             ("PsalmsGlobal.Com", "PsalmsGlobal.Com"),
             ("Affiliate Partner", "Affiliate Partner"),
         )
-        self.fields["first_name"] = forms.CharField(required=True)
-        self.fields["last_name"] = forms.CharField(required=True)
-        self.fields["phone_number"] = forms.CharField(required=True)
-        self.fields["create_pin"] = forms.CharField(required=True)
+        self.fields["first_name"] = forms.CharField(
+            required=True,
+            label="",
+            widget=forms.TextInput(
+                attrs={"class": "form-control", "placeholder": "First Name"}
+            ),
+        )
+        self.fields["last_name"] = forms.CharField(
+            required=True,
+            label="",
+            widget=forms.TextInput(
+                attrs={"class": "form-control", "placeholder": "Last Name"}
+            ),
+        )
+        self.fields["phone_number"] = forms.CharField(
+            required=True,
+            label="",
+            widget=forms.TextInput(
+                attrs={"class": "form-control", "placeholder": "Phone Number"}
+            ),
+        )
+        self.fields["create_pin"] = forms.CharField(
+            required=True,
+            label="",
+            widget=forms.TextInput(
+                attrs={"class": "form-control", "placeholder": "Create Pin"}
+            ),
+        )
         self.fields["company_name"] = forms.ChoiceField(
             required=True, choices=COMPANY_CATEGORY
         )
