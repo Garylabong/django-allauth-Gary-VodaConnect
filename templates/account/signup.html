@@ -18,6 +18,8 @@
 
   {% load i18n %}
 
+  {% block head_title %}{% trans "Signup" %}{% endblock %}
+
   {% block content %}
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
@@ -51,7 +53,7 @@
       box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
     }
 
-    .select option {
+    .select option{
       font-size: small;
     }
 
@@ -78,7 +80,7 @@
       justify-content: space-evenly;
       margin-left: -15px;
       margin-right: 25px;
-
+      
     }
 
     form .user-details .input-box {
@@ -92,7 +94,7 @@
       margin-bottom: 5px;
     }
 
-    .form-group input {
+    .form-group input{
       width: 120%;
     }
 
@@ -100,25 +102,25 @@
     .form-group input:valid {
       border-color: #9b59b6;
     }
-
+    
     form .button {
       height: 45px;
       margin: 35px;
       margin-left: 60px;
     }
 
-    form .button a {
+    form .button a{
       color: #ed5fdc;
       font-size: small;
     }
 
     form .button a:hover {
-      background: transparent;
-      color: rgb(243, 166, 226);
-      box-shadow: none;
-    }
+    background: transparent;
+    color: rgb(243, 166, 226);
+    box-shadow: none;
+  }
 
-    .content label {
+    .content label{
       display: none;
     }
 
@@ -172,17 +174,17 @@
           <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
             </div>
-            {% endif %}
-
+          {% endif %}
+          
+        </div>
+        <div class="button text-center">
+          <button type="submit">{% trans "Sign Up" %}</button>
+          <div class="text-cente mt-2">
+            <a style="text-decoration: none;" href="{{ login_url }}">Sign-in</a>
           </div>
-          <div class="button text-center">
-            <button type="submit">{% trans "Sign Up" %}</button>
-            <div class="text-cente mt-2">
-              <a style="text-decoration: none;" href="{{ login_url }}">Sign-in</a>
-            </div>
-          </div>
+        </div>
 
       </form>
     </div>
