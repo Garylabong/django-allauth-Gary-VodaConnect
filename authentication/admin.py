@@ -35,14 +35,14 @@ class ClientAdmin(admin.ModelAdmin):
         "lead_information",
     )
     list_filter = ("company_name", "designation_name")
-    search_fields = ["username", "first_name", "last_name"]
+    search_fields = ["user", "first_name", "last_name"]
 
     fieldsets = [
         (
             "Personal information",
             {
                 "fields": [
-                    "username",
+                    "user",
                     "first_name",
                     "last_name",
                     "phone_number",
