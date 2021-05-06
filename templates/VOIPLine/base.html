@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="style.css">
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
@@ -18,6 +18,8 @@
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
     <title>VODA CONNECT</title>
+    <link rel="icon" href="/static/subsInventory/img/backgrounds/gpg.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="{% static 'subsInventory/ico/apple-touch-icon-144-precomposed.png' %}">
 
 </head>
 
@@ -69,7 +71,7 @@
         <link rel="stylesheet" href="{% static 'subsInventory/css/media-queries.css' %} ">
 
         <!-- Favicon and touch icons -->
-        <link rel="shortcut icon" href="{% static 'subsInventory/ico/favicon.png' %)">
+        <link rel="shortcut icon" href="{% static 'subsInventory/img/backgrounds/gpg.png' %)">
         <link rel="apple-touch-icon-precomposed" sizes="144x144"
             href="{% static 'subsInventory/ico/apple-touch-icon-144-precomposed.png' %}">
         <link rel="apple-touch-icon-precomposed" sizes="114x114"
@@ -83,7 +85,7 @@
 
     <body>
 
-
+        
         <!-- Wrapper -->
         <div class="wrapper">
 
@@ -95,7 +97,7 @@
                 </div>
 
                 <div class="text-center mt-4" id="text">
-                    <h3 class="text-warning"><img class="circular"
+                    <h3 class="text-warning"><img class="circular1"
                             src="{% static 'subsInventory/img/backgrounds/gpg.png' %}"><strong>GPG ADMIN</strong></h3>
                 </div>
                 <hr>
@@ -116,7 +118,7 @@
                         </a>
                         <ul class="collapse list-unstyled bg-transparent" id="1otherSections">
                             <li>
-                                <a class="ms-3" href="">Subscribers Inventory</a>
+                                <a class="ms-3" href="{% url 'subs_Inv:subs_inv' %}">Subscribers Inventory</a>
                             </li>
                             <!-- <li>
                                 <a class="ms-3" href="">Activation Details</a>
@@ -187,7 +189,7 @@
 
                     <!-- open sidebar menu -->
 
-                    <br><br><br>
+                    <br><br>
                     <a class="btn btn-sm btn-customized open-menu mt-2" href="#" role="button">
                         <i style="float: left;" class="fas fa-align-justify"></i> <span></span>
                     </a>
