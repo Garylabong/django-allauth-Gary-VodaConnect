@@ -166,12 +166,14 @@ img { max-width: 100%; }
 	margin-bottom: 20px;
 	transition: all .3s; 
 	font-weight: 100 bold;
+	font-size: small;
 }
 
 .sidebar ul li a {
 	display: block; 
 	padding: 10px 20px;
 	border: 0; color: lightcyan;
+	font-size: small;
 }
 
 .sidebar hr {

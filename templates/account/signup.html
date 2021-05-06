@@ -57,6 +57,15 @@
       font-size: small;
     }
 
+    .select:focus,
+    .select:valid {
+      border-color: #9b59b6;
+    }
+
+    .form-control .select{
+      margin-right: 40px;
+    }
+
     .container .title {
       font-size: 25px;
       font-weight: 500;
@@ -80,22 +89,55 @@
       justify-content: space-evenly;
       margin-left: -15px;
       margin-right: 25px;
-      
-    }
-
-    form .user-details .input-box {
-      margin-bottom: 15px;
-      width: calc(100% / 2 - 20px);
-    }
-
-    form .input-box span.details {
-      display: block;
-      font-weight: 500;
-      margin-bottom: 5px;
     }
 
     .form-group input{
       width: 120%;
+
+    }
+    .form-control3{
+      margin-top: 10px;
+    }
+
+    .form-control4{
+      margin-top: 10px;
+    }
+
+    .form-control5{
+      margin-top: 10px;
+    }
+
+    .form-control6{
+      margin-top: 10px;
+    }
+
+    .form-control7{
+      margin-top: 10px;
+    }
+
+    .form-control8{
+      margin-top: 10px;
+    }
+
+    .form-control9{
+      margin-top: 10px;
+    }
+
+    .invalid-feedback{
+      margin-bottom: -20px;
+      position: fixed;
+    }
+
+    .invalid-feedback .form-control3{
+      position: fixed;
+      border: red;
+      box-shadow: red;
+    }
+
+    .invalid-feedback .form-control4{
+      position: fixed;
+      border: red;
+      box-shadow: red;
     }
 
     .form-group input:focus,
@@ -139,8 +181,6 @@
       background: linear-gradient(135deg, #71b7e6, #9b59b6);
     }
 
-
-
     form .button button:hover {
       transform: scale(0.9);
       background: linear-gradient(-135deg, #71b7e6, #9b59b6);
@@ -159,7 +199,9 @@
       .content form .user-details {
         max-height: 200px;
         overflow-y: scroll;
+       
       }
+     
     }
   </style>
 
@@ -172,12 +214,8 @@
           {{ form | crispy }}
           {% if redirect_field_value %}
           <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
-            </div>
           {% endif %}
-          
+        
         </div>
         <div class="button text-center">
           <button type="submit">{% trans "Sign Up" %}</button>
