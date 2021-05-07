@@ -3,6 +3,7 @@
 
 
 {% block content %}
+<br>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 *{
@@ -25,7 +26,7 @@ body{
   padding: 25px 30px;
   border-radius: 5px;
   box-shadow: 0 15px 25px rgba(0,0,0,.6);
-  margin-left: 25%; 
+  margin-left: 25%;
 }
 
 .container1{
@@ -36,9 +37,10 @@ body{
   border-radius: 5px;
   box-shadow: 0 15px 25px rgba(248, 100, 231, 0.6);
   margin-left: 30%;
-  margin-top: -88%;
+  margin-top: -80%;
   transition: 10s;
   transition-delay: 10s;
+  margin-bottom: -50px;
 }
 
 .container .title{
@@ -46,6 +48,7 @@ body{
   font-weight: 500;
   margin-left: -80%;
   color: #e442d7;
+  margin-top: -10px;
 }
 
 .container .title1{
@@ -63,7 +66,8 @@ a.btn-customized1{
     margin-left: -10px;
     display: flex;
     padding-top: 8px;
-    width: 130px;  
+    width: 130px; 
+    font-size: small;  
 }
 
 a.btn-customized1:hover{
@@ -80,6 +84,33 @@ a.btn-customized1:valid {
       color: #f3eff2;
     }
 
+    a.btn-customized2{
+    top: 0px;
+    margin-top: 15px;
+    color: #f3eff2;
+    height: 55px;
+    margin-left: -10px;
+    display: flex;
+    padding-top: 18px;
+    width: 130px;  
+    font-size: small;
+    padding-left: 25px;
+}
+
+a.btn-customized2:hover{
+    background: #e442d7;
+    color: #f3eff2;
+}
+
+a.btn-customized2:focus{
+    background-color: #b84faf;
+    color: #f3eff2;
+}
+a.btn-customized2:valid {
+      background-color: #b84faf;
+      color: #f3eff2;
+    }
+
 
 </style>
 
@@ -88,7 +119,7 @@ a.btn-customized1:valid {
     <div class="content">
         <a class="mt-5 btn btn-customized1" href="{% url 'subs_Inv:voip_info' %}">VOIP Information</a>
         <a class="btn btn-customized1" href="{% url 'subs_Inv:activation_details' %}">Activation Details</a>
-        <a class="btn btn-customized1" href="{% url 'subs_Inv:plan_details' %}">Plan Details</a>
+        <a class="btn btn-customized2" href="{% url 'subs_Inv:plan_details' %}">Plan Details</a>
         <a class="btn btn-customized1" href="{% url 'subs_Inv:subs_status' %}">Subscriber Status</a>
         <a class="btn btn-customized1" href="{% url 'subs_Inv:forward_info' %}">Forwarding Information</a>
         <div class="container1">
@@ -141,7 +172,7 @@ a.btn-customized1:valid {
                 </div> -->
               </div>
         </div>
-
+        <br><br>
           </div>
 
         </div>

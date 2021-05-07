@@ -3,6 +3,7 @@
 
 
 {% block content %}
+<br>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 *{
@@ -36,7 +37,7 @@ body{
   border-radius: 5px;
   box-shadow: 0 15px 25px rgba(248, 100, 231, 0.6);
   margin-left: 30%;
-  margin-top: -88%;
+  margin-top: -80%;
   transition: 10s;
   transition-delay: 10s;
 }
@@ -46,12 +47,15 @@ body{
   font-weight: 500;
   margin-left: -80%;
   color: #e442d7;
+  margin-top: -10px;
 }
 
 .container .title1{
   font-size: 16px;
   font-weight: 500;
   margin-left: -80%;
+  margin-top: -15px;
+  margin-bottom: 20px;
 }
 
 a.btn-customized1{
@@ -63,7 +67,8 @@ a.btn-customized1{
     margin-left: -10px;
     display: flex;
     padding-top: 8px;
-    width: 130px;  
+    width: 130px;
+    font-size: small;  
 }
 
 a.btn-customized1:hover{
@@ -80,6 +85,64 @@ a.btn-customized1:valid {
       color: #f3eff2;
     }
 
+    a.btn-customized2{
+    top: 0px;
+    margin-top: 15px;
+    color: #f3eff2;
+    height: 55px;
+    margin-left: -10px;
+    display: flex;
+    padding-top: 18px;
+    width: 130px;  
+    font-size: small;
+    padding-left: 25px;
+}
+
+a.btn-customized2:hover{
+    background: #e442d7;
+    color: #f3eff2;
+}
+
+a.btn-customized2:focus{
+    background-color: #b84faf;
+    color: #f3eff2;
+}
+a.btn-customized2:valid {
+      background-color: #b84faf;
+      color: #f3eff2;
+    }
+
+    form .table{
+    color: #f3eff2;
+    font-size: small; 
+}
+ 
+.table{
+    width: 200%;
+}
+
+.table tbody th{
+    font-weight: normal;
+}
+
+.table a[data-toggle="dropdown"] {
+	color: #eee;
+	width: 1px;
+	height: 2px;
+	margin-top: -15px;
+	margin-right: 5px;
+	box-shadow: none;
+} 
+
+.custom-select{
+    font-size: small;
+    margin-left: 133%;
+    margin-bottom: -93%;
+}
+
+.table thead th{
+  color: #0da34b;
+}
 
 </style>
 
@@ -88,60 +151,48 @@ a.btn-customized1:valid {
     <div class="content">
         <a class="mt-5 btn btn-customized1" href="{% url 'subs_Inv:voip_info' %}">VOIP Information</a>
         <a class="btn btn-customized1" href="{% url 'subs_Inv:activation_details' %}">Activation Details</a>
-        <a class="btn btn-customized1" href="{% url 'subs_Inv:plan_details' %}">Plan Details</a>
+        <a class="btn btn-customized2" href="{% url 'subs_Inv:plan_details' %}">Plan Details</a>
         <a class="btn btn-customized1" href="{% url 'subs_Inv:subs_status' %}">Subscriber Status</a>
         <a class="btn btn-customized1" href="{% url 'subs_Inv:forward_info' %}">Forwarding Information</a>
         <div class="container1">
                  <div class="title1 text-light text-center">ACTIVATION DETAILS</div>
                 <div class="content">
                   <form action="#">
-                    <div class="user-details mt-4">
-                      <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-user"></i></span>
-                        <i><input class="input-group-text" style="text-align: left;" type="text" placeholder="Firstname" required></i>
-                      </div>
-                      <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-user"></i></span>
-                        <i><input class="input-group-text" style="text-align: left;" type="text" placeholder="Lastname" required></i>
-                      </div>
-                      <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-user"></i></span>
-                        <i><input class="input-group-text" style="text-align: left;" type="text" placeholder="Username" required></i>
-                      </div>
-                      <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                        <i><input class="input-group-text" style="text-align: left;" type="text" placeholder="Email" required></i>
-                      </div>
-                      <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
-                        <i><input class="input-group-text" style="text-align: left;" type="number" placeholder="Phone Number" required></i>
-                      </div>
-                      <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-map-pin"></i></span>
-                        <i><input class="input-group-text" style="text-align: left;" type="number" placeholder="Create Pin" required></i>
-                      </div>
-                    <div class="input-group">
-                      <span class="input-group-text"><i class="fas fa-unlock-alt"></i></span>
-                      <i><input class="input-group-text" style="text-align: left;" type="text" placeholder="Password" required></i>
-                      </div>          
-                      <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-unlock-alt"></i></span>
-                      <i><input class="input-group-text" style="text-align: left;" type="text" placeholder="Confirm Password" required></i>
-                      </div>
-
-                    </div>
-                    <div class="button text-center">
-                      <input type="submit" value="Register">
-                      <div class="link mt-2">
-                      <a style="text-decoration: none; color:  #ec75de;" href="#">Back-To-Login</a>
-                    </div>
-                    </div>
-                  
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Order Request Date</th>
+                            <th scope="col">Request Date Initiated</th>
+                            <th scope="col">Date Line Activated</th>
+                            <th scope="col">Date Line Terminated</th>
+                            <th scope="col">PhoneLine Status</th>
+                            <th scope="col">Client Company User Category</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">05/09/20</th>
+                            <td>06/20/20</td>
+                            <td>06/21/20</td>
+                            <td>12/10/20</td>
+                            <td>Active</td>
+                            <td>Landmaster.Us</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">0002</th>
+                            <td>Jacob Curry</td>
+                            <td>L623</td>
+                            <td>VodaConnect</td>
+                          </tr>
+                          
+                        
+                        </tbody>
+                      </table>
                   </form>
-                </div> -->
+                </div>
               </div>
         </div>
-
+        <br><br><br>
           </div>
 
         </div>
@@ -152,3 +203,12 @@ a.btn-customized1:valid {
 
 
 {% endblock %}
+
+<!-- <select class="custom-select" 
+                            style="width:80px;">
+                            <option class="hidden" style="font-size: small;" selected disabled>Status</option>
+                            <option>Active</option>
+                            <option>Inactive</option>
+                            <option>Cancelled</option>
+                            <option>Pending</option>
+                                </select> -->

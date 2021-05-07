@@ -34,3 +34,7 @@ class SubscribersStatusView(View):
 class ForwardingInfoView(View):
     def get(self, request):
         return render(request, "VOIPLine/forwarding_info.html")
+
+class ProfileView(View):
+    def get(self, request):
+        return render(request, "VOIPLine/profile.html")

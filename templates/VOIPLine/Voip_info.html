@@ -29,6 +29,14 @@ body{
   margin-left: 25%;
 }
 
+.container .title{
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: -80%;
+  color: #e442d7;
+  margin-top: -10px;
+}
+
 .container1{
   max-width: 170%;
   width: 750%;
@@ -43,17 +51,12 @@ body{
   margin-bottom: -50px;
 }
 
-.container .title{
-  font-size: 16px;
-  font-weight: 500;
-  margin-left: -80%;
-  color: #e442d7;
-}
-
 .container .title1{
   font-size: 16px;
   font-weight: 500;
   margin-left: -80%;
+  margin-top: -15px;
+  margin-bottom: 20px;
 }
 
 a.btn-customized1{
@@ -61,11 +64,11 @@ a.btn-customized1{
     margin-top: 15px;
     color: #f3eff2;
     height: 55px;
-    padding-top: 15px;
     margin-left: -10px;
     display: flex;
     padding-top: 8px;
-    width: 130px;  
+    width: 130px; 
+    font-size: small; 
 }
 
 a.btn-customized1:hover{
@@ -82,6 +85,33 @@ a.btn-customized1:valid {
       color: #f3eff2;
     }
 
+    a.btn-customized2{
+    top: 0px;
+    margin-top: 15px;
+    color: #f3eff2;
+    height: 55px;
+    margin-left: -10px;
+    display: flex;
+    padding-top: 18px;
+    width: 130px;  
+    font-size: small;
+    padding-left: 25px;
+}
+
+a.btn-customized2:hover{
+    background: #e442d7;
+    color: #f3eff2;
+}
+
+a.btn-customized2:focus{
+    background-color: #b84faf;
+    color: #f3eff2;
+}
+a.btn-customized2:valid {
+      background-color: #b84faf;
+      color: #f3eff2;
+    }
+
 form .table{
     color: #f3eff2;
     font-size: small; 
@@ -91,6 +121,10 @@ form .table{
     width: 200%;
 }
 
+.table tbody th{
+    font-weight: normal;
+}
+
 </style>
 
 <div class="container">
@@ -98,7 +132,7 @@ form .table{
     <div class="content">
         <a class="mt-5 btn btn-customized1" href="{% url 'subs_Inv:voip_info' %}">VOIP Information</a>
         <a class="btn btn-customized1" href="{% url 'subs_Inv:activation_details' %}">Activation Details</a>
-        <a class="btn btn-customized1" href="{% url 'subs_Inv:plan_details' %}">Plan Details</a>
+        <a class="btn btn-customized2" href="{% url 'subs_Inv:plan_details' %}">Plan Details</a>
         <a class="btn btn-customized1" href="{% url 'subs_Inv:subs_status' %}">Subscriber Status</a>
         <a class="btn btn-customized1" href="{% url 'subs_Inv:forward_info' %}">Forwarding Information</a>
         <div class="container1">
@@ -116,59 +150,26 @@ form .table{
                         </thead>
                         <tbody>
                           <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
+                            <th scope="row">0001</th>
+                            <td>Mark Lee</td>
+                            <td>G173</td>
+                            <td>Landmaster.Us</td>
                           </tr>
                           <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
+                            <th scope="row">0002</th>
+                            <td>Jacob Curry</td>
+                            <td>L623</td>
+                            <td>VodaConnect</td>
                           </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                          </tr>
+                        
                         </tbody>
                       </table>
                   </form>
                 </div>
               </div>
         </div>
-        <br><br>
+        <br><br><br><br><br><br>
      </div>
-     <br><br><br><br><br><br>
+    
 {% endblock %}
+

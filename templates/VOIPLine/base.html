@@ -41,7 +41,7 @@
                         aria-haspopup="true" aria-expanded="true">
                     </button>
                     <div class="dropdown-menu mt-2" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Profile</a>
+                        <a class="dropdown-item" href="{% url 'subs_Inv:profile' %}">Profile</a>
                         <a class="dropdown-item" aria-hidden="true" href="{% url 'account_logout' %}">Log Out</a>
                     </div>
                 </div>
@@ -185,11 +185,12 @@
 
             <!-- Content -->
             <div class="global-container">
+                <br><br>
                 <div class="content">
 
                     <!-- open sidebar menu -->
 
-                    <br><br>
+                    
                     <a class="btn btn-sm btn-customized open-menu mt-2" href="#" role="button">
                         <i style="float: left;" class="fas fa-align-justify"></i> <span></span>
                     </a>
@@ -220,7 +221,9 @@
     <div class="global-container">
         <div class="justify-content-center">
             {% block content %}
+            
             {% endblock %}
+            <br><br>
         </div>
     </div>
 

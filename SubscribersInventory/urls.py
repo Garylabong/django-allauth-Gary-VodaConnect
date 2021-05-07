@@ -11,4 +11,5 @@ urlpatterns = [
     path("plan/details/", PlanDetailsView.as_view(), name='plan_details'),
     path("subscribers/status/", SubscribersStatusView.as_view(), name='subs_status'),
     path("forwarding/information/", ForwardingInfoView.as_view(), name='forward_info'),
+    path("profile/", ProfileView.as_view(), name="profile"),
 ]
