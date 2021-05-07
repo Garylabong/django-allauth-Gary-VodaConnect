@@ -41,6 +41,7 @@ body{
   transition: 10s;
   transition-delay: 10s;
   margin-bottom: -50px;
+  margin-top: -78%;
 }
 
 .container .title{
@@ -49,12 +50,15 @@ body{
   margin-left: -80%;
   color: #e442d7;
   margin-top: -10px;
+  margin-bottom: -1%;
 }
 
 .container .title1{
   font-size: 16px;
   font-weight: 500;
-  margin-left: -85%;
+  margin-left: -87%;
+  margin-top: -15px;
+  margin-bottom: 20px;
 }
 
 a.btn-customized1{
@@ -68,6 +72,7 @@ a.btn-customized1{
     padding-top: 8px;
     width: 130px; 
     font-size: small;  
+    border-color: #ffa5f7;
 }
 
 a.btn-customized1:hover{
@@ -95,6 +100,7 @@ a.btn-customized1:valid {
     width: 130px;  
     font-size: small;
     padding-left: 25px;
+    border-color: #ffa5f7;
 }
 
 a.btn-customized2:hover{
@@ -123,7 +129,7 @@ a.btn-customized2:valid {
         <a class="btn btn-customized1" href="{% url 'subs_Inv:subs_status' %}">Subscriber Status</a>
         <a class="btn btn-customized1" href="{% url 'subs_Inv:forward_info' %}">Forwarding Information</a>
         <div class="container1">
-                 <div class="title1 text-light text-center">PLAN DETAILS</div>
+                 <div class="title1 text-light">PLAN DETAILS</div>
                 <div class="content">
                   <form action="#">
                     <div class="user-details mt-4">

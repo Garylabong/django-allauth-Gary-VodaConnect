@@ -13,7 +13,6 @@ html {
 
 strong { font-weight: 500; }
 
-/* a { color: #f35b3f; border-bottom: 1px dashed #f35b3f; text-decoration: none; transition: all .3s; }  */
 a:hover, a:focus { color: #f35b3f; border: 0; text-decoration: none; }
 
 h1, h2 { margin-top: 10px; font-size: 38px; font-weight: 100; color: #555; line-height: 50px; }
@@ -27,14 +26,6 @@ img { max-width: 100%; }
 ::-moz-selection { background: #f35b3f; color: #fff; text-shadow: none; }
 ::selection { background: #f35b3f; color: #fff; text-shadow: none; }
 
-/* .global-container{
-	height:120%;
-	width:1400px;
-	align-items: center;
-	justify-content: center;
-	background: linear-gradient(#141e30, #243b55);
-	}  */
-
 /***navbar***/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 .navbar button[data-toggle="dropdown"] {
@@ -46,6 +37,23 @@ img { max-width: 100%; }
 	margin-right: 5px;
 	box-shadow: none;
 } 
+
+.navbar button:hover{
+	color: #e442d7;
+}
+
+.navbar ul{
+	margin-left: -100%;
+	margin-top: 5px;
+	color: #ccc;
+	font-weight: bold;
+	font-size: small;
+	font-family: Poppins;
+}
+
+.navbar {
+	background-color: #17293d;
+}
 
 .dropdown-menu {
 	top: 45px;
@@ -61,11 +69,10 @@ img { max-width: 100%; }
 	font-variant: small;
 	font-size: small;
 	text-align: justify;
+	font-family: Poppins;
 }
-/***** Wrapper *****/
 
 .wrapper { display: block; }
-
 
 /***** Sidebar *****/
 
@@ -75,18 +82,29 @@ img { max-width: 100%; }
 	border-bottom-right-radius: 3%;
 	border-bottom-left-radius: 3%;
 	width: 250px;
-	height: 95vh;
+	height: 88%;
 	position: fixed; 
-	top: 70px;
+	margin-top: 6%;
 	left: -258px;
 	z-index: 999; 
 	background: rgb(32, 32, 32) ; 
 	color: #fff; 
 	box-shadow: 3px 3px 3px rgba(51, 51, 51, 0.5);
 	text-align: left;
+	font-family: Poppins;
+	transition: all .4s;
 }
 
-.sidebar.active { left: 7px; }
+.sidebar.active {
+	left: 7px;
+	position: fixed;
+	}
+
+.sidebar.active::before,
+.sidebar.active::after{
+	left: 7px;
+	position: absolute;
+}
 
 .dismiss {
 	width: 35px;
@@ -102,7 +120,7 @@ img { max-width: 100%; }
 }
 
 .dismiss:hover, .dismiss:focus { 
-	background: rgb(238, 8, 8); 
+	background: transparent; 
 	color: #fff; 
 }
 
@@ -149,9 +167,9 @@ img { max-width: 100%; }
 
 
 .circular{
-	width:  45px;
+	width:  43px;
     height: 38px;
-	margin-left: -10px;
+	margin-left: -50%;
     background-position: 50% 50%;
     background-repeat:   no-repeat;
 	border-top-left-radius:  100%;
@@ -172,6 +190,13 @@ img { max-width: 100%; }
 	border-bottom-left-radius: 100%;
 }
 
+.circular3{
+	width: 20%;
+    height: 38px;
+	margin-right: 110%;	
+}
+
+
 .sidebar ul.menu-elements { 
 	padding: 10px 0; 
 	border-bottom: 2px solid rgb(105, 109, 105); 
@@ -179,6 +204,7 @@ img { max-width: 100%; }
 	transition: all .3s; 
 	font-weight: 100 bold;
 	font-size: small;
+	position: relative;
 }
 
 .sidebar ul li a {
@@ -233,7 +259,6 @@ ul li:hover a{
     position: relative;
 }
 
-
 .sidebar .dropdown-toggle::after {
     display: block;
     position: absolute;
@@ -254,13 +279,9 @@ ul li:hover a{
 }
 
 .sidebar.light .dismiss { 
-	background: rgb(170, 168, 168); 
+	background: rgb(134, 132, 132); 
 	color: rgb(19, 18, 18);
 }
-
-.sidebar.light .dismiss:hover, 
-.sidebar.light .dismiss:focus { background: rgb(223, 28, 28); color: #fff; }
-
 
 .sidebar.light ul.menu-elements { border-color: #444(234, 243, 235); }
 
@@ -333,7 +354,7 @@ ul li:hover a{
 /***** Content *****/
 .content {
 	width: 50%;
-	transition: all 0.3s;
+	transition: all 10s;
 }
 	
 
@@ -345,7 +366,6 @@ ul li:hover a{
 	box-shadow: 3px 3px 3px rgba(51, 51, 51, 0.2); 
 	transition: all .3s;
 }
-
 
 .open-menu.btn-customized,
 .open-menu.btn-customized:hover, 
@@ -366,6 +386,7 @@ a.btn-customized {
 	font-size: 25px; color: #fff; margin-bottom: 2px;
 }
 
+
 a.btn-customized:hover, 
 a.btn-customized:active, 
 a.btn-customized:focus, 
@@ -375,6 +396,7 @@ a.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active,
 a.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active:focus {
 	outline: 0; background: #cd533d; border: 0; color: #fff; box-shadow: none;
 }
+
 
 a.btn-customized-2 {
 	margin-left: 5px; margin-right: 5px; padding: .75rem 1.5rem; 
@@ -464,77 +486,7 @@ a.btn-customized-4.btn-customized-success.btn.btn-primary:not(:disabled):not(.di
 }
 
 
-/***** General style, all sections *****/
 
-.section-container { margin: 0 auto; padding-bottom: 80px; }
-
-.section-container-gray-bg { background: #06046d; }
-
-.section-container-image-bg, 
-.section-container-image-bg h2, 
-.section-container-image-bg h3 { color: #fff; }
-
-.section-container-image-bg .divider-1 span { border-color: #fff; border-color: rgba(255, 255, 255, 0.8); }
-
-.section-description { margin-top: 60px; padding-bottom: 10px; }
-
-.section-description p { margin-top: 20px; padding: 0 120px; }
-.section-container-image-bg .section-description p { opacity: 0.8; }
-
-.section-bottom-button { padding-top: 20px; }
-
-
-/***** Divider *****/
-
-.divider-1 span { display: inline-block; width: 200px; border-bottom: 1px dotted #aaa; }
-
-
-/***** Top content *****/
-
-.top-content { width: 100%; padding: 60px 0 120px 0; }
-
-.top-content h1 { padding-top: 60px; color: #fff; }
-.top-content .description { margin: 30px 0 0 0; padding-bottom: 30px; }
-.top-content .description p { color: #fff; color: rgba(255, 255, 255, 0.8); }
-.top-content .description a { color: #fff; color: rgba(255, 255, 255, 0.8); border-color: #fff; border-color: rgba(255, 255, 255, 0.8); }
-.top-content .description a:hover,
-.top-content .description a:focus { color: #fff; color: rgba(255, 255, 255, 0.8); }
-
-
-/***** Section 1 *****/
-
-.section-1-box { padding-top: 30px; text-align: left; }
-
-.section-1-box .section-1-box-icon {
-	width: 80px; height: 80px; margin: 0 auto;
-	border: 1px solid #f35b3f;
-    font-size: 40px; color: #f35b3f; line-height: 78px; text-align: center;
-    border-radius: 50%;
-}
-
-.section-1-box h3 { margin-top: 0; padding: 0 0 10px 0; }
-
-
-/***** Section 2 *****/
-
-.section-2-box { margin-top: 30px; text-align: left; }
-.section-2-box h3 { margin-top: 0; }
-.section-2-box-text .medium-paragraph { margin-top: 20px; margin-bottom: 20px; }
-.section-2-box img { border-radius: 6px; }
-
-
-/***** Section 3 *****/
-
-.section-3-box { margin-top: 30px; text-align: left; }
-
-.section-3-box .section-3-box-icon {
-	width: 60px; height: 60px; margin: 0 auto;
-	background: #f35b3f;
-    font-size: 28px; color: #fff; line-height: 60px; text-align: center;
-    border-radius: 50%;
-}
-
-.section-3-box h3 { margin-top: 0; padding: 0 0 10px 0; }
 
 
 

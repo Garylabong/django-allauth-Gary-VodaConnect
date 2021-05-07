@@ -18,6 +18,7 @@ body{
   align-items: center;
   padding: 10px;
   background: linear-gradient(#141e30, #243b55);
+  background-attachment: fixed;
 }
 .container{
   max-width: 70%;
@@ -41,6 +42,7 @@ body{
   transition: 10s;
   transition-delay: 10s;
   margin-bottom: -50px;
+  margin-top: -78%;
 }
 .container .title{
   font-size: 16px;
@@ -48,12 +50,15 @@ body{
   margin-left: -80%;
   color: #e442d7;
   margin-top: -10px;
+  margin-bottom: -1%;
 }
 
 .container .title1{
   font-size: 16px;
   font-weight: 500;
   margin-left: -80%;
+  margin-top: -15px;
+  margin-bottom: 20px;
 }
 
 a.btn-customized1{
@@ -67,6 +72,7 @@ a.btn-customized1{
     padding-top: 8px;
     width: 130px;  
     font-size: small;
+    border-color: #ffa5f7;
 }
 
 a.btn-customized1:hover{
@@ -94,6 +100,7 @@ a.btn-customized1:valid {
     width: 130px;  
     font-size: small;
     padding-left: 25px;
+    border-color: #ff8ff6;
 }
 
 a.btn-customized2:hover{
@@ -115,7 +122,7 @@ a.btn-customized2:valid {
 <div class="container">
     <div class="title text-center">PHONELINES INVENTORY</div>
     <div class="content">
-        <a class="mt-4 btn btn-customized1" href="{% url 'subs_Inv:voip_info' %}">VOIP Information</a>
+        <a class="mt-5 btn btn-customized1" href="{% url 'subs_Inv:voip_info' %}">VOIP Information</a>
         <a class="btn btn-customized1" href="{% url 'subs_Inv:activation_details' %}">Activation Details</a>
         <a class="btn btn-customized2" href="{% url 'subs_Inv:plan_details' %}">Plan Details</a>
         <a class="btn btn-customized1" href="{% url 'subs_Inv:subs_status' %}">Subscriber Status</a>
@@ -167,7 +174,7 @@ a.btn-customized2:valid {
                     </div>
                   
                   </form>
-                </div> -->
+                </div>
               </div>
         </div>
         <br><br>
