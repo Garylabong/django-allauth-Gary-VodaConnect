@@ -1,0 +1,202 @@
+{% extends 'SubscribersInventory/base.html' %}
+
+
+
+{% block content %}
+<br>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  body {
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: linear-gradient(#141e30, #243b55);
+    background-attachment: fixed;
+  }
+
+  .container {
+    max-width: 70%;
+    width: 100%;
+    background: #243b55;
+    padding: 25px 30px;
+    border-radius: 5px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+    margin-left: 25%;
+  }
+
+  .container1 {
+    max-width: 170%;
+    width: 750%;
+    background: #243b55;
+    padding: 25px 30px;
+    border-radius: 5px;
+    box-shadow: 0 15px 25px rgba(248, 100, 231, 0.6);
+    margin-left: 30%;
+    margin-top: -80%;
+    transition: 10s;
+    transition-delay: 10s;
+    margin-bottom: -50px;
+    margin-top: -78%;
+  }
+
+  .container .title {
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: -80%;
+    color: #e442d7;
+    margin-top: -10px;
+    margin-bottom: -1%;
+  }
+
+  .container .title1 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: -80%;
+    margin-top: -15px;
+    margin-bottom: 20px;
+  }
+
+  a.btn-customized1 {
+    top: 0px;
+    margin-top: 15px;
+    color: #f3eff2;
+    height: 55px;
+    padding-top: 15px;
+    margin-left: -10px;
+    display: flex;
+    padding-top: 8px;
+    width: 130px;
+    font-size: small;
+    border-color: #ffa5f7;
+  }
+
+  a.btn-customized1:hover {
+    background: #e442d7;
+    color: #f3eff2;
+  }
+
+  a.btn-customized1:focus {
+    background-color: #b84faf;
+    color: #f3eff2;
+  }
+
+  a.btn-customized1:valid {
+    background-color: #b84faf;
+    color: #f3eff2;
+  }
+
+  a.btn-customized2 {
+    top: 0px;
+    margin-top: 15px;
+    color: #f3eff2;
+    height: 55px;
+    margin-left: -10px;
+    display: flex;
+    padding-top: 18px;
+    width: 130px;
+    font-size: small;
+    padding-left: 25px;
+    border-color: #ff8ff6;
+  }
+
+  a.btn-customized2:hover {
+    background: #e442d7;
+    color: #f3eff2;
+  }
+
+  a.btn-customized2:focus {
+    background-color: #b84faf;
+    color: #f3eff2;
+  }
+
+  a.btn-customized2:valid {
+    background-color: #b84faf;
+    color: #f3eff2;
+  }
+</style>
+
+<div class="container">
+  <div class="title text-center">PHONELINES INVENTORY</div>
+  <div class="content">
+    <a class="mt-5 btn btn-customized1" href="{% url 'subs_Inv:voip_info' %}">VOIP Information</a>
+    <a class="btn btn-customized1" href="{% url 'subs_Inv:activation_details' %}">Activation Details</a>
+    <a class="btn btn-customized2" href="{% url 'subs_Inv:plan_details' %}">Plan Details</a>
+    <a class="btn btn-customized1" href="{% url 'subs_Inv:subs_status' %}">Subscriber Status</a>
+    <a class="btn btn-customized1" href="{% url 'subs_Inv:forward_info' %}">Forwarding Information</a>
+    <div class="container1">
+      <div class="title1 text-light text-center">SUBSCRIBERS STATUS</div>
+      <div class="content">
+        <form action="#">
+          <div class="user-details mt-4">
+            <div class="input-group">
+              <span class="input-group-text"><i class="fas fa-user"></i></span>
+              <i><input class="input-group-text" style="text-align: left;" type="text" placeholder="Firstname"
+                  required></i>
+            </div>
+            <div class="input-group">
+              <span class="input-group-text"><i class="fas fa-user"></i></span>
+              <i><input class="input-group-text" style="text-align: left;" type="text" placeholder="Lastname"
+                  required></i>
+            </div>
+            <div class="input-group">
+              <span class="input-group-text"><i class="fas fa-user"></i></span>
+              <i><input class="input-group-text" style="text-align: left;" type="text" placeholder="Username"
+                  required></i>
+            </div>
+            <div class="input-group">
+              <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+              <i><input class="input-group-text" style="text-align: left;" type="text" placeholder="Email" required></i>
+            </div>
+            <div class="input-group">
+              <span class="input-group-text"><i class="fas fa-phone"></i></span>
+              <i><input class="input-group-text" style="text-align: left;" type="number" placeholder="Phone Number"
+                  required></i>
+            </div>
+            <div class="input-group">
+              <span class="input-group-text"><i class="fas fa-map-pin"></i></span>
+              <i><input class="input-group-text" style="text-align: left;" type="number" placeholder="Create Pin"
+                  required></i>
+            </div>
+            <div class="input-group">
+              <span class="input-group-text"><i class="fas fa-unlock-alt"></i></span>
+              <i><input class="input-group-text" style="text-align: left;" type="text" placeholder="Password"
+                  required></i>
+            </div>
+            <div class="input-group">
+              <span class="input-group-text"><i class="fas fa-unlock-alt"></i></span>
+              <i><input class="input-group-text" style="text-align: left;" type="text" placeholder="Confirm Password"
+                  required></i>
+            </div>
+
+          </div>
+          <div class="button text-center">
+            <input type="submit" value="Register">
+            <div class="link mt-2">
+              <a style="text-decoration: none; color:  #ec75de;" href="#">Back-To-Login</a>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+  <br><br>
+</div>
+
+</div>
+
+
+</div>
+
+
+
+{% endblock %}

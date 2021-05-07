@@ -13,7 +13,7 @@ class VoIpInformation(models.Model):
     vodaconnect_number = models.ForeignKey(VodaConnectNumber, on_delete=models.CASCADE)
     client_full_name = models.CharField(max_length=500, null=True, blank=True)
     client_code = models.ForeignKey(ClientCode, on_delete=models.CASCADE)
-    company_name = models.ForeignKey(Client, on_delete=models.CASCADE)
+    company_name = models.CharField(max_length=500, null=True, blank=True)
 
     class Meta:
         verbose_name = "VoIpInformation"
