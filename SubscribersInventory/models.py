@@ -9,15 +9,15 @@ class VodaConnectNumber(models.Model):
         return self.vodaconnect_number
 
 
-class VOIPInformation(models.Model):
+class VoIpInformation(models.Model):
     vodaconnect_number = models.ForeignKey(VodaConnectNumber, on_delete=models.CASCADE)
     client_full_name = models.CharField(max_length=500, null=True, blank=True)
     client_code = models.ForeignKey(ClientCode, on_delete=models.CASCADE)
     company_name = models.ForeignKey(Client, on_delete=models.CASCADE)
 
     class Meta:
-        verbose_name = "VOIP Information"
-        verbose_name_plural = "VOIP Information"
+        verbose_name = "VoIpInformation"
+        verbose_name_plural = "VoIpInformation"
         ordering = ["client_full_name"]
 
     def __str__(self):

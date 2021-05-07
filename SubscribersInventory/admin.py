@@ -1,6 +1,6 @@
 from django.contrib import admin
 from SubscribersInventory.models import (
-    VOIPInformation,
+    VoIpInformation,
     ActivationDetail,
     PlanDetail,
     SubscriberStatus,
@@ -16,7 +16,7 @@ from SubscribersInventory.models import (
 # Register your models here.
 
 admin.site.register(VodaConnectNumber)
-admin.site.register(VOIPInformation)
+admin.site.register(VoIpInformation)
 admin.site.register(ActivationDetail)
 admin.site.register(PlanDetail)
 admin.site.register(SubscriberStatus)

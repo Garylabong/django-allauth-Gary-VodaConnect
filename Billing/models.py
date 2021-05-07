@@ -10,7 +10,7 @@ class MonthlyCharge(models.Model):
         ("Paid", "Paid"),
         ("UnPaid", "UnPaid"),
     )
-    client_full_name = models.ForeignKey(VOIPInformation, on_delete=models.CASCADE)
+    client_full_name = models.ForeignKey(VoIpInformation, on_delete=models.CASCADE)
     client_code = models.ForeignKey(ClientCode, on_delete=models.CASCADE)
     vodaconnect_number = models.ForeignKey(VodaConnectNumber, on_delete=models.CASCADE)
     plan_types = models.ForeignKey(PlanType, on_delete=models.CASCADE)
