@@ -1,8 +1,8 @@
-
 {% load static %}
 
 <!doctype html>
 <html lang="en">
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -20,10 +20,12 @@
     <title>VODA CONNECT</title>
     <link rel="icon" href="/static/subsInventory/img/backgrounds/Vod.png">
 </head>
+
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
         <div class="container-fluid ms-4">
-            <a class="navbar-brand" href="#"><img class="circular3 ms-3 text-light" src="{% static 'subsInventory/img/backgrounds/vodacon.png' %}"></a>
+            <a class="navbar-brand" href="#"><img class="circular3 ms-3 text-light"
+                    src="{% static 'subsInventory/img/backgrounds/vodacon.png' %}"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -31,7 +33,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav">
-                {{ user.username }}</ul>
+                    {{ user.username }}</ul>
                 <div class="dropdown bg-transparent">
                     <img class="circular ms-3 text-light" src="{% static 'subsInventory/img/backgrounds/liza.png' %}">
                     <button class="btn dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown"
@@ -83,7 +85,7 @@
 
     <body>
 
-        
+
         <!-- Wrapper -->
         <div class="wrapper">
 
@@ -107,7 +109,8 @@
                         <a class="scroll-link" href=""><i class="fas fa-sort"></i> Order Request</a>
                     </li>
                     <li>
-                        <a href="{% url 'acc_file:acc_files' %}"><i class="fas fa-folder" aria-hidden="true"></i> Account Files</a>
+                        <a href="{% url 'acc_file:acc_files' %}"><i class="fas fa-folder" aria-hidden="true"></i>
+                            Account Files</a>
                     </li>
                     <li>
                         <a href="#1otherSections" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"
@@ -174,38 +177,47 @@
                 <br><br>
                 <div class="content">
 
+                    >>>>>>> Stashed changes
                     <!-- open sidebar menu -->
                     <a class="btn btn-sm btn-customized open-menu mt-2" href="#" role="button">
                         <i style="float: left;" class="fas fa-align-left"></i> <span></span>
                     </a>
                 </div>
             </div>
-             <div class="container4">
+            <<<<<<< Updated upstream <div class="container4">
                 <div class="open-menu">
                     <br>
+                    =======
+                    <!-- <div class="container4">
+                <div class="open-menu">
+>>>>>>> Stashed changes
                     <a class=" btn-customized3 fa fa-home fa-lg" href="#"></a>
                     <a class=" btn-customized3 fa fa-sort fa-lg" href="#"></a>
                     <a class=" btn-customized3 fa fa-folder fa-lg" href="#"></a>
                     <a class=" btn-customized3 fa fa-envelope fa-lg" href="#"></a>
                     <a class=" btn-customized3 fa fa-credit-card fa-lg" href="#"></a>
                     <a class=" btn-customized3 fa fa-cog fa-lg"  aria-hidden="true" href="#"></a>
+<<<<<<< Updated upstream
                     <a class=" btn-customized3 fa fa-paint-brush fa-lg" href="#"></a>
                 </div>    
              </div>
-            <!-- Javascript -->
-            <script src="{% static 'subsInventory/js/jquery-3.3.1.min.js' %}"></script>
-            <script src="{% static 'subsInventory/js/jquery-migrate-3.0.0.min.js' %}"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-                crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-                integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-                crossorigin="anonymous"></script>
-            <script src="{% static 'subsInventory/js/jquery.backstretch.min.js' %}"></script>
-            <script src="{% static 'subsInventory/js/wow.min.js' %}"></script>
-            <script src="{% static 'subsInventory/js/jquery.waypoints.min.js' %}"></script>
-            <script src="{% static 'subsInventory/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
-            <script src="{% static 'subsInventory/js/scripts.js' %}"></script>
+=======
+                    <a class=" btn-customized3 fa fa-paint-brush fa-lg" href="#"></a> -->
+                    >>>>>>> Stashed changes
+                    <!-- Javascript -->
+                    <script src="{% static 'subsInventory/js/jquery-3.3.1.min.js' %}"></script>
+                    <script src="{% static 'subsInventory/js/jquery-migrate-3.0.0.min.js' %}"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+                        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+                        crossorigin="anonymous"></script>
+                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+                        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+                        crossorigin="anonymous"></script>
+                    <script src="{% static 'subsInventory/js/jquery.backstretch.min.js' %}"></script>
+                    <script src="{% static 'subsInventory/js/wow.min.js' %}"></script>
+                    <script src="{% static 'subsInventory/js/jquery.waypoints.min.js' %}"></script>
+                    <script src="{% static 'subsInventory/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+                    <script src="{% static 'subsInventory/js/scripts.js' %}"></script>
 
     </body>
 
@@ -215,9 +227,9 @@
     <div class="global-container">
         <div class="justify-content-center">
             {% block content %}
-            
-            {% endblock %}
-            <br><br>
+            <<<<<<< Updated upstream=======>>>>>>> Stashed changes
+                {% endblock %}
+                <br><br>
         </div>
     </div>
 
@@ -254,4 +266,6 @@
 
 
 </body>
+<<<<<<< Updated upstream=======>>>>>>> Stashed changes
+
 </html>
