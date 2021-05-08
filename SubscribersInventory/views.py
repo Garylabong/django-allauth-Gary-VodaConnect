@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, DetailView
 from django.views import View
 from .views import *
 from .models import *
@@ -18,6 +18,13 @@ class SubsInvView(TemplateView):
 
 class VoipListView(ListView):
     model = VoIpInformation
+    context_object_name = "voip"
+
+
+class VoipDetailView(DetailView):
+    model = VoIpInformation
+    context_object_name = "voip"
+    template_name = "SubscribersInventory/voipinformation_detail.html"
 
 
 class ActivationDetailsView(TemplateView):

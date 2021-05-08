@@ -6,7 +6,6 @@ app_name = "subs_Inv"
 urlpatterns = [
     path("", HomeView.as_view(), name="home"),
     path("subscribers/inventory/", SubsInvView.as_view(), name="subs_inv"),
-    # path("voip/information/", VoipInfoView.as_view(), name="voip_info"),
     path(
         "activation/details/",
         ActivationDetailsView.as_view(),
@@ -18,4 +17,5 @@ urlpatterns = [
     path("profile/", ProfileView.as_view(), name="profile"),
     # CRUD
     path("voip/information/", VoipListView.as_view(), name="voip_info"),
+    path("voip/information/detail", VoipDetailView.as_view(), name="voip_info_detail"),
 ]
