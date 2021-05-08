@@ -17,5 +17,5 @@ urlpatterns = [
     path("profile/", ProfileView.as_view(), name="profile"),
     # CRUD
     path("voip/information/", VoipListView.as_view(), name="voip_info"),
-    path("voip/information/detail", VoipDetailView.as_view(), name="voip_info_detail"),
+    path("voip/information/<int:pk>", VoipDetailView.as_view(), name="voip_info"),
 ]
