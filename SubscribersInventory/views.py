@@ -45,3 +45,15 @@ class ForwardingInfoView(TemplateView):
 
 class ProfileView(TemplateView):
     template_name = "SubscribersInventory/profile.html"
+
+
+class OtherChargeView(TemplateView):
+    template_name = "SubscribersInventory/other_charge.html"
+
+
+class MonthlyChargeView(TemplateView):
+    template_name = "SubscribersInventory/monthly_charge.html"
+
+
+class OrderRequestView(TemplateView):
+    template_name = "SubscribersInventory/order_request.html"

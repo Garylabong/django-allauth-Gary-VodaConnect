@@ -22,7 +22,7 @@
 </head>
 
 <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="position: fixed;">
         <div class="container-fluid ms-4">
             <a class="navbar-brand" href="#"><img class="circular3 ms-3 text-light"
                     src="{% static 'subsInventory/img/backgrounds/vodacon.png' %}"></a>
@@ -100,13 +100,13 @@
                     <h3 class="text-warning"><img class="circular1"
                             src="{% static 'subsInventory/img/backgrounds/gpg.png' %}"><strong>GPG ADMIN</strong></h3>
                 </div>
-                <hr>
                 <ul class="list-unstyled menu-elements">
                     <li>
                         <a href=""><i class="fas fa-home"></i> Home</a>
                     </li>
                     <li>
-                        <a class="scroll-link" href=""><i class="fas fa-sort"></i> Order Request</a>
+                        <a href="{% url 'subs_Inv:order_request' %}"><i class="fas fa-sort"></i>
+                            Order Request</a>
                     </li>
                     <li>
                         <a href="{% url 'acc_file:acc_files' %}"><i class="fas fa-folder" aria-hidden="true"></i>
@@ -119,7 +119,8 @@
                         </a>
                         <ul class="collapse list-unstyled bg-transparent" id="1otherSections">
                             <li>
-                                <a class="ms-3" href="{% url 'subs_Inv:voip_info' %}">Subscribers Inventory</a>
+                                <a class="ms-3" href="{% url 'subs_Inv:voip_info' %}">Subscribers
+                                    Inventory</a>
                             </li>
                         </ul>
                     </li>
@@ -130,10 +131,10 @@
                         </a>
                         <ul class="collapse list-unstyled" id="otherSections">
                             <li>
-                                <a class="ms-3" href="#section-3">Other Charge</a>
+                                <a class="ms-3" href="{% url 'subs_Inv:other_charge' %}">Other Charge</a>
                             </li>
                             <li>
-                                <a class="ms-3" href="#">Monthly Charge</a>
+                                <a class="ms-3" href="{% url 'subs_Inv:monthly_charge' %}">Monthly Charge</a>
                             </li>
                         </ul>
                     </li>
