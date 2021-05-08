@@ -88,7 +88,8 @@ img { max-width: 100%; }
 	margin-top: 6%;
 	left: -258px;
 	z-index: 999; 
-	background: linear-gradient(#243b55, #243b55); 
+	/* background: linear-gradient(#1f334b, #1d3652);  */
+	background: #20344b;
 	color: #fff; 
 	box-shadow: 3px 3px 3px rgba(51, 51, 51, 0.5);
 	text-align: left;
