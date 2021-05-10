@@ -38,10 +38,16 @@ class ActivationDetail(models.Model):
         ("CallMe.Com.Ph", "CallMe.Com.Ph"),
         ("PsalmsGlobal.Com", "PsalmsGlobal.Com"),
     )
-    order_request_date = models.DateField(null=True, blank=True)
-    request_date_initiated = models.DateField(null=True, blank=True)
-    date_line_activated = models.DateField(null=True, blank=True)
-    date_line_terminated = models.DateField(null=True, blank=True)
+    order_request_date = models.DateField(auto_now_add=False, auto_now=False, null=True)
+    request_date_initiated = models.DateField(
+        auto_now_add=False, auto_now=False, null=True
+    )
+    date_line_activated = models.DateField(
+        auto_now_add=False, auto_now=False, null=True
+    )
+    date_line_terminated = models.DateField(
+        auto_now_add=False, auto_now=False, null=True
+    )
     phone_line_status = models.CharField(
         max_length=100, choices=PHONE_LINE_STATUS_CHOICES
     )

@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from .forms import ActivationDetailForm
 from django.utils.decorators import method_decorator
 from django.views.generic import (
     TemplateView,
@@ -41,14 +42,7 @@ class ActivationDetailListView(ListView):
 
 class ActivationDetailAddView(CreateView):
     model = ActivationDetail
-    fields = (
-        "order_request_date",
-        "request_date_initiated",
-        "date_line_activated",
-        "date_line_terminated",
-        "phone_line_status",
-        "client_company_user",
-    )
+    form_class = ActivationDetailForm
     context_object_name = "add"
     template_name = "SubscribersInventory/activationdetails_addview.html"
 
