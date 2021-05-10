@@ -46,6 +46,13 @@ class ActivationDetailAddView(CreateView):
     context_object_name = "add"
     template_name = "SubscribersInventory/activationdetails_addview.html"
 
+    def form_valid(self, form):
+        activationdetail = form.save(commit=False)
+        activationdetail.user = self.request.user
+        activationdetail.save()
+        # messages.success(self.request, "You have been Created a Details!")
+        return redirect("subs_Inv:activation_details_list")
+
 
 class PlanDetailsView(TemplateView):
     template_name = "SubscribersInventory/plan_details.html"
