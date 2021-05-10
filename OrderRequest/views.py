@@ -1,8 +1,14 @@
 from django.shortcuts import render
+from OrderRequest.models import *
+from django.views.generic import (
+    TemplateView,
+    ListView,
+    DetailView,
+    CreateView,
+    FormView,
+)
 
-# Create your views here.
 
-
-class VoipListView(ListView):
-    model = VoIpInformation
-    context_object_name = "voiplistview"
+class OrderRequestListView(ListView):
+    model = OrderRequest
+    context_object_name = "OrderRequest"

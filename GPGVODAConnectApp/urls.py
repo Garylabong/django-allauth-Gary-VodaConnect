@@ -27,6 +27,7 @@ router.register(r"clients", ClientViewSet)
 urlpatterns = [
     # path("", TemplateView.as_view(template_name="index.html")),
     path("", include("SubscribersInventory.urls")),
+    path("order/", include("OrderRequest.urls")),
     path("account/files/", include("AccountFiles.urls")),
     path("admin/", admin.site.urls),
     path("accounts/", include("allauth.urls")),

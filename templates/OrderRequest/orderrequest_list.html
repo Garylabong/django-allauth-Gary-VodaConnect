@@ -1,0 +1,118 @@
+{% extends 'SubscribersInventory/base.html' %}
+
+
+
+{% block content %}
+<br>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        background: linear-gradient(#141e30, #243b55);
+        background-attachment: fixed;
+    }
+
+    .container {
+        max-width: 89%;
+        width: 100%;
+        background: #243b55;
+        padding: 25px 30px;
+        border-radius: 15px;
+        box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+        margin-left: 9%;
+    }
+
+    .container .title {
+        font-size: 16px;
+        font-weight: 500;
+        margin-left: -89%;
+        color: #f5eff4;
+        margin-top: -10px;
+        margin-bottom: 3%;
+    }
+
+
+    form .table {
+        color: #f3eff2;
+        font-size: small;
+    }
+
+    .table {
+        width: 200%;
+    }
+
+    .table tbody th {
+        font-weight: normal;
+    }
+
+    .custom-select {
+        font-size: small;
+        margin-left: 133%;
+        margin-bottom: -93%;
+    }
+
+    .table thead th {
+        color: #0da34b;
+    }
+</style>
+
+<div class="container">
+    <div class="title text-center">ORDER REQUEST</div>
+    <div class="content">
+        <form action="#">
+            <table class="table table-borderless">
+                <thead>
+                    <tr>
+                        <th scope="col">Date Of Request</th>
+                        <th scope="col">Type Of Plan</th>
+                        <th scope="col">Company Name</th>
+                        <th scope="col">Complete Address</th>
+                        <th scope="col">Preffered Area Code</th>
+                        <th scope="col">Total Number Of Phone Lines Needed</th>
+                        <th scope="col">Do You Need Fax</th>
+                        <th scope="col">Type Of Request</th>
+                        <th scope="col">Category Of Request</th>
+                        <th scope="col">PayPal Email Address for Billing</th>
+                        <th scope="col">Order Status</th>
+                        <th scope="col">Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for orderrequest in OrderRequest %}
+                    <tr>
+                        <th scope="row">{{ orderrequest.date_request }}</th>
+                        <td>{{ orderrequest.plan_type }}</td>
+                        <td>{{ orderrequest.company_name }}</td>
+                        <td>{{ orderrequest.address }}</td>
+                        <td>{{ orderrequest.preferred_code }}</td>
+                        <td>{{ orderrequest.phone_number }}</td>
+                        <td>{{ orderrequest.fax }}</td>
+                        <td>{{ orderrequest.request }}</td>
+                        <td>{{ orderrequest.category_request }}</td>
+                        <td>{{ orderrequest.email }}</td>
+                        <td>{{ orderrequest.order_status }}</td>
+                        <td>{{ orderrequest.notes }}</td>
+                    </tr>
+                    {% empty %}
+
+                    {% endfor %}
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+</div>
+
+
+{% endblock %}
