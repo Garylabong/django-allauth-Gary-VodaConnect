@@ -1,7 +1,5 @@
 {% extends 'SubscribersInventory/base.html' %}
 
-
-
 {% block content %}
 <br>
 <style>
@@ -33,6 +31,17 @@
         margin-left: 25%;
     }
 
+    .container1 {
+        max-width: 170%;
+        width: 750%;
+        background: #243b55;
+        padding: 25px 30px;
+        border-radius: 15px;
+        box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+        margin-left: 30%;
+        margin-top: -68%;
+    }
+
     .container .title {
         font-size: 16px;
         font-weight: 500;
@@ -40,18 +49,6 @@
         color: #e442d7;
         margin-top: -10px;
         margin-bottom: -1%;
-    }
-
-    .container1 {
-        max-width: 170%;
-        width: 750%;
-        background: #243b55;
-        padding: 25px 30px;
-        border-radius: 15px;
-        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
-        margin-left: 30%;
-        margin-top: -68%;
-        margin-bottom: -50px;
     }
 
     .container .title1 {
@@ -63,9 +60,11 @@
     }
 
     a.btn-customized1 {
+        top: 0px;
         margin-top: 15px;
         color: #f3eff2;
         height: 55px;
+        padding-top: 15px;
         margin-left: -10px;
         display: flex;
         padding-top: 8px;
@@ -105,7 +104,6 @@
         border-radius: 10px;
     }
 
-
     a.btn-customized2:hover {
         background: #e442d7;
         color: #f3eff2;
@@ -133,6 +131,16 @@
     .table tbody th {
         font-weight: normal;
     }
+
+    .custom-select {
+        font-size: small;
+        margin-left: 133%;
+        margin-bottom: -93%;
+    }
+
+    .table thead th {
+        color: #0da34b;
+    }
 </style>
 
 <div class="container">
@@ -144,36 +152,47 @@
         <a class="btn btn-customized1" href="{% url 'subs_Inv:subs_status' %}">Subscriber Status</a>
         <a class="btn btn-customized1" href="{% url 'subs_Inv:forward_info' %}">Forwarding Information</a>
         <div class="container1">
-            <div class="title1 text-light text-center">VOIP INFORMATION</div>
+            <div class="title1 text-light text-center">ACTIVATION DETAILS</div>
             <div class="content">
-                <form action="#">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit">
+                </form>
+                <!-- <form action="#">
                     <table class="table table-borderless">
                         <thead>
                             <tr>
-                                <th scope="col">VODA Connect Number</th>
-                                <th scope="col">Client Fullname</th>
-                                <th scope="col">Client Code</th>
-                                <th scope="col">Company Name</th>
+                                <th scope="col">Order Request Date</th>
+                                <th scope="col">Request Date Initiated</th>
+                                <th scope="col">Date Line Activated</th>
+                                <th scope="col">Date Line Terminated</th>
+                                <th scope="col">PhoneLine Status</th>
+                                <th scope="col">Client Company User Category</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {% for voipinformation in voip %}
                             <tr>
-                                <th scope="row">{{ voipinformation.vodaconnect_number }}</th>
-                                <td>{{ voipinformation.client_full_name }}</td>
-                                <td>{{ voipinformation.client_code }}</td>
-                                <td>{{ voipinformation.company_name }}</td>
+                                <th scope="row">05/09/20</th>
+                                <td>06/20/20</td>
+                                <td>06/21/20</td>
+                                <td>12/10/20</td>
+                                <td>Active</td>
+                                <td>Landmaster.Us</td>
                             </tr>
-                            {% empty %}
-
-                            {% endfor %}
                         </tbody>
                     </table>
-                </form>
+                </form> -->
             </div>
         </div>
     </div>
-    <br><br><br><br><br>
+    <br><br>
 </div>
+
+</div>
+
+
+</div>
+
 
 {% endblock %}

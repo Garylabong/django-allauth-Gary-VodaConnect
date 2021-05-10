@@ -11,6 +11,11 @@ urlpatterns = [
         ActivationDetailsView.as_view(),
         name="activation_details",
     ),
+    path(
+        "activation/details/add/",
+        ActivationDetailAddView.as_view(),
+        name="activation_details_add",
+    ),
     path("plan/details/", PlanDetailsView.as_view(), name="plan_details"),
     path("subscribers/status/", SubscribersStatusView.as_view(), name="subs_status"),
     path("forwarding/information/", ForwardingInfoView.as_view(), name="forward_info"),

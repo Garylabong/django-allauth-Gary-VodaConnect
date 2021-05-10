@@ -1,7 +1,13 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from django.views.generic import TemplateView, ListView, DetailView
+from django.views.generic import (
+    TemplateView,
+    ListView,
+    DetailView,
+    CreateView,
+    FormView,
+)
 from django.views import View
 from .views import *
 from .models import *
@@ -19,6 +25,7 @@ class SubsInvView(TemplateView):
 class VoipListView(ListView):
     model = VoIpInformation
     context_object_name = "voip"
+    paginate_by = 4
 
 
 class VoipDetailView(DetailView):
@@ -29,6 +36,20 @@ class VoipDetailView(DetailView):
 
 class ActivationDetailsView(TemplateView):
     template_name = "SubscribersInventory/activation_details.html"
+
+
+class ActivationDetailAddView(CreateView):
+    model = ActivationDetail
+    fields = (
+        "order_request_date",
+        "request_date_initiated",
+        "date_line_activated",
+        "date_line_terminated",
+        "phone_line_status",
+        "client_company_user",
+    )
+    context_object_name = "add"
+    template_name = "SubscribersInventory/activationdetails_addview.html"
 
 
 class PlanDetailsView(TemplateView):
