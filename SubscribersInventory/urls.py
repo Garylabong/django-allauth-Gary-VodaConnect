@@ -8,8 +8,8 @@ urlpatterns = [
     path("subscribers/inventory/", SubsInvView.as_view(), name="subs_inv"),
     path(
         "activation/details/",
-        ActivationDetailsView.as_view(),
-        name="activation_details",
+        ActivationDetailListView.as_view(),
+        name="activation_details_list",
     ),
     path(
         "activation/details/add/",

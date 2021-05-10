@@ -25,7 +25,6 @@ class SubsInvView(TemplateView):
 class VoipListView(ListView):
     model = VoIpInformation
     context_object_name = "voip"
-    paginate_by = 4
 
 
 class VoipDetailView(DetailView):
@@ -34,8 +33,10 @@ class VoipDetailView(DetailView):
     template_name = "SubscribersInventory/voipinformation_detail.html"
 
 
-class ActivationDetailsView(TemplateView):
-    template_name = "SubscribersInventory/activation_details.html"
+class ActivationDetailListView(ListView):
+    model = ActivationDetail
+    context_object_name = "list"
+    template_name = "SubscribersInventory/activationdetail_list.html"
 
 
 class ActivationDetailAddView(CreateView):
