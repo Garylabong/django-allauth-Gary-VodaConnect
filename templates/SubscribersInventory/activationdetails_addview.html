@@ -120,39 +120,88 @@
         color: #f3eff2;
     }
 
-    form .table {
-        color: #f3eff2;
-        font-size: small;
-    }
-
-    .table {
-        width: 200%;
-    }
-
-    .table tbody th {
-        font-weight: normal;
-    }
-
-    .custom-select {
-        font-size: small;
-        margin-left: 133%;
-        margin-bottom: -93%;
-    }
-
-    .table thead th {
-        color: #0da34b;
-    }
-
     .form-group {
-        width: 50%;
+        width: 40%;
+    }
+
+    .form-control {
+        background-color: #243b55;
     }
 
     .content form {
-        offset-distance: 40px;
+        display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        margin-left: -50px;
-        margin-right: -80px;
+        margin-left: 10%;
+        margin-right: -70%;
+    }
+
+    .asteriskField {
+        display: none;
+    }
+
+    .requiredField {
+        margin-left: -35%;
+        margin-bottom: -10%;
+        font-size: small;
+    }
+
+    label {
+        margin-left: -20%;
+        margin-bottom: -10%;
+        font-size: small;
+    }
+
+    .dateinput {
+        color: #0da34b;
+        font-size: small;
+    }
+
+    .select {
+        font-size: small;
+    }
+
+    form .button {
+        height: 45px;
+        margin-left: 98px;
+    }
+
+    form .button a:hover {
+        background: transparent;
+        color: rgb(243, 166, 226);
+        box-shadow: none;
+    }
+
+    form .button button {
+        height: 90%;
+        width: 140%;
+        border-radius: 20px;
+        border: none;
+        color: #fff;
+        margin-left: 240%;
+        font-size: 18px;
+        font-weight: 400;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    }
+
+    form .button button:hover {
+        transform: scale(0.9);
+        background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+    }
+
+    @media(max-width: 584px) {
+        .container {
+            max-width: 100%;
+        }
+    }
+
+    .form-control:focus,
+    .form-control:valid {
+        border-radius: 5px;
+        border-color: #ed5fdc;
     }
 </style>
 
@@ -166,36 +215,14 @@
         <a class="btn btn-customized1" href="{% url 'subs_Inv:forward_info' %}">Forwarding Information</a>
         <div class="container1">
             <div class="title1 text-light text-center">ACTIVATION DETAILS</div>
-            <div class="content space-between ms-4">
-                <form method="post" action="/action_page.php">
+            <div class="content ms-4">
+                <form method="post" action="">
                     {% csrf_token %}
                     {{ form | crispy }}
-                    <input type="submit">
+                    <div class="button text-center">
+                        <button type="submit">Submit</button>
+                    </div>
                 </form>
-                <!-- <form action="#">
-                    <table class="table table-borderless">
-                        <thead>
-                            <tr>
-                                <th scope="col">Order Request Date</th>
-                                <th scope="col">Request Date Initiated</th>
-                                <th scope="col">Date Line Activated</th>
-                                <th scope="col">Date Line Terminated</th>
-                                <th scope="col">PhoneLine Status</th>
-                                <th scope="col">Client Company User Category</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">05/09/20</th>
-                                <td>06/20/20</td>
-                                <td>06/21/20</td>
-                                <td>12/10/20</td>
-                                <td>Active</td>
-                                <td>Landmaster.Us</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </form> -->
             </div>
         </div>
     </div>
