@@ -52,18 +52,26 @@ def index(request):
     return JsonResponse(authentications, safe=False)
 
 
-class ClientProfileUpdate(UpdateView):
+class ClientProfileEditView(UpdateView):
     model = Client
     form_class = ClientAddForm
     context_object_name = "add"
     success_url = "/profile/"
 
 
-class ClientProfileAddView(CreateView):
+class ClientProfileDetailView(DetailView):
     model = Client
-    form_class = ClientAddForm
+    # form_class = ClientAddForm
     context_object_name = "add"
+    # success_url = "/profile/"
     template_name = "authentication/clientprofile_form.html"
+
+
+# class ClientProfileAddView(CreateView):
+#     model = Client
+#     form_class = ClientAddForm
+#     context_object_name = "add"
+#     template_name = "authentication/clientprofile_form.html"
 
 
 #     def form_valid(self, form):

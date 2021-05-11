@@ -6,6 +6,124 @@ from SubscribersInventory.models import *
 
 
 class MonthlyCharge(models.Model):
+    PLAN_CHOICES = (
+        (
+            "BASIC PACKAGES/STANDARD/$4.99/MONTHLY",
+            "BASIC PACKAGES/STANDARD/$4.99/MONTHLY",
+        ),
+        (
+            "BASIC PACKAGES/PROFESSIONAL/$19.95/MONTHLY",
+            "BASIC PACKAGES/PROFESSIONAL/$19.95/MONTHLY",
+        ),
+        (
+            "BASIC PACKAGES/ENTERPRISE/$24.95/MONTHLY",
+            "BASIC PACKAGES/ENTERPRISE/$24.95/MONTHLY",
+        ),
+        (
+            "12-24 MOS. LOCK IN PLANS/STANDARD/$4.99/MONTHLY",
+            "12-24 MOS. LOCK IN PLANS/STANDARD/$4.99/MONTHLY",
+        ),
+        (
+            "12-24 MOS. LOCK IN PLANS/PROFESSIONAL/$14.99/MONTHLY",
+            "12-24 MOS. LOCK IN PLANS/PROFESSIONAL/$14.99/MONTHLY",
+        ),
+        (
+            "12-24 MOS. LOCK IN PLANS/ENTERPRISE/$19.99/MONTHLY",
+            "12-24 MOS. LOCK IN PLANS/ENTERPRISE/$19.99/MONTHLY",
+        ),
+        (
+            "TEXT AND CALL  FEATURES/STANDARD/$8.99/MONTHLY",
+            "TEXT AND CALL  FEATURES/STANDARD/$8.99/MONTHLY",
+        ),
+        (
+            "TEXT AND CALL  FEATURES/PROFESSIONAL/$21.99/MONTHLY",
+            "TEXT AND CALL  FEATURES/PROFESSIONAL/$21.99/MONTHLY",
+        ),
+        (
+            "TEXT AND CALL  FEATURES/ENTERPRISE/$29.99/MONTHLY",
+            "TEXT AND CALL  FEATURES/ENTERPRISE/$29.99/MONTHLY",
+        ),
+        (
+            "TEXT MESSAGING/Standard/$8.95/MONTHLY",
+            "TEXT MESSAGING/Standard/$8.95/MONTHLY",
+        ),
+        (
+            "TEXT MESSAGING/	Professional/$11.95/MONTHLY",
+            "TEXT MESSAGING/	Professional/$11.95/MONTHLY",
+        ),
+        (
+            "TEXT MESSAGING/	Enterprise/$14.95/MONTHLY",
+            "TEXT MESSAGING/	Enterprise/$14.95/MONTHLY",
+        ),
+        (
+            "TEXT MESSAGING/	Enterprise Plus (Volume Pricing)/$4.95 Access Fee",
+            "TEXT MESSAGING/	Enterprise Plus (Volume Pricing)/$4.95 Access Fee",
+        ),
+        (
+            "TOLL-FREE/OPTION 1/1800-$29.95/MONTHLY",
+            "TOLL-FREE/OPTION 1/1800-$29.95/MONTHLY",
+        ),
+        (
+            "TOLL-FREE/OPTION 1/1888-$29.95/MONTHLY",
+            "TOLL-FREE/OPTION 1/1888-$29.95/MONTHLY",
+        ),
+        (
+            "TOLL-FREE/OPTION 1/1877-$29.95/MONTHLY",
+            "TOLL-FREE/OPTION 1/1877-$29.95/MONTHLY",
+        ),
+        (
+            "TOLL-FREE/OPTION 1/1866-$29.95/MONTHLY",
+            "TOLL-FREE/OPTION 1/1866-$29.95/MONTHLY",
+        ),
+        (
+            "TOLL-FREE/OPTION 2/1800-$9.99/MONTHLY",
+            "TOLL-FREE/OPTION 2/1800-$9.99/MONTHLY",
+        ),
+        (
+            "TOLL-FREE/OPTION 2/1888-$9.99/MONTHLY",
+            "TOLL-FREE/OPTION 2/1888-$9.99/MONTHLY",
+        ),
+        (
+            "TOLL-FREE/OPTION 2/1877-$12.99/MONTHLY",
+            "TOLL-FREE/OPTION 2/1877-$12.99/MONTHLY",
+        ),
+        (
+            "TOLL-FREE/OPTION 2/1866-$12.99/MONTHLY",
+            "TOLL-FREE/OPTION 2/1866-$12.99/MONTHLY",
+        ),
+        ("FAX NUMBER/FAX NUMBER/$7.99/MONTHLY", "FAX NUMBER/FAX NUMBER/$7.99/MONTHLY"),
+        (
+            "FAX NUMBER/Porting/CAT A-$5.00,CAT C-$100.00",
+            "FAX NUMBER/Porting/CAT A-$5.00,CAT C-$100.00",
+        ),
+        (
+            "CORPORATE PACKAGES/STANDARD/$699/MONTHLY",
+            "CORPORATE PACKAGES/STANDARD/$699/MONTHLY",
+        ),
+        (
+            "CORPORATE PACKAGES/PROFESSIONAL/$1299/MONTHLY",
+            "CORPORATE PACKAGES/PROFESSIONAL/$1299/MONTHLY",
+        ),
+        (
+            "CORPORATE PACKAGES/ENTERPRISE/$2899/MONTHLY",
+            "CORPORATE PACKAGES/ENTERPRISE/$2899/MONTHLY",
+        ),
+        (
+            "VIDEO CONFERENCING/Hassle-Free Video Conferencing with WebRTC/$49 USD/MONTHLY",
+            "VIDEO CONFERENCING/Hassle-Free Video Conferencing with WebRTC/$49 USD/MONTHLY",
+        ),
+        (
+            "IP-TV - INDIVIDUAL PACKAGES/SEE TV NETWORK/$4.99/ MONTHLY",
+            "IP-TV - INDIVIDUAL PACKAGES/SEE TV NETWORK/$4.99/ MONTHLY",
+        ),
+    )
+    FAX_CHOICES = (("Yes", "Yes"), ("No", "No"))
+
+    REQUEST_CHOICES = (
+        ("New Number Request", "New Number Request"),
+        ("Porting Request", "Porting Request"),
+        ("Other Request", "Other Request"),
+    )
     STATUS_CHOICES = (
         ("Paid", "Paid"),
         ("UnPaid", "UnPaid"),
@@ -13,7 +131,13 @@ class MonthlyCharge(models.Model):
     client_full_name = models.ForeignKey(VoIpInformation, on_delete=models.CASCADE)
     client_code = models.ForeignKey(ClientCode, on_delete=models.CASCADE)
     vodaconnect_number = models.ForeignKey(VodaConnectNumber, on_delete=models.CASCADE)
-    plan_types = models.ForeignKey(PlanType, on_delete=models.CASCADE)
+    plan_type = models.CharField(
+        max_length=150,
+        choices=PLAN_CHOICES,
+        null=True,
+        blank=True,
+        verbose_name="Type of Plan",
+    )
     total_cost = models.DecimalField(
         max_digits=7,
         decimal_places=2,

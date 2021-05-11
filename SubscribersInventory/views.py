@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .forms import ActivationDetailForm
 from django.utils.decorators import method_decorator
@@ -40,6 +40,17 @@ class ActivationDetailListView(ListView):
     model = ActivationDetail
     context_object_name = "list"
     template_name = "SubscribersInventory/activationdetail_list.html"
+
+
+class ActivationDetailView(DetailView):
+    model = ActivationDetail
+    context_object_name = "details"
+    template_name = "SubscribersInventory/activation_detail.html"
+    # queryset = ActivationDetail.objects.all()
+
+    def get_object(self):
+        id_ = self.kwargs.get("id")
+        return get_object_or_404(ActivationDetail, id=id_)
 
 
 class ActivationDetailAddView(SuccessMessageMixin, CreateView):

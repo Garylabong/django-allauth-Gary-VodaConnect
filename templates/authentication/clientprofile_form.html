@@ -196,11 +196,11 @@
 <div class="container1">
     <div class="title text-center">EDIT PROFILE</div>
     <div class="content">
-        <a class="mt-5 btn btn-customized1" href="{% url 'subs_Inv:voip_info' %}">VOIP Information</a>
-        <a class="btn btn-customized1" href="{% url 'subs_Inv:activation_details_list' %}">Activation Details</a>
-        <a class="btn btn-customized1" href="{% url 'subs_Inv:plan_details' %}">Plan Details</a>
-        <a class="btn btn-customized1" href="{% url 'subs_Inv:subs_status' %}">Subscriber Status</a>
-        <a class="btn btn-customized1" href="{% url 'subs_Inv:forward_info' %}">Forwarding Information</a>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit">
+        </form>
     </div>
 </div>
 <br>

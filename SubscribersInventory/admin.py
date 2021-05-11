@@ -9,7 +9,6 @@ from SubscribersInventory.models import (
     ZiptrunkLoginDetail,
     OtherLogin,
     Note,
-    PlanType,
     VodaConnectNumber,
 )
 
@@ -25,4 +24,3 @@ admin.site.register(TotalNumExtension)
 admin.site.register(ZiptrunkLoginDetail)
 admin.site.register(OtherLogin)
 admin.site.register(Note)
-admin.site.register(PlanType)
