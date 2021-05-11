@@ -25,12 +25,14 @@ class MyCustomSignupForm(SignupForm):
     def __init__(self, *args, **kwargs):
         super(MyCustomSignupForm, self).__init__(*args, **kwargs)
         DESIGNATION_CATEGORY = (
+            ("", "Select your Designation"),
             ("Staff", "Staff"),
             ("New Client", "New Client"),
             ("Current Client", "Current Client"),
             ("Affiliate Partner", "Affiliate Partner"),
         )
         COMPANY_CATEGORY = (
+            ("", "Select your Company"),
             ("Vodaconnect", "Vodaconnect"),
             ("G.P.G Corporation", "G.P.G Corporation"),
             ("Landmaster.Us", "Landmaster.Us"),
