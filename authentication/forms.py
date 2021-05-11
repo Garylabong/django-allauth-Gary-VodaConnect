@@ -8,6 +8,18 @@ import datetime
 class MyCustomSignupForm(SignupForm):
     class Meta:
         model = User
+        fields = (
+            "username",
+            "first_name",
+            "last_name",
+            "email",
+            "phone_number",
+            "create_pin",
+            "password1",
+            "password2",
+            "company_name",
+            "designation_name",
+        )
 
     def __init__(self, *args, **kwargs):
         super(MyCustomSignupForm, self).__init__(*args, **kwargs)
@@ -25,6 +37,20 @@ class MyCustomSignupForm(SignupForm):
             ("PsalmsGlobal.Com", "PsalmsGlobal.Com"),
             ("Affiliate Partner", "Affiliate Partner"),
         )
+        self.fields["first_name"] = forms.CharField(
+            required=True,
+            label="",
+            widget=forms.TextInput(
+                attrs={"class": "form-control6", "placeholder": "First Name"}
+            ),
+        )
+        self.fields["last_name"] = forms.CharField(
+            required=True,
+            label="",
+            widget=forms.TextInput(
+                attrs={"class": "form-control7", "placeholder": "Last Name"}
+            ),
+        )
         self.fields["email"] = forms.CharField(
             required=True,
             label="",
@@ -41,42 +67,6 @@ class MyCustomSignupForm(SignupForm):
             label="",
             widget=forms.TextInput(
                 attrs={"class": "form-control2", "placeholder": "Username"}
-            ),
-        )
-        self.fields["password1"] = forms.CharField(
-            required=True,
-            label="",
-            widget=forms.TextInput(
-                attrs={
-                    "class": "form-control3",
-                    "type": "password",
-                    "placeholder": "Password",
-                }
-            ),
-        )
-        self.fields["password2"] = forms.CharField(
-            required=True,
-            label="",
-            widget=forms.TextInput(
-                attrs={
-                    "class": "form-control5",
-                    "type": "password",
-                    "placeholder": "Confirm Password",
-                }
-            ),
-        )
-        self.fields["first_name"] = forms.CharField(
-            required=True,
-            label="",
-            widget=forms.TextInput(
-                attrs={"class": "form-control6", "placeholder": "First Name"}
-            ),
-        )
-        self.fields["last_name"] = forms.CharField(
-            required=True,
-            label="",
-            widget=forms.TextInput(
-                attrs={"class": "form-control7", "placeholder": "Last Name"}
             ),
         )
         self.fields["phone_number"] = forms.CharField(
@@ -98,6 +88,28 @@ class MyCustomSignupForm(SignupForm):
                     "class": "form-control9",
                     "type": "number",
                     "placeholder": "Create Pin",
+                }
+            ),
+        )
+        self.fields["password1"] = forms.CharField(
+            required=True,
+            label="",
+            widget=forms.TextInput(
+                attrs={
+                    "class": "form-control3",
+                    "type": "password",
+                    "placeholder": "Password",
+                }
+            ),
+        )
+        self.fields["password2"] = forms.CharField(
+            required=True,
+            label="",
+            widget=forms.TextInput(
+                attrs={
+                    "class": "form-control5",
+                    "type": "password",
+                    "placeholder": "Confirm Password",
                 }
             ),
         )

@@ -42,7 +42,7 @@
     }
 
     .container {
-      max-width: 700px;
+      max-width: 600px;
       width: 100%;
       background: #243b55;
       background-image: url(/static/subsInventory/img/backgrounds/Vod.png);
@@ -50,11 +50,15 @@
       background-position: center;
       background-size: 68%;
       padding: 25px 30px;
-      border-radius: 5px;
+      border-radius: 20px;
       box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
     }
 
-    .select option{
+    .select option {
+      font-size: small;
+    }
+
+    .select {
       font-size: small;
     }
 
@@ -63,9 +67,6 @@
       border-color: #9b59b6;
     }
 
-    .form-control .select{
-      margin-right: 40px;
-    }
 
     .container .title {
       font-size: 25px;
@@ -89,90 +90,83 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-evenly;
-      margin-left: -15px;
-      margin-right: 25px;
+      margin-left: -20px;
+      margin-right: 30px;
     }
 
-    .form-group input{
-      width: 120%;
-      border-color: #9b59b6 ;
 
+    .form-control:focus,
+    .form-control:valid {
+      border-color: #ed5fdc;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
     }
-    .form-control3{
+
+    .form-group input {
+      width: 125%;
+      font-size: small;
+      height: 40px;
+    }
+
+    .form-control3 {
       margin-top: 10px;
-      border-color: #9b59b6;
     }
 
-    .form-control4{
+    .form-control4 {
       margin-top: 10px;
-      border-color: #9b59b6 ;
     }
 
-    .form-control5{
+    .form-control5 {
       margin-top: 10px;
-      border-color: #9b59b6 ;
     }
 
-    .form-control6{
+    .form-control6 {
       margin-top: 10px;
-      border-color: #9b59b6 ;
     }
 
-    .form-control7{
+    .form-control7 {
       margin-top: 10px;
-      border-color: #9b59b6 ;
     }
 
-    .form-control8{
+    .form-control8 {
       margin-top: 10px;
-      border-color: #9b59b6 ;
     }
 
-    .form-control9{
+    .form-control9 {
       margin-top: 10px;
-      border-color: #9b59b6 ;
     }
 
-    .invalid-feedback{
+    .invalid-feedback {
       margin-bottom: -20px;
       position: fixed;
+      font-size: x-small;
     }
 
-    .invalid-feedback .form-control3{
-      position: fixed;
-      border: red;
-      box-shadow: red;
-    }
 
-    .invalid-feedback .form-control4{
-      position: fixed;
-      border: red;
-      box-shadow: red;
-    }
 
     .form-group input:focus,
     .form-group input:valid {
-      border-color: #9b59b6 ;
+      border-color: #ed5fdc;
+      box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
     }
-    
+
     form .button {
       height: 45px;
       margin: 35px;
       margin-left: 60px;
     }
 
-    form .button a{
+    form .button a {
       color: #ed5fdc;
       font-size: small;
     }
 
     form .button a:hover {
-    background: transparent;
-    color: rgb(243, 166, 226);
-    box-shadow: none;
-  }
+      background: transparent;
+      color: rgb(243, 166, 226);
+      box-shadow: none;
+    }
 
-    .content label{
+    .content label {
       display: none;
     }
 
@@ -209,9 +203,9 @@
       .content form .user-details {
         max-height: 200px;
         overflow-y: scroll;
-       
+
       }
-     
+
     }
   </style>
 
@@ -225,7 +219,7 @@
           {% if redirect_field_value %}
           <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
           {% endif %}
-        
+
         </div>
         <div class="button text-center">
           <button type="submit">{% trans "Sign Up" %}</button>

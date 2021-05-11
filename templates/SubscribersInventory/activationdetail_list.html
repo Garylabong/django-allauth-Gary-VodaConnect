@@ -109,12 +109,12 @@
         height: 40px;
         margin-left: 160%;
         display: absolute;
-        padding-top: -10px;
+        padding-top: 10px;
         width: 35%;
         font-size: small;
-        border-color: #ffa5f7;
+        background-color: #e442d7;
         border-radius: 10px;
-        margin-bottom: -30px;
+        margin-bottom: -50px;
         margin-top: 10px;
     }
 
@@ -136,11 +136,7 @@
     a.btn-customized4:hover {
         background: #e442d7;
         color: #f3eff2;
-    }
-
-    a.btn-customized4:focus {
-        background-color: #b84faf;
-        color: #f3eff2;
+        transform: scale(0.9);
     }
 
     a.btn-customized4:valid {
@@ -175,7 +171,7 @@
 <div class="container">
     <div class="title text-center">PHONELINES INVENTORY</div>
     <div class="content">
-        <a class="btn btn-customized4" href="{% url 'subs_Inv:activation_details_add' %}">Create Activation</a>
+        <a class=" btn btn-customized4" href="{% url 'subs_Inv:activation_details_add' %}">Create Activation</a>
         <a class="mt-5 btn btn-customized1" href="{% url 'subs_Inv:voip_info' %}">VOIP Information</a>
         <a class="btn btn-customized1" href="{% url 'subs_Inv:activation_details_list' %}">Activation Details</a>
         <a class="btn btn-customized2" href="{% url 'subs_Inv:plan_details' %}">Plan Details</a>
