@@ -1,5 +1,6 @@
 from allauth.account.forms import SignupForm
 from django import forms
+from django.db.models import fields
 from authentication.models import User, Client
 from django.db import transaction
 import datetime
@@ -148,3 +149,17 @@ class MyCustomSignupForm(SignupForm):
         client.designation_name = self.cleaned_data.get("designation_name")
         client.save()
         return user
+
+
+class ClientAddForm(forms.ModelForm):
+    class Meta:
+        model = Client
+        fields = (
+            "first_name",
+            "last_name",
+            "email",
+            "phone_number",
+            "pin",
+            "company_name",
+            "designation_name",
+        )

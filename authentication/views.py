@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render, redirect
+from authentication.forms import *
 from django.contrib.auth.decorators import login_required
 from django.views.generic import (
     UpdateView,
@@ -51,14 +52,23 @@ def index(request):
     return JsonResponse(authentications, safe=False)
 
 
+class ClientProfileUpdate(UpdateView):
+    model = Client
+    form_class = ClientAddForm
+    context_object_name = "add"
+    success_url = "/profile/"
+
+
 class ClientProfileAddView(CreateView):
     model = Client
+    form_class = ClientAddForm
     context_object_name = "add"
-    template_name = "SubscribersInventory/activationdetails_addview.html"
+    template_name = "authentication/clientprofile_form.html"
 
-    def form_valid(self, form):
-        client = form.save(commit=False)
-        client.user = self.request.user
-        client.save()
-        messages.success(self.request, "You have been Created a Details!")
-        return redirect("subs_Inv:activation_details_list")
+
+#     def form_valid(self, form):
+#         client = form.save(commit=False)
+#         client.user = self.request.user
+#         client.save()
+#         messages.success(self.request, "You have been Created a Details!")
+#         return redirect("subs_Inv:activation_details_list")

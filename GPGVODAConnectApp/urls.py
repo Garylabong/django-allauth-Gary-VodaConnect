@@ -19,13 +19,14 @@ from django.urls import path, include
 from authentication.views import ClientViewSet
 from django.views.generic import TemplateView
 
-from rest_framework import routers
+from rest_framework import authentication, routers
 
 router = routers.DefaultRouter()
 router.register(r"clients", ClientViewSet)
 
 urlpatterns = [
     # path("", TemplateView.as_view(template_name="index.html")),
+    path("auth/", include("authentication.urls")),
     path("", include("SubscribersInventory.urls")),
     path("order/", include("OrderRequest.urls")),
     path("account/files/", include("AccountFiles.urls")),
