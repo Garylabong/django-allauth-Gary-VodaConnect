@@ -5,8 +5,6 @@ from django.db import transaction
 import datetime
 
 
-
-
 class MyCustomSignupForm(SignupForm):
     class Meta:
         model = User
@@ -31,7 +29,11 @@ class MyCustomSignupForm(SignupForm):
             required=True,
             label="",
             widget=forms.TextInput(
-                attrs={"class": "form-control1", "type": "email", "placeholder": "Email"}
+                attrs={
+                    "class": "form-control1",
+                    "type": "email",
+                    "placeholder": "Email",
+                }
             ),
         )
         self.fields["username"] = forms.CharField(
@@ -45,14 +47,22 @@ class MyCustomSignupForm(SignupForm):
             required=True,
             label="",
             widget=forms.TextInput(
-                attrs={"class": "form-control3", "type": "password", "placeholder": "Password"}
+                attrs={
+                    "class": "form-control3",
+                    "type": "password",
+                    "placeholder": "Password",
+                }
             ),
         )
         self.fields["password2"] = forms.CharField(
             required=True,
             label="",
             widget=forms.TextInput(
-                attrs={"class": "form-control5", "type": "password", "placeholder": "Confirm Password"}
+                attrs={
+                    "class": "form-control5",
+                    "type": "password",
+                    "placeholder": "Confirm Password",
+                }
             ),
         )
         self.fields["first_name"] = forms.CharField(
@@ -73,22 +83,35 @@ class MyCustomSignupForm(SignupForm):
             required=True,
             label="",
             widget=forms.TextInput(
-                attrs={"class": "form-control8", "type": "number", "placeholder": "Phone Number"}
+                attrs={
+                    "class": "form-control8",
+                    "type": "number",
+                    "placeholder": "Phone Number",
+                }
             ),
         )
         self.fields["create_pin"] = forms.CharField(
             required=True,
             label="",
             widget=forms.TextInput(
-                attrs={"class": "form-control9", "type": "number", "placeholder": "Create Pin"}
+                attrs={
+                    "class": "form-control9",
+                    "type": "number",
+                    "placeholder": "Create Pin",
+                }
             ),
-        )        
+        )
         self.fields["company_name"] = forms.ChoiceField(
-            required=True, 
+            required=True,
+            label="Select your Designation",
+            help_text="Select your Company",
             choices=COMPANY_CATEGORY,
         )
         self.fields["designation_name"] = forms.ChoiceField(
-            required=True, label="Select your Designation", choices=DESIGNATION_CATEGORY
+            required=True,
+            label="Select your Designation",
+            help_text="Select your designation",
+            choices=DESIGNATION_CATEGORY,
         )
 
     @transaction.atomic

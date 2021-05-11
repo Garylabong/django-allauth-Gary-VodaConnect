@@ -1,3 +1,5 @@
+from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import ActivationDetailForm
@@ -40,17 +42,18 @@ class ActivationDetailListView(ListView):
     template_name = "SubscribersInventory/activationdetail_list.html"
 
 
-class ActivationDetailAddView(CreateView):
+class ActivationDetailAddView(SuccessMessageMixin, CreateView):
     model = ActivationDetail
     form_class = ActivationDetailForm
     context_object_name = "add"
     template_name = "SubscribersInventory/activationdetails_addview.html"
+    success_message = "%(activationdetail)s created successfully"
 
     def form_valid(self, form):
         activationdetail = form.save(commit=False)
         activationdetail.user = self.request.user
         activationdetail.save()
-        # messages.success(self.request, "You have been Created a Details!")
+        messages.success(self.request, "You have been Created a Details!")
         return redirect("subs_Inv:activation_details_list")
 
 

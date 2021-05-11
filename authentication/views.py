@@ -1,5 +1,15 @@
-from django.shortcuts import render
+from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.views.generic import (
+    UpdateView,
+    TemplateView,
+    ListView,
+    DetailView,
+    CreateView,
+    FormView,
+)
 
 # from django.conf.auth.decorators import login_required
 
@@ -39,3 +49,16 @@ def index(request):
         )
 
     return JsonResponse(authentications, safe=False)
+
+
+class ClientProfileAddView(CreateView):
+    model = Client
+    context_object_name = "add"
+    template_name = "SubscribersInventory/activationdetails_addview.html"
+
+    def form_valid(self, form):
+        client = form.save(commit=False)
+        client.user = self.request.user
+        client.save()
+        messages.success(self.request, "You have been Created a Details!")
+        return redirect("subs_Inv:activation_details_list")
