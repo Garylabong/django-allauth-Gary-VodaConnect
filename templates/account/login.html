@@ -6,7 +6,6 @@
 {% load i18n %}
 {% load account socialaccount %}
 
-{% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
 
@@ -55,14 +54,13 @@
     position: relative;
     display: inline-block;
     padding: 10px 20px;
-    padding-top: 7px;
+    padding-top: 8px;
     color: #fff;
     font-size: 16px;
     text-decoration: none;
     text-transform: uppercase;
     overflow: hidden;
     transition: .5s;
-    letter-spacing: 3px;
     margin-top: 15px;
     top: -30px;
     border-radius: 20px;
@@ -73,6 +71,12 @@
   .login-box button {
     height: 40px;
     border: none;
+  }
+
+  .login-box button:focus,
+  .login-box button:valid {
+    border-color: #9b59b6;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
   }
 
   .login-box i {
@@ -168,6 +172,7 @@
   .login-box button:hover {
     background: linear-gradient(-135deg, #71b7e6, #9b59b6);
     color: #fff;
+    box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
     border-radius: 20px;
     box-shadow: 0 0 5px #aa1999,
       0 0 25px #aa1999,
@@ -279,7 +284,7 @@
         <span></span>
         <span></span>
         <span></span>
-        <span></span>{% trans "Sign In" %}</button>
+        <span></span>Sign In</button>
   </div>
   <i><a href="{% url 'account_reset_password' %}">Forgot password?</a></i>
   <i><a href=" {{ signup_url }}" class="create">create one</a></i>
