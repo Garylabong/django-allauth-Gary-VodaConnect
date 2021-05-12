@@ -138,7 +138,14 @@ class OrderRequest(models.Model):
         ("Declined", "Declined"),
         ("Order Complete", "Order Complete"),
     )
-
+    COMPANY_CATEGORY = (
+        ("Vodaconnect", "Vodaconnect"),
+        ("G.P.G Corporation", "G.P.G Corporation"),
+        ("Landmaster.Us", "Landmaster.Us"),
+        ("CallMe.Com.Ph", "CallMe.Com.Ph"),
+        ("PsalmsGlobal.Com", "PsalmsGlobal.Com"),
+        ("Affiliate Partner", "Affiliate Partner"),
+    )
     date_request = models.DateField(null=True, blank=True)
     plan_type = models.CharField(
         max_length=150,
@@ -147,11 +154,18 @@ class OrderRequest(models.Model):
         blank=True,
         verbose_name="Type of Plan",
     )
-    company_name = models.ForeignKey(
-        Client,
-        on_delete=models.CASCADE,
+    company_name = models.CharField(
+        max_length=150,
+        choices=COMPANY_CATEGORY,
+        null=True,
+        blank=True,
         verbose_name="Company Name ( That will appear in your caller ID)",
     )
+    # company_name = models.ForeignKey(
+    #     Client,
+    #     on_delete=models.CASCADE,
+    #     verbose_name="Company Name ( That will appear in your caller ID)",
+    # )
     address = models.CharField(
         max_length=250,
         null=True,

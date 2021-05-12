@@ -197,19 +197,19 @@
     <div class="title1 text-light text-center">VOIP INFORMATION</div>
     <div class="content">
         <form action="#">
-            <table class="table table-borderless">
+            <table class="table table-dark table-bordered table-striped">
                 <tbody>
                     <tr>
                         <th>First Name</th>
-                        <td>{{object.user.first_name}}</td>
+                        <td>{{object.client.first_name}}</td>
                     </tr>
                     <tr>
                         <th>Last Name</th>
-                        <td>{{object.user.last_name}}</td>
+                        <td>{{object.is_client.last_name}}</td>
                     </tr>
                     <tr>
                         <th>Phone number</th>
-                        <td>{{object.user.phone_number}}</td>
+                        <td>{{object.is_client.phone_number}}</td>
                     </tr>
                     <tr>
                         <th>Email</th>
@@ -242,10 +242,16 @@
                 </tbody>
                 <!-- <thead>
                     <tr>
-                        <th scope="col">VODA Connect Number</th>
-                        <th scope="col">Client Fullname</th>
-                        <th scope="col">Client Code</th>
-                        <th scope="col">Company Name</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Phone number</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Affiliate partner code</th>
+                        <th scope="col">Affiliate partner name</th>
+                        <th scope="col">Pin</th>
+                        <th scope="col">Company name<< /th>
+                        <th scope="col">Designation name</th>
+                        <th scope="col">Lead information</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -262,7 +268,7 @@
                 </tbody> -->
             </table>
             <div class="text-right">
-                <a class="btn btn-warning" href="{% url 'update_profile' %}">Edit</a>
+                <a class="btn btn-warning" href="{% url 'auth:update_profile'%}">Edit</a>
             </div>
         </form>
     </div>
@@ -293,5 +299,3 @@
 </div>
 
 {% endblock content %}
-
-<!-- {% endblock %} -->

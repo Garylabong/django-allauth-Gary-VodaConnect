@@ -70,15 +70,17 @@ class ClientProfileUpdate(UpdateView):
     success_url = reverse_lazy("client_profile")
 
     def get_object(self):
-        return self.request.user.client
+        return self.request.user.is_client
 
 
 class ClientProfile(DetailView):
+    model = Client
     template_name = "authentication/profile.html"
-    success_url = reverse_lazy("client_profile")
+    context_object_name = "list"
+    # success_url = reverse_lazy("client_profile")
 
     def get_object(self):
-        return self.request.user.client
+        return self.request.user.is_client
 
 
 class ClientProfileDetailView(DetailView):
@@ -97,7 +99,7 @@ class ClientProfileAddView(CreateView):
 
     def form_valid(self, form):
         client = form.save(commit=False)
-        client.user = self.request.user
+        client.user = self.request.user.client
         client.save()
         messages.success(self.request, "You have been Created a Details!")
         return redirect("subs_Inv:activation_details_list")
