@@ -59,18 +59,18 @@ class ClientProfileUpdate(UpdateView):
         "last_name",
         "phone_number",
         "email",
-        "affiliate_partner_code",
-        "affiliate_partner_name",
-        "pin",
+        # "affiliate_partner_code",
+        # "affiliate_partner_name",
+        "create_pin",
         "company_name",
         "designation_name",
-        "lead_information",
+        # "lead_information",
     ]
     template_name = "authentication/profile_update.html"
-    success_url = reverse_lazy("client_profile")
+    success_url = reverse_lazy("auth:client_profile")
 
     def get_object(self):
-        return self.request.user.is_client
+        return self.request.user
 
 
 class ClientProfile(DetailView):
@@ -80,7 +80,7 @@ class ClientProfile(DetailView):
     # success_url = reverse_lazy("client_profile")
 
     def get_object(self):
-        return self.request.user.is_client
+        return self.request.user
 
 
 class ClientProfileDetailView(DetailView):
