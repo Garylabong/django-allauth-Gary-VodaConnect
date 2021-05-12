@@ -28,6 +28,7 @@ class ClientAdmin(admin.ModelAdmin):
         "last_name",
         "phone_number",
         "email",
+        "profile_picture",
         "affiliate_partner_code",
         "affiliate_partner_name",
         "company_name",
@@ -47,6 +48,7 @@ class ClientAdmin(admin.ModelAdmin):
                     "last_name",
                     "phone_number",
                     "email",
+                    "profile_picture",
                 ]
             },
         ),
