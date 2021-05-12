@@ -42,7 +42,7 @@
         border-radius: 15px;
         box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
         margin-left: 25%;
-        margin-top: -18.5%;
+        margin-top: -17.5%;
     }
 
     .container2 {
@@ -74,10 +74,10 @@
         margin-bottom: 5px;
     }
 
-    .container1 .title {
+    .container1 .title1 {
         font-size: 16px;
         font-weight: 500;
-        margin-left: -90%;
+        margin-left: -80%;
         color: #f3eff2;
         margin-top: -2%;
         font-size: small;
@@ -105,28 +105,28 @@
         top: 0px;
         margin-top: 15px;
         color: #f3eff2;
-        height: 55px;
-        padding-top: 15px;
-        margin-left: -10px;
+        height: 40px;
+        padding-top: 10px;
+        margin-left: 88%;
         display: flex;
-        padding-top: 8px;
-        width: 130px;
+        padding-left: 9%;
+        width: 100px;
         font-size: small;
+        background: #e442d7;
     }
 
     a.btn-customized1:hover {
         background: #e442d7;
         color: #f3eff2;
+        transform: scale(0.9);
     }
 
-    a.btn-customized1:focus {
-        background-color: #b84faf;
-        color: #f3eff2;
-    }
-
+    a.btn-customized1:focus,
     a.btn-customized1:valid {
         background-color: #b84faf;
         color: #f3eff2;
+        border-color: #ed5fdc;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
     }
 
     form .table {
@@ -136,25 +136,6 @@
 
     .table {
         width: 200%;
-    }
-
-    .table tbody th {
-        font-weight: normal;
-    }
-
-    .table a[data-toggle="dropdown"] {
-        color: #eee;
-        width: 1px;
-        height: 2px;
-        margin-top: -15px;
-        margin-right: 5px;
-        box-shadow: none;
-    }
-
-    .custom-select {
-        font-size: small;
-        margin-left: 133%;
-        margin-bottom: -93%;
     }
 
     .card {
@@ -173,15 +154,28 @@
     .email {
         margin-top: -7px;
         color: #059629;
-        font-size: small;
-        margin-left: 20px;
+        margin-left: 40px;
+    }
+
+    .fa {
+        color: #faf3f9;
+    }
+
+    .fa:hover {
+        color: #faf3f9;
+    }
+
+    .fa:focus,
+    .fa:active {
+        color: #faf3f9;
+        transform: scale(0.9);
     }
 </style>
 
 <div class="container">
     <div class="title text-center">YOUR PROFILE</div>
     <div class="content">
-        <img class="card" src="{% static 'subsInventory/img/backgrounds/liza.png' %}" class="card-img-top" alt="...">
+        <img class="card" src="{% static 'subsInventory/img/backgrounds/liza.png' %}">
         <div class="username">
             {{user.first_name}} {{user.last_name}}
         </div>
@@ -189,55 +183,56 @@
             {{user.email}}
         </div>
     </div>
+    <a type="button" href="#" class="fa fa-camera-retro fa-lg"></a>
 </div>
 </div>
 </div>
 <br>
 <div class="container1">
-    <div class="title1 text-light text-center">VOIP INFORMATION</div>
+    <div class="title1 text-light text-center">EDIT CLIENT PROFILE</div>
     <div class="content">
         <form action="#">
             <table class="table table-dark table-bordered table-striped">
                 <tbody>
                     <tr>
                         <th>First Name</th>
-                        <td>{{object.client.first_name}}</td>
+                        <td>{{user.first_name}}</td>
                     </tr>
                     <tr>
                         <th>Last Name</th>
-                        <td>{{object.is_client.last_name}}</td>
+                        <td>{{user.last_name}}</td>
                     </tr>
                     <tr>
                         <th>Phone number</th>
-                        <td>{{object.is_client.phone_number}}</td>
+                        <td>{{user.phone_number}}</td>
                     </tr>
                     <tr>
                         <th>Email</th>
-                        <td>{{object.user.email}}</td>
+                        <td>{{user.email}}</td>
                     </tr>
                     <tr>
                         <th>Affiliate partner code</th>
-                        <td>{{object.user.affiliate_partner_code}}</td>
+                        <td>{{user.affiliate_partner_code}}</td>
                     </tr>
                     <tr>
                         <th>Affiliate partner name</th>
-                        <td>{{object.user.affiliate_partner_name}}</td>
+                        <td>{{user.affiliate_partner_name}}</td>
                     </tr>
                     <tr>
                         <th>Pin</th>
-                        <td>{{object.user.pin}}</td>
+                        <td>{{user.create_pin}}</td>
                     </tr>
                     <tr>
                         <th>Company name</th>
-                        <td>{{object.user.company_name}}</td>
+                        <td>{{user.company_name}}</td>
                     </tr>
                     <tr>
                         <th>Designation name</th>
-                        <td>{{object.user.designation_name}}</td>
+                        <td>{{user.designation_name}}</td>
                     </tr>
                     <tr>
                         <th>Lead information</th>
-                        <td>{{object.user.lead_information}}</td>
+                        <td>{{user.lead_information}}</td>
                     </tr>
                 </tbody>
                 <!-- <thead>
@@ -268,7 +263,7 @@
                 </tbody> -->
             </table>
             <div class="text-right">
-                <a class="btn btn-warning" href="{% url 'auth:update_profile'%}">Edit</a>
+                <a class="btn btn-customized1" href="{% url 'auth:update_profile'%}">Edit</a>
             </div>
         </form>
     </div>
@@ -277,22 +272,14 @@
 <div class="container2">
     <div class="title text-center">EDIT CLIENT INFORMATION</div>
     <div class="content">
-        <a class="mt-5 btn btn-customized1" href="{% url 'subs_Inv:voip_info' %}">VOIP Information</a>
-        <a class="btn btn-customized1" href="{% url 'subs_Inv:activation_details_list' %}">Activation Details</a>
-        <a class="btn btn-customized1" href="{% url 'subs_Inv:plan_details' %}">Plan Details</a>
-        <a class="btn btn-customized1" href="{% url 'subs_Inv:subs_status' %}">Subscriber Status</a>
-        <a class="btn btn-customized1" href="{% url 'subs_Inv:forward_info' %}">Forwarding Information</a>
+        <br><br><br><br><br><br><br><br><br><br><br><br>
     </div>
 </div>
 <br>
 <div class="container3">
     <div class="title text-center">CLIENT FILES</div>
     <div class="content">
-        <a class="mt-5 btn btn-customized1" href="{% url 'subs_Inv:voip_info' %}">VOIP Information</a>
-        <a class="btn btn-customized1" href="{% url 'subs_Inv:activation_details_list' %}">Activation Details</a>
-        <a class="btn btn-customized1" href="{% url 'subs_Inv:plan_details' %}">Plan Details</a>
-        <a class="btn btn-customized1" href="{% url 'subs_Inv:subs_status' %}">Subscriber Status</a>
-        <a class="btn btn-customized1" href="{% url 'subs_Inv:forward_info' %}">Forwarding Information</a>
+        <br><br><br><br><br><br><br><br><br><br><br><br>
     </div>
 </div>
 </div>
