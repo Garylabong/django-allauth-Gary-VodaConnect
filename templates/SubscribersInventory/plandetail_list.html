@@ -1,7 +1,5 @@
 {% extends 'SubscribersInventory/base.html' %}
 
-
-
 {% block content %}
 <br>
 <style>
@@ -33,6 +31,17 @@
         margin-left: 25%;
     }
 
+    .container1 {
+        max-width: 170%;
+        width: 750%;
+        background: #243b55;
+        padding: 25px 30px;
+        border-radius: 15px;
+        box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+        margin-left: 30%;
+        margin-top: -70%;
+    }
+
     .container .title {
         font-size: 16px;
         font-weight: 500;
@@ -40,18 +49,6 @@
         color: #e442d7;
         margin-top: -10px;
         margin-bottom: -1%;
-    }
-
-    .container1 {
-        max-width: 170%;
-        width: 750%;
-        background: #243b55;
-        padding: 25px 30px;
-        border-radius: 15px;
-        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
-        margin-left: 30%;
-        margin-top: -68%;
-        margin-bottom: -50px;
     }
 
     .container .title1 {
@@ -63,9 +60,11 @@
     }
 
     a.btn-customized1 {
+        top: 0px;
         margin-top: 15px;
         color: #f3eff2;
         height: 55px;
+        padding-top: 15px;
         margin-left: -10px;
         display: flex;
         padding-top: 8px;
@@ -93,6 +92,7 @@
         box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
     }
 
+
     a.btn-customized2 {
         top: 0px;
         margin-top: 15px;
@@ -108,6 +108,19 @@
         border-radius: 10px;
     }
 
+    a.btn-customized4 {
+        color: #f3eff2;
+        height: 40px;
+        margin-left: 160%;
+        display: absolute;
+        padding-top: 10px;
+        width: 35%;
+        font-size: small;
+        background-color: #e442d7;
+        border-radius: 10px;
+        margin-bottom: -50px;
+        margin-top: 10px;
+    }
 
     a.btn-customized2:hover {
         background: #e442d7;
@@ -127,6 +140,21 @@
         box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
     }
 
+
+    a.btn-customized4:hover {
+        background: #e442d7;
+        color: #f3eff2;
+        transform: scale(0.9);
+    }
+
+    a.btn-customized4:focus,
+    a.btn-customized4:valid {
+        background-color: #b84faf;
+        color: #f3eff2;
+        border-color: #ed5fdc;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
+    }
+
     form .table {
         color: #f3eff2;
         font-size: small;
@@ -140,6 +168,12 @@
         font-weight: normal;
     }
 
+    .custom-select {
+        font-size: small;
+        margin-left: 133%;
+        margin-bottom: -93%;
+    }
+
     .table thead th {
         color: #0da34b;
     }
@@ -148,34 +182,36 @@
 <div class="container">
     <div class="title text-center">PHONELINES INVENTORY</div>
     <div class="content">
+        <a class=" btn btn-customized4" href="{% url 'subs_Inv:activation_details_add' %}">Create Activation</a>
         <a class="mt-5 btn btn-customized1" href="{% url 'subs_Inv:voip_info' %}">VOIP Information</a>
         <a class="btn btn-customized1" href="{% url 'subs_Inv:activation_details_list' %}">Activation Details</a>
         <a class="btn btn-customized2" href="{% url 'subs_Inv:plan_details' %}">Plan Details</a>
         <a class="btn btn-customized1" href="{% url 'subs_Inv:subs_status' %}">Subscriber Status</a>
         <a class="btn btn-customized1" href="{% url 'subs_Inv:forward_info' %}">Forwarding Information</a>
         <div class="container1">
-            <div class="title1 text-light text-center">VOIP INFORMATION</div>
+            <div class="title1 text-light text-center">PLAN DETAILS</div>
             <div class="content">
                 <form action="#">
                     <table class="table table-dark table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th scope="col">VODA Connect Number</th>
-                                <th scope="col">Client Fullname</th>
-                                <th scope="col">Client Code</th>
-                                <th scope="col">Company Name</th>
+                                <th scope="col">Plan Type</th>
+                                <th scope="col">Total Cost</th>
+                                <th scope="col">Did we set up recurring bill?</th>
+                                <th scope="col">Paypal Details for Billing</th>
+                                <th scope="col">Due Date</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {% for voipinformation in voip %}
+                            {% for PlanDetail in list %}
                             <tr>
-                                <th scope="row">{{ voipinformation.vodaconnect_number }}</th>
-                                <td>{{ voipinformation.client_full_name }}</td>
-                                <td>{{ voipinformation.client_code }}</td>
-                                <td>{{ voipinformation.company_name }}</td>
+                                <th scope="row">{{ PlanDetail.plan_type }}</th>
+                                <td>{{ PlanDetail.total_cost }}</td>
+                                <td>{{ PlanDetail.recurring_bill }}</td>
+                                <td>{{ PlanDetail.pypal_bill }}</td>
+                                <td>{{ PlanDetail.due_date }}</td>
                             </tr>
                             {% empty %}
-
                             {% endfor %}
                         </tbody>
                     </table>
@@ -183,7 +219,13 @@
             </div>
         </div>
     </div>
-    <br><br><br><br><br>
+    <br><br>
 </div>
+
+</div>
+
+
+</div>
+
 
 {% endblock %}

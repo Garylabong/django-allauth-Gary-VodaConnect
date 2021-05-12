@@ -42,15 +42,15 @@ class ActivationDetailListView(ListView):
     template_name = "SubscribersInventory/activationdetail_list.html"
 
 
-class ActivationDetailView(DetailView):
-    model = ActivationDetail
-    context_object_name = "details"
-    template_name = "SubscribersInventory/activation_detail.html"
-    # queryset = ActivationDetail.objects.all()
+# class ActivationDetailView(DetailView):
+#     model = ActivationDetail
+#     context_object_name = "details"
+#     template_name = "SubscribersInventory/activation_detail.html"
+#     # queryset = ActivationDetail.objects.all()
 
-    def get_object(self):
-        id_ = self.kwargs.get("id")
-        return get_object_or_404(ActivationDetail, id=id_)
+#     def get_object(self):
+#         id_ = self.kwargs.get("id")
+#         return get_object_or_404(ActivationDetail, id=id_)
 
 
 class ActivationDetailAddView(SuccessMessageMixin, CreateView):
@@ -70,6 +70,12 @@ class ActivationDetailAddView(SuccessMessageMixin, CreateView):
 
 class PlanDetailsView(TemplateView):
     template_name = "SubscribersInventory/plan_details.html"
+
+
+class PlanDetailsListView(ListView):
+    model = PlanDetail
+    context_object_name = "list"
+    # template_name = "SubscribersInventory/activationdetail_list.html"
 
 
 class SubscribersStatusView(TemplateView):

@@ -21,7 +21,7 @@ urlpatterns = [
         ActivationDetailAddView.as_view(),
         name="activation_details_add",
     ),
-    path("plan/details/", PlanDetailsView.as_view(), name="plan_details"),
+    path("plan/details/", PlanDetailsListView.as_view(), name="plan_details"),
     path("subscribers/status/", SubscribersStatusView.as_view(), name="subs_status"),
     path("forwarding/information/", ForwardingInfoView.as_view(), name="forward_info"),
     # path("profile/", ProfileView.as_view(), name="profile"),

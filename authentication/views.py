@@ -1,3 +1,4 @@
+from django.urls import reverse, reverse_lazy
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render, redirect
@@ -52,11 +53,32 @@ def index(request):
     return JsonResponse(authentications, safe=False)
 
 
-class ClientProfileEditView(UpdateView):
-    model = Client
-    form_class = ClientAddForm
-    context_object_name = "add"
-    success_url = "/profile/"
+class ClientProfileUpdate(UpdateView):
+    fields = [
+        "first_name",
+        "last_name",
+        "phone_number",
+        "email",
+        "affiliate_partner_code",
+        "affiliate_partner_name",
+        "pin",
+        "company_name",
+        "designation_name",
+        "lead_information",
+    ]
+    template_name = "authentication/profile_update.html"
+    success_url = reverse_lazy("client_profile")
+
+    def get_object(self):
+        return self.request.user.client
+
+
+class ClientProfile(DetailView):
+    template_name = "authentication/profile.html"
+    success_url = reverse_lazy("client_profile")
+
+    def get_object(self):
+        return self.request.user.client
 
 
 class ClientProfileDetailView(DetailView):
@@ -67,16 +89,15 @@ class ClientProfileDetailView(DetailView):
     template_name = "authentication/clientprofile_form.html"
 
 
-# class ClientProfileAddView(CreateView):
-#     model = Client
-#     form_class = ClientAddForm
-#     context_object_name = "add"
-#     template_name = "authentication/clientprofile_form.html"
+class ClientProfileAddView(CreateView):
+    model = Client
+    form_class = ClientAddForm
+    context_object_name = "add"
+    template_name = "authentication/clientprofile_form.html"
 
-
-#     def form_valid(self, form):
-#         client = form.save(commit=False)
-#         client.user = self.request.user
-#         client.save()
-#         messages.success(self.request, "You have been Created a Details!")
-#         return redirect("subs_Inv:activation_details_list")
+    def form_valid(self, form):
+        client = form.save(commit=False)
+        client.user = self.request.user
+        client.save()
+        messages.success(self.request, "You have been Created a Details!")
+        return redirect("subs_Inv:activation_details_list")
