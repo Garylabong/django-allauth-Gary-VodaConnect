@@ -44,7 +44,7 @@ img { max-width: 100%; }
 }
 
 .navbar ul{
-	margin-right: 100%;
+	margin-left: -50%;
 	margin-top: 5px;
 	color: #ccc;
 	font-weight: bold;
