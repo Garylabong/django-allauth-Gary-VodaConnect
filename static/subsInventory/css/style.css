@@ -44,7 +44,7 @@ img { max-width: 100%; }
 }
 
 .navbar ul{
-	margin-left: -100%;
+	margin-right: 100%;
 	margin-top: 5px;
 	color: #ccc;
 	font-weight: bold;
@@ -52,7 +52,7 @@ img { max-width: 100%; }
 	font-family: Poppins;
 }
 
-.navbar {
+.navbar { 
 	background-color: #17293d;
 }
 
@@ -402,11 +402,10 @@ a.btn-customized3 {
 	z-index: 997;
 	background: transparent; 
 	border: 0; 
-	border-radius: 4px; 
+	border-radius: 20px; 
 	font-size: 15px; 
 	color: #fff; 
 	margin-bottom: 20px;
-	padding-bottom: 20px;
 	
 }
 
@@ -426,6 +425,7 @@ a.btn-customized3:active,
 a.btn-customized3:focus, 
 a.btn-customized3.active:focus{
 	background: transparent;
+	border-radius: 100%;
 }
 a.btn-customized3:active:focus,
 a.btn-customized3:hover,
@@ -436,7 +436,7 @@ a.btn-customized3.btn.btn-light:not(:disabled):not(.disabled):active:focus {
 	color: #fff; 
 	box-shadow: none;
 	margin-bottom: 50%;
-	transition: .3s;
+	border-radius: 100%;
 }
 
 

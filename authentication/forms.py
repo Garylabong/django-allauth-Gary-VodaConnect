@@ -154,17 +154,17 @@ class MyCustomSignupForm(SignupForm):
 
 class ClientEditForm(ModelForm):
     class Meta:
-        model = Client
+        model = User
 
         fields = (
+            "username",
             "first_name",
             "last_name",
             "phone_number",
             "email",
-            "profile_picture",
             # "affiliate_partner_code",
             # "affiliate_partner_name",
-            "pin",
+            "create_pin",
             # "company_name",
             # "designation_name",
             # "lead_information",
@@ -173,30 +173,56 @@ class ClientEditForm(ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(ClientEditForm, self).__init__(*args, **kwargs)
+        self.fields["username"] = forms.CharField(
+            required=True,
+            disabled=True,
+            label="Username",
+            widget=forms.TextInput(
+                attrs={
+                    "class": "form-control1",
+                    "style": "background-color: transparent",
+                    "border-color": "#ed5fdc",
+                }
+            ),
+        )
         self.fields["first_name"] = forms.CharField(
             required=True,
             label="First Name",
-            widget=forms.TextInput(attrs={"class": "form-control1"}),
+            widget=forms.TextInput(attrs={"class": "form-control12"}),
         )
         self.fields["last_name"] = forms.CharField(
             required=True,
             label="Last Name",
-            widget=forms.TextInput(attrs={"class": "form-control2"}),
+            widget=forms.TextInput(attrs={"class": "form-control3"}),
         )
         self.fields["phone_number"] = forms.CharField(
             required=True,
             label="Phone Number",
-            widget=forms.TextInput(attrs={"class": "form-control3", "type": "number"}),
+            widget=forms.TextInput(attrs={"class": "form-control4", "type": "number"}),
         )
         self.fields["email"] = forms.CharField(
             required=True,
-            label="Email",
-            widget=forms.TextInput(attrs={"class": "form-control4"}),
+            disabled=True,
+            label="Email Address",
+            widget=forms.TextInput(
+                attrs={
+                    "class": "form-control5",
+                    "style": "background-color: transparent",
+                    "border-color": "#ed5fdc",
+                }
+            ),
         )
-        self.fields["pin"] = forms.CharField(
+        self.fields["create_pin"] = forms.CharField(
             required=True,
+            disabled=True,
             label="Create Pin",
-            widget=forms.TextInput(attrs={"class": "form-control7"}),
+            widget=forms.TextInput(
+                attrs={
+                    "class": "form-control6",
+                    "style": "background-color: transparent",
+                    "border-color": "#ed5fdc",
+                }
+            ),
         )
         # self.fields["company_name"] = forms.CharField(
         #     required=True,

@@ -44,27 +44,7 @@
         border-radius: 15px;
         box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
         margin-left: 25%;
-        margin-top: -17.5%;
-    }
-
-    .container2 {
-        max-width: 50%;
-        width: 100%;
-        background: #243b55;
-        padding: 25px 30px;
-        border-radius: 15px;
-        box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
-        margin-left: 25%;
-    }
-
-    .container3 {
-        max-width: 50%;
-        width: 100%;
-        background: #243b55;
-        padding: 25px 30px;
-        border-radius: 15px;
-        box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
-        margin-left: 25%;
+        margin-top: -13.5%;
     }
 
     .container .title {
@@ -81,50 +61,32 @@
         font-weight: 500;
         margin-left: -80%;
         color: #f3eff2;
-        margin-top: 12%;
-        font-size: small;
-    }
-
-    .container2 .title {
-        font-size: 16px;
-        font-weight: 500;
-        margin-left: -75%;
-        color: #f3eff2;
         margin-top: -2%;
         font-size: small;
     }
 
-    .container3 .title {
-        font-size: 16px;
-        font-weight: 500;
-        margin-left: -89%;
-        color: #f3eff2;
-        margin-top: -2%;
-        font-size: small;
-    }
-
-    a.btn-customized1 {
+    .btn-customized1 {
         top: 0px;
-        margin-top: 15px;
+        margin-top: 10px;
         color: #f3eff2;
         height: 40px;
         padding-top: 10px;
-        margin-left: 88%;
+        margin-right: -230%;
         display: flex;
-        padding-left: 9%;
-        width: 100px;
+        padding-left: 20%;
+        width: 130%;
         font-size: small;
-        background: #e442d7;
+        background: linear-gradient(135deg, #71b7e6, #9b59b6);
     }
 
-    a.btn-customized1:hover {
-        background: #e442d7;
+    .btn-customized1:hover {
+        background: linear-gradient(-135deg, #71b7e6, #9b59b6);
         color: #f3eff2;
         transform: scale(0.9);
     }
 
-    a.btn-customized1:focus,
-    a.btn-customized1:valid {
+    .btn-customized1:focus,
+    .btn-customized1:valid {
         background-color: #b84faf;
         color: #f3eff2;
         border-color: #ed5fdc;
@@ -156,21 +118,77 @@
     .email {
         margin-top: -7px;
         color: #059629;
-        margin-left: 40px;
+        margin-left: 25px;
     }
 
-    .fa {
-        color: #faf3f9;
+    .asteriskField {
+        display: none;
     }
 
-    .fa:hover {
-        color: #faf3f9;
+    label {
+        margin-bottom: -30%;
+        font-size: small;
+        margin-left: -25%;
     }
 
-    .fa:focus,
-    .fa:active {
-        color: #faf3f9;
-        transform: scale(0.9);
+    .content form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-left: 15%;
+        margin-right: -70%;
+    }
+
+    .form-text {
+        display: none;
+    }
+
+    .form-control:focus,
+    .form-control:valid {
+        border-color: #ed5fdc;
+        background-color: transparent;
+        color: white;
+        box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
+    }
+
+    .form-control {
+        width: 140%;
+    }
+
+    .textInput {
+        font-size: small;
+    }
+
+    .emailinput {
+        font-size: small;
+        pointer-events: none;
+        cursor: not-allowed;
+    }
+
+    .select {
+        width: 140%;
+        pointer-events: none;
+    }
+
+    .form-control1 {
+        cursor: not-allowed;
+        background-color: #243b55;
+        border-color: #ed5fdc;
+        box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
+    }
+
+    .form-control5 {
+        cursor: not-allowed;
+        background-color: #243b55;
+        border-color: #ed5fdc;
+        box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
+    }
+
+    .form-control6 {
+        cursor: not-allowed;
+        background-color: #243b55;
+        border-color: #ed5fdc;
+        box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
     }
 </style>
 
@@ -185,7 +203,6 @@
             {{user.email}}
         </div>
     </div>
-    <a type="button" href="#" class="fa fa-camera-retro fa-lg"></a>
 </div>
 </div>
 </div>
@@ -199,7 +216,7 @@
                 {{form | crispy}}
             </table>
             <div class="text-right">
-                <button type="submit" class="btn btn-warning float-right">Updated Profile</button>
+                <button type="submit" class="btn btn-customized1 float-right">Update Profile</button>
             </div>
             <br>
         </form>

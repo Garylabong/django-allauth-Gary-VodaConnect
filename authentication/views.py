@@ -54,16 +54,16 @@ def index(request):
 
 
 class ClientProfileUpdate(UpdateView):
-    fields = [
-        "username",
-        "first_name",
-        "last_name",
-        "phone_number",
-        "email",
-        "create_pin",
-        "company_name",
-        "designation_name",
-    ]
+    # fields = [
+    #     "username",
+    #     "first_name",
+    #     "last_name",
+    #     "phone_number",
+    #     "email",
+    #     "create_pin",
+    # ]
+
+    form_class = ClientEditForm
 
     template_name = "authentication/profile_update.html"
     success_url = reverse_lazy("auth:client_profile")
@@ -106,5 +106,5 @@ class ClientProfile(DetailView):
 
 class ClientPersonalFileDetail(DetailView):
     model = ClientPersonalFile
-    template_name = "authentication/profile.html"
+    template_name = ""
     context_object_name = "list"
