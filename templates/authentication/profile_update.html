@@ -1,5 +1,7 @@
 {% extends 'SubscribersInventory/base.html' %}
 
+{% load crispy_forms_tags %}
+
 {% load static%}
 
 {% block content %}
@@ -79,7 +81,7 @@
         font-weight: 500;
         margin-left: -80%;
         color: #f3eff2;
-        margin-top: -2%;
+        margin-top: 12%;
         font-size: small;
     }
 
@@ -175,7 +177,7 @@
 <div class="container">
     <div class="title text-center">YOUR PROFILE</div>
     <div class="content">
-        <img class="card" src="{% static 'subsInventory/img/backgrounds/liza.png' %}">
+        <img class="card" src="{{ request.user.user.profile_picture.url }}">
         <div class="username">
             {{user.first_name}} {{user.last_name}}
         </div>
@@ -194,7 +196,7 @@
         <form method="POST">
             {% csrf_token %}
             <table class="table table-dark table-bordered table-striped">
-                {{form.as_table}}
+                {{form | crispy}}
             </table>
             <div class="text-right">
                 <button type="submit" class="btn btn-warning float-right">Updated Profile</button>

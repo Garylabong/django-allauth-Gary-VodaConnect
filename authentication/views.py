@@ -15,7 +15,7 @@ from django.views.generic import (
 
 # from django.conf.auth.decorators import login_required
 
-from .models import Client
+from authentication.models import *
 from .serializers import ClientSerializer
 
 from rest_framework import viewsets
@@ -55,17 +55,16 @@ def index(request):
 
 class ClientProfileUpdate(UpdateView):
     fields = [
+        "username",
         "first_name",
         "last_name",
         "phone_number",
         "email",
-        # "affiliate_partner_code",
-        # "affiliate_partner_name",
         "create_pin",
         "company_name",
         "designation_name",
-        # "lead_information",
     ]
+
     template_name = "authentication/profile_update.html"
     success_url = reverse_lazy("auth:client_profile")
 
@@ -83,23 +82,29 @@ class ClientProfile(DetailView):
         return self.request.user
 
 
-class ClientProfileDetailView(DetailView):
-    model = Client
-    # form_class = ClientAddForm
-    context_object_name = "add"
-    # success_url = "/profile/"
-    template_name = "authentication/clientprofile_form.html"
+# class ClientProfileDetailView(DetailView):
+#     model = Client
+#     # form_class = ClientAddForm
+#     context_object_name = "add"
+#     # success_url = "/profile/"
+#     template_name = "authentication/clientprofile_form.html"
 
 
-class ClientProfileAddView(CreateView):
-    model = Client
-    form_class = ClientAddForm
-    context_object_name = "add"
-    template_name = "authentication/clientprofile_form.html"
+# class ClientProfileAddView(CreateView):
+#     model = Client
+#     form_class = ClientAddForm
+#     context_object_name = "add"
+#     template_name = "authentication/clientprofile_form.html"
 
-    def form_valid(self, form):
-        client = form.save(commit=False)
-        client.user = self.request.user.client
-        client.save()
-        messages.success(self.request, "You have been Created a Details!")
-        return redirect("subs_Inv:activation_details_list")
+#     def form_valid(self, form):
+#         client = form.save(commit=False)
+#         client.user = self.request.user.client
+#         client.save()
+#         messages.success(self.request, "You have been Created a Details!")
+#         return redirect("subs_Inv:activation_details_list")
+
+
+class ClientPersonalFileDetail(DetailView):
+    model = ClientPersonalFile
+    template_name = "authentication/profile.html"
+    context_object_name = "list"

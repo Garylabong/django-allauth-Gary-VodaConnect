@@ -1,4 +1,5 @@
 from django.db import models
+from PIL import Image
 from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
@@ -55,7 +56,7 @@ class Client(models.Model):
     last_name = models.CharField(max_length=100, null=True, blank=True)
     phone_number = models.CharField(max_length=100, null=True, blank=True)
     email = models.EmailField(null=True, blank=True)
-    profile_picture = models.ImageField(null=True, blank=True)
+    profile_picture = models.ImageField(default="user.png", null=True, blank=True)
     affiliate_partner_code = models.CharField(max_length=100, null=True, blank=True)
     affiliate_partner_name = models.CharField(max_length=100, null=True, blank=True)
     pin = models.CharField(max_length=100, null=True, blank=True)

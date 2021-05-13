@@ -1,5 +1,6 @@
 from allauth.account.forms import SignupForm
 from django import forms
+from django.forms import ModelForm
 from django.db.models import fields
 from authentication.models import User, Client
 from django.db import transaction
@@ -149,6 +150,77 @@ class MyCustomSignupForm(SignupForm):
         client.designation_name = self.cleaned_data.get("designation_name")
         client.save()
         return user
+
+
+class ClientEditForm(ModelForm):
+    class Meta:
+        model = Client
+
+        fields = (
+            "first_name",
+            "last_name",
+            "phone_number",
+            "email",
+            "profile_picture",
+            # "affiliate_partner_code",
+            # "affiliate_partner_name",
+            "pin",
+            # "company_name",
+            # "designation_name",
+            # "lead_information",
+        )
+        exclude = ["user"]
+
+    def __init__(self, *args, **kwargs):
+        super(ClientEditForm, self).__init__(*args, **kwargs)
+        self.fields["first_name"] = forms.CharField(
+            required=True,
+            label="First Name",
+            widget=forms.TextInput(attrs={"class": "form-control1"}),
+        )
+        self.fields["last_name"] = forms.CharField(
+            required=True,
+            label="Last Name",
+            widget=forms.TextInput(attrs={"class": "form-control2"}),
+        )
+        self.fields["phone_number"] = forms.CharField(
+            required=True,
+            label="Phone Number",
+            widget=forms.TextInput(attrs={"class": "form-control3", "type": "number"}),
+        )
+        self.fields["email"] = forms.CharField(
+            required=True,
+            label="Email",
+            widget=forms.TextInput(attrs={"class": "form-control4"}),
+        )
+        self.fields["pin"] = forms.CharField(
+            required=True,
+            label="Create Pin",
+            widget=forms.TextInput(attrs={"class": "form-control7"}),
+        )
+        # self.fields["company_name"] = forms.CharField(
+        #     required=True,
+        #     label="Company",
+        #     widget=forms.TextInput(attrs={"class": "form-control8"}),
+        # )
+        # self.fields["designation_name"] = forms.CharField(
+        #     required=True,
+        #     label="Designation",
+        #     widget=forms.TextInput(attrs={"class": "form-control9"}),
+        # )
+        # self.fields["affiliate_partner_code"] = forms.CharField(
+        #     required=False,
+        #     widget=forms.TextInput(attrs={"class": "form-control5"}),
+        # )
+        # self.fields["affiliate_partner_name"] = forms.CharField(
+        #     required=False,
+        #     widget=forms.TextInput(attrs={"class": "form-control6"}),
+        # )
+        # self.fields["lead_information"] = forms.CharField(
+        #     required=True,
+        #     label="Lead Information",
+        #     widget=forms.Textarea(attrs={"class": "form-control10"}),
+        # )
 
 
 class ClientAddForm(forms.ModelForm):

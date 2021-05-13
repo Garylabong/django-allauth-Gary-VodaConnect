@@ -185,11 +185,13 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
-MEDIA_URL = "/images/"
+MEDIA_URL = "/backgrounds/"
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "static/subsInventory/img/backgrounds")
 
 LOGIN_REDIRECT_URL = "/"
 

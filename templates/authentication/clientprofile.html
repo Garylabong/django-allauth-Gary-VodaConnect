@@ -181,7 +181,7 @@
 <div class="container">
     <div class="title text-center">YOUR PROFILE</div>
     <div class="content">
-        <img class="card" src="{% static 'subsInventory/img/backgrounds/liza.png' %}" class="card-img-top" alt="...">
+        <img class="card" src="{{ request.user.user.profile_picture.url }}">
         <div class="username">
             {{user.first_name}} {{user.last_name}}
         </div>

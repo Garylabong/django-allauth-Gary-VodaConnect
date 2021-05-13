@@ -42,7 +42,7 @@
         border-radius: 15px;
         box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
         margin-left: 25%;
-        margin-top: -17.5%;
+        margin-top: -9%;
     }
 
     .container2 {
@@ -174,7 +174,7 @@
 <div class="container">
     <div class="title text-center">YOUR PROFILE</div>
     <div class="content">
-        <img class="card" src="{% static 'subsInventory/img/backgrounds/liza.png' %}">
+        <img class="card" src="{{ request.user.user.profile_picture.url }}">
         <div class="username">
             {{user.first_name}} {{user.last_name}}
         </div>
@@ -182,9 +182,6 @@
             {{user.email}}
         </div>
     </div>
-    <a type="button" href="#" class="fa fa-camera-retro fa-lg"></a>
-</div>
-</div>
 </div>
 <br>
 <div class="container1">
@@ -194,44 +191,28 @@
             <table class="table table-dark table-bordered table-striped">
                 <tbody>
                     <tr>
-                        <th>First Name</th>
+                        <th>User Name:</th>
+                        <td>{{user.username}}</td>
+                    </tr>
+                    <tr>
+                        <th>First Name:</th>
                         <td>{{user.first_name}}</td>
                     </tr>
                     <tr>
-                        <th>Last Name</th>
+                        <th>Last Name:</th>
                         <td>{{user.last_name}}</td>
                     </tr>
                     <tr>
-                        <th>Phone number</th>
+                        <th>Phone number:</th>
                         <td>{{user.phone_number}}</td>
                     </tr>
                     <tr>
-                        <th>Email</th>
+                        <th>Email:</th>
                         <td>{{user.email}}</td>
                     </tr>
                     <tr>
-                        <th>Affiliate partner code</th>
-                        <td>{{user.affiliate_partner_code}}</td>
-                    </tr>
-                    <tr>
-                        <th>Affiliate partner name</th>
-                        <td>{{user.affiliate_partner_name}}</td>
-                    </tr>
-                    <tr>
-                        <th>Pin</th>
+                        <th>Pin:</th>
                         <td>{{user.create_pin}}</td>
-                    </tr>
-                    <tr>
-                        <th>Company name</th>
-                        <td>{{user.company_name}}</td>
-                    </tr>
-                    <tr>
-                        <th>Designation name</th>
-                        <td>{{user.designation_name}}</td>
-                    </tr>
-                    <tr>
-                        <th>Lead information</th>
-                        <td>{{user.lead_information}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -245,17 +226,68 @@
 <div class="container2">
     <div class="title text-center">EDIT CLIENT INFORMATION</div>
     <div class="content">
-        <br><br><br><br><br><br><br><br><br><br><br><br>
+        <form action="#">
+            <table class="table table-dark table-bordered table-striped">
+                <tbody>
+
+                    <tr>
+                        <th>Affiliate partner code:</th>
+                        <td>{{user.affiliate_partner_code}}</td>
+                    </tr>
+                    <tr>
+                        <th>Affiliate partner name:</th>
+                        <td>{{user.affiliate_partner_name}}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Company name:</th>
+                        <td>{{user.company_name}}</td>
+                    </tr>
+                    <tr>
+                        <th>Designation name</th>
+                        <td>{{user.designation_name}}</td>
+                    </tr>
+                    <tr>
+                        <th>Lead information:</th>
+                        <td>{{user.lead_information}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="text-right">
+                <a class="btn btn-customized1" href="{% url 'auth:update_profile'%}">Edit</a>
+            </div>
+        </form>
     </div>
 </div>
 <br>
 <div class="container3">
     <div class="title text-center">CLIENT FILES</div>
     <div class="content">
-        <br><br><br><br><br><br><br><br><br><br><br><br>
+        <form action="#">
+            <table class="table table-dark table-bordered table-striped">
+                <tbody>
+
+                    <tr>
+                        <th>File Title:</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Url:</th>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <th>Description:</th>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="text-right">
+                <a class="btn btn-customized1" href="{% url 'auth:update_profile'%}">Edit</a>
+            </div>
+        </form>
     </div>
 </div>
-</div>
-</div>
+
 
 {% endblock content %}

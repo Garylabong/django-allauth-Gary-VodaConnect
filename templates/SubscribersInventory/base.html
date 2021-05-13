@@ -33,7 +33,7 @@
 
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="position: fixed;">
-        <div class="container-fluid ms-4">
+        <div class="container-fluid ms-4    ">
             <a class="navbar-brand" href="#"><img class="circular3 ms-3 text-light"
                     src="{% static 'subsInventory/img/backgrounds/vodacon.png' %}"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -45,7 +45,7 @@
                 <ul class="navbar-nav">
                     {{ user.username }}</ul>
                 <div class="dropdown bg-transparent">
-                    <img class="circular ms-3 text-light" src="{% static 'subsInventory/img/backgrounds/liza.png' %}">
+                    <img class="circular text-light" src="{{ request.user.user.profile_picture.url }}">
                     <button class="btn dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="true">
                     </button>

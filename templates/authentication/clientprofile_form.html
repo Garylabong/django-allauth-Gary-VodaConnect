@@ -1,4 +1,5 @@
 {% extends 'SubscribersInventory/base.html' %}
+{% load crispy_forms_tags %}
 
 {% load static%}
 
@@ -181,7 +182,7 @@
 <div class="container">
     <div class="title text-center">YOUR PROFILE</div>
     <div class="content">
-        <img class="card" src="{% static 'subsInventory/img/backgrounds/liza.png' %}" class="card-img-top" alt="...">
+        <img class="card" src="{{ request.user.client.profile_picture.url }}">
         <div class="username">
             {{user.first_name}} {{user.last_name}}
         </div>
@@ -198,7 +199,7 @@
     <div class="content">
         <form method="post">
             {% csrf_token %}
-            {{ form.as_p }}
+            {{ form | crispy }}
             <input type="submit">
         </form>
     </div>
