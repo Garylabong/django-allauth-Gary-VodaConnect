@@ -169,7 +169,6 @@ class ClientEditForm(ModelForm):
             # "designation_name",
             # "lead_information",
         )
-        exclude = ["user"]
 
     def __init__(self, *args, **kwargs):
         super(ClientEditForm, self).__init__(*args, **kwargs)
@@ -224,29 +223,6 @@ class ClientEditForm(ModelForm):
                 }
             ),
         )
-        # self.fields["company_name"] = forms.CharField(
-        #     required=True,
-        #     label="Company",
-        #     widget=forms.TextInput(attrs={"class": "form-control8"}),
-        # )
-        # self.fields["designation_name"] = forms.CharField(
-        #     required=True,
-        #     label="Designation",
-        #     widget=forms.TextInput(attrs={"class": "form-control9"}),
-        # )
-        # self.fields["affiliate_partner_code"] = forms.CharField(
-        #     required=False,
-        #     widget=forms.TextInput(attrs={"class": "form-control5"}),
-        # )
-        # self.fields["affiliate_partner_name"] = forms.CharField(
-        #     required=False,
-        #     widget=forms.TextInput(attrs={"class": "form-control6"}),
-        # )
-        # self.fields["lead_information"] = forms.CharField(
-        #     required=True,
-        #     label="Lead Information",
-        #     widget=forms.Textarea(attrs={"class": "form-control10"}),
-        # )
 
 
 class ClientAddForm(forms.ModelForm):

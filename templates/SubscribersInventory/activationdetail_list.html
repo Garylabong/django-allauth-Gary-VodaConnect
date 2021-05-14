@@ -1,4 +1,4 @@
-{% extends 'SubscribersInventory/base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
 <br>
@@ -39,13 +39,13 @@
         border-radius: 15px;
         box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
         margin-left: 30%;
-        margin-top: -60%;
+        margin-top: -78%;
     }
 
     .container .title {
         font-size: 16px;
         font-weight: 500;
-        margin-left: -84%;
+        margin-left: -78%;
         color: #e442d7;
         margin-top: -10px;
         margin-bottom: -1%;
@@ -54,17 +54,15 @@
     .container .title1 {
         font-size: 16px;
         font-weight: 500;
-        margin-left: -80%;
+        margin-left: -76%;
         margin-top: -15px;
         margin-bottom: 20px;
     }
 
     a.btn-customized1 {
-        top: 0px;
         margin-top: 15px;
         color: #f3eff2;
         height: 55px;
-        padding-top: 15px;
         margin-left: -10px;
         display: flex;
         padding-top: 8px;
@@ -119,7 +117,7 @@
         background-color: #e442d7;
         border-radius: 10px;
         margin-bottom: -75px;
-        margin-top: 10px;
+        margin-top: -16%;
     }
 
     a.btn-customized2:hover {
@@ -162,7 +160,7 @@
 
     .table {
         width: 200%;
-        margin-top: -4%;
+        margin-top: 0%;
     }
 
     .table tbody th {
@@ -178,13 +176,45 @@
     .table thead th {
         color: #0da34b;
     }
+
+    .tableFixHead {
+        overflow-y: auto;
+        height: 300px;
+        width: 200%;
+        margin-top: -5%;
+    }
+
+    .tableFixHead thead th {
+        position: sticky;
+        top: 0;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 200%;
+        height: 150%;
+    }
+
+    .table td {
+        padding-top: -50%;
+    }
+
+    th,
+    td {
+        padding: 8px 16px;
+        border: 1px solid #ccc;
+    }
+
+    th {
+        background: #eee;
+    }
 </style>
 
 <div class="container">
     <div class="title text-center">PHONELINES INVENTORY</div>
     <div class="content">
         <a class=" btn btn-customized4" href="{% url 'subs_Inv:activation_details_add' %}">Create Activation</a>
-        <a class="mt-5 btn btn-customized1" href="{% url 'subs_Inv:voip_info' %}">VOIP Information</a>
+        <a class=" btn btn-customized1" href="{% url 'subs_Inv:voip_info' %}">VOIP Information</a>
         <a class="btn btn-customized1" href="{% url 'subs_Inv:activation_details_list' %}">Activation Details</a>
         <a class="btn btn-customized2" href="{% url 'subs_Inv:plan_details' %}">Plan Details</a>
         <a class="btn btn-customized1" href="{% url 'subs_Inv:subs_status' %}">Subscriber Status</a>
@@ -193,41 +223,39 @@
             <div class="title1 text-light text-center">ACTIVATION DETAILS</div>
             <div class="content">
                 <form action="#">
-                    <table class="table table-dark table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th scope="col">Order Request Date</th>
-                                <th scope="col">Request Date Initiated</th>
-                                <th scope="col">Date Line Activated</th>
-                                <th scope="col">Date Line Terminated</th>
-                                <th scope="col">PhoneLine Status</th>
-                                <th scope="col">Client Company User Category</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for ActivationDetail in list %}
-                            <tr>
-                                <th scope="row">{{ ActivationDetail.order_request_date }}</th>
-                                <td>{{ ActivationDetail.request_date_initiated }}</td>
-                                <td>{{ ActivationDetail.date_line_activated }}</td>
-                                <td>{{ ActivationDetail.date_line_terminated }}</td>
-                                <td>{{ ActivationDetail.phone_line_status }}</td>
-                                <td>{{ ActivationDetail.client_company_user }}</td>
-                            </tr>
-                            {% empty %}
-                            {% endfor %}
-                        </tbody>
-                    </table>
+                    <div class="tableFixHead">
+                        <table class="table table-dark table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Order Request Date</th>
+                                    <th scope="col">Request Date Initiated</th>
+                                    <th scope="col">Date Line Activated</th>
+                                    <th scope="col">Date Line Terminated</th>
+                                    <th scope="col">PhoneLine Status</th>
+                                    <th scope="col">Client Company User Category</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for ActivationDetail in list %}
+                                <tr>
+                                    <td>{{ ActivationDetail.order_request_date }}</td>
+                                    <td>{{ ActivationDetail.request_date_initiated }}</td>
+                                    <td>{{ ActivationDetail.date_line_activated }}</td>
+                                    <td>{{ ActivationDetail.date_line_terminated }}</td>
+                                    <td>{{ ActivationDetail.phone_line_status }}</td>
+                                    <td>{{ ActivationDetail.client_company_user }}</td>
+                                </tr>
+                                {% empty %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
-    <br><br>
 </div>
-
 </div>
-
-
 </div>
 
 

@@ -1,9 +1,12 @@
 from django.urls import path
 
-from AccountFiles.views import AccountFilesView
+from AccountFiles.views import AccountFilesDetailView
 
-app_name= 'acc_file'
+app_name = "acc_file"
 urlpatterns = [
-    path("account/files/", AccountFilesView.as_view(), name="acc_files")
-    
+    path(
+        "accountfiles/<int:pk>",
+        AccountFilesDetailView.as_view(),
+        name="detail_accfiles",
+    )
 ]

@@ -1,4 +1,4 @@
-{% extends 'SubscribersInventory/base.html' %}
+{% extends 'base.html' %}
 {% load crispy_forms_tags %}
 
 {% block content %}
@@ -23,7 +23,7 @@
     }
 
     .container {
-        max-width: 70%;
+        max-width: 65%;
         width: 100%;
         background: #243b55;
         padding: 25px 30px;
@@ -32,32 +32,13 @@
         margin-left: 25%;
     }
 
-    .container1 {
-        max-width: 170%;
-        width: 750%;
-        background: #243b55;
-        padding: 30px 20px;
-        border-radius: 40px;
-        box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
-        margin-left: 30%;
-        margin-top: 4%;
-    }
-
     .container .title {
         font-size: 16px;
         font-weight: 500;
-        margin-left: -84%;
+        margin-left: -75%;
         color: #e442d7;
         margin-top: -10px;
         margin-bottom: -1%;
-    }
-
-    .container .title1 {
-        font-size: 16px;
-        font-weight: 500;
-        margin-left: -77%;
-        margin-top: -15px;
-        margin-bottom: 20px;
     }
 
     a.btn-customized1 {
@@ -127,14 +108,15 @@
     }
 
     .form-group {
-        width: 40%;
-
+        width: 45%;
+        margin-left: 2%;
+        margin-right: -5%;
     }
 
     .form-control {
         width: 110%;
-        background-color: #243b55;
-
+        background-color: transparent;
+        border-color: none;
     }
 
     .content form {
@@ -150,13 +132,13 @@
     }
 
     .requiredField {
-        margin-left: -50%;
+        margin-left: 10%;
         margin-bottom: -10%;
         font-size: small;
     }
 
     label {
-        margin-left: -50%;
+        margin-left: -1%;
         margin-bottom: -10%;
         font-size: small;
     }
@@ -166,7 +148,27 @@
         font-size: small;
     }
 
+    .numberinput {
+        font-size: small;
+        color: #0da34b;
+    }
+
     .select {
+        font-size: small;
+        color: #0da34b;
+    }
+
+    .textarea {
+        font-size: small;
+        color: #0da34b;
+    }
+
+    .emailinput {
+        font-size: small;
+        color: #0da34b;
+    }
+
+    .textinput {
         font-size: small;
         color: #0da34b;
     }
@@ -194,6 +196,7 @@
         letter-spacing: 1px;
         cursor: pointer;
         transition: all 0.3s ease;
+        margin-top: 30%;
         background: linear-gradient(135deg, #71b7e6, #9b59b6);
     }
 
@@ -213,25 +216,52 @@
         border-color: #ed5fdc;
         box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
     }
+
+    .form-control1 {
+        width: 110%;
+        background-color: #243b55;
+        border-color: #ed5fdc;
+    }
+
+    .form-control1:focus,
+    .form-control1:valid {
+        border-color: #ed5fdc;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
+    }
+
+    .form-control3 {
+        width: 110%;
+        color: #0da34b;
+        background-color: transparent;
+        margin-top: 10%;
+        border-color: #ed5fdc;
+    }
+
+    .form-control3:active {
+        background-color: transparent;
+    }
+
+    .form-control3:focus,
+    .form-control3:valid {
+        border-color: #ed5fdc;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
+    }
 </style>
 
 <div class="container">
-    <div class="title text-center">Order Request</div>
+    <div class="title text-center">CREATE ORDER REQUEST</div>
+    <br>
     <div class="content">
-        <div class="container1">
-            <div class="title1 text-light text-center">CREATE ORDER REQUEST</div>
-            <div class="content ms-4">
-                <form method="post" action="">
-                    {% csrf_token %}
-                    {{ form | crispy }}
-                    <div class="button text-center">
-                        <button type="submit">Submit</button>
-                    </div>
-                </form>
+        <form method="post" action="">
+            {% csrf_token %}
+            {{ form | crispy }}
+            <div class="button text-center">
+                <button type="submit">Submit</button>
             </div>
-        </div>
+        </form>
+
     </div>
-    <br><br>
+    <br>
 </div>
 
 </div>

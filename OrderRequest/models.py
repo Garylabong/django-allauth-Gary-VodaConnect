@@ -173,10 +173,9 @@ class OrderRequest(models.Model):
         verbose_name="Complete Address ( Incase of porting)",
     )
     preferred_code = models.CharField(
-        max_length=150, null=True, blank=True, verbose_name="Prepared Area Code"
+        max_length=250, null=True, blank=True, verbose_name="Prepared Area Code"
     )
-    phone_number = models.CharField(
-        max_length=100,
+    phone_number = models.IntegerField(
         null=True,
         blank=True,
         verbose_name="total Number Of Phone Lines Needed",

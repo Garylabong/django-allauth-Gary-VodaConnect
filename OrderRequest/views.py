@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from OrderRequest.models import *
+from OrderRequest.forms import *
 from django.views.generic import (
     TemplateView,
     ListView,
@@ -17,20 +18,21 @@ class OrderRequestListView(ListView):
 
 class OrderRequestAddView(CreateView):
     model = OrderRequest
-    fields = (
-        "date_request",
-        "plan_type",
-        "company_name",
-        "address",
-        "preferred_code",
-        "phone_number",
-        "fax",
-        "request",
-        "category_request",
-        "email",
-        "order_status",
-        "notes",
-    )
+    form_class = OrderRequestForm
+    # fields = (
+    #     "date_request",
+    #     "plan_type",
+    #     "company_name",
+    #     "address",
+    #     "preferred_code",
+    #     "phone_number",
+    #     "fax",s
+    #     "request",
+    #     "category_request",
+    #     "email",
+    #     "order_status",
+    #     "notes",
+    # )
     context_object_name = "add"
     template_name = "OrderRequest/orderrequest_add.html"
 
