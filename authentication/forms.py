@@ -225,6 +225,58 @@ class ClientEditForm(ModelForm):
         )
 
 
+class ClientEditInfoForm(ModelForm):
+    class Meta:
+        model = Client
+        fields = (
+            "affiliate_partner_code",
+            "affiliate_partner_name",
+            "company_name",
+            "designation_name",
+            "lead_information",
+        )
+
+    def __init__(self, *args, **kwargs):
+        super(ClientEditInfoForm, self).__init__(*args, **kwargs)
+        self.fields["company_name"] = forms.CharField(
+            required=True,
+            disabled=True,
+            label="Company",
+            widget=forms.TextInput(
+                attrs={
+                    "class": "form-control1",
+                    "style": "background-color: transparent",
+                    "border-color": "#ed5fdc",
+                }
+            ),
+        )
+        self.fields["designation_name"] = forms.CharField(
+            required=True,
+            disabled=True,
+            label="Designation",
+            widget=forms.TextInput(
+                attrs={
+                    "class": "form-control2",
+                    "style": "background-color: transparent",
+                    "border-color": "#ed5fdc",
+                }
+            ),
+        )
+        self.fields["affiliate_partner_code"] = forms.CharField(
+            required=False,
+            widget=forms.TextInput(attrs={"class": "form-control3"}),
+        )
+        self.fields["affiliate_partner_name"] = forms.CharField(
+            required=False,
+            widget=forms.TextInput(attrs={"class": "form-control4"}),
+        )
+        self.fields["lead_information"] = forms.CharField(
+            required=True,
+            label="Lead Information",
+            widget=forms.Textarea(attrs={"class": "form-control5"}),
+        )
+
+
 class ClientAddForm(forms.ModelForm):
     class Meta:
         model = Client

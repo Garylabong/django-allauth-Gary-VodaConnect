@@ -153,12 +153,14 @@
         color: #059629;
         margin-top: 5px;
         margin-right: -100%;
+        font-size: small;
     }
 
     .email {
         margin-top: -7px;
         color: #059629;
         margin-left: 20px;
+        font-size: small;
     }
 </style>
 <div class="container">
@@ -229,20 +231,20 @@
                     </tr>
                     <tr>
                         <th>Affiliate partner code</th>
-                        <td>{{user.affiliate_partner_code}}</td>
+                        <td>{{user.client.affiliate_partner_code}}</td>
                     </tr>
                     <tr>
                         <th>Affiliate partner name</th>
-                        <td>{{user.affiliate_partner_name}}</td>
+                        <td>{{user.client.affiliate_partner_name}}</td>
                     </tr>
                     <tr>
                         <th>Lead information:</th>
-                        <td>{{user.lead_information}}</td>
+                        <td>{{user.client.lead_information}}</td>
                     </tr>
                 </tbody>
             </table>
             <div class="text-right">
-                <a class="btn btn-customized1" href="{% url 'auth:update_profile'%}">Edit</a>
+                <a class="btn btn-customized1" href="{% url 'auth:update_information'%}">Edit</a>
             </div>
         </form>
     </div>

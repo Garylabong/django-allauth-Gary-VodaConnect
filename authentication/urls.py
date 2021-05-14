@@ -9,6 +9,11 @@ urlpatterns = [
     # path("profile/<int:pk>/", ClientProfileDetailView.as_view(), name="profile_detail"),
     path("profile/", ClientProfile.as_view(), name="client_profile"),
     path("profile/update", ClientProfileUpdate.as_view(), name="update_profile"),
+    path(
+        "profile/update/information",
+        ClientInformationUpdate.as_view(),
+        name="update_information",
+    ),
     # path("profile/update", clientedit, name="update_profile"),
     # path(
     #     "profile/<int:pk>/edit",

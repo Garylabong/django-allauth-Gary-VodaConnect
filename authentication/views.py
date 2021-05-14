@@ -62,6 +62,15 @@ class ClientProfileUpdate(UpdateView):
         return self.request.user
 
 
+class ClientInformationUpdate(UpdateView):
+    form_class = ClientEditInfoForm
+    template_name = "authentication/update_information.html"
+    success_url = reverse_lazy("auth:client_profile")
+
+    def get_object(self):
+        return self.request.user
+
+
 class ClientProfile(DetailView):
     model = Client
     template_name = "authentication/profile.html"

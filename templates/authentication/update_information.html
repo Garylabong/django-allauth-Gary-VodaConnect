@@ -59,7 +59,7 @@
     .container1 .title1 {
         font-size: 16px;
         font-weight: 500;
-        margin-left: -80%;
+        margin-left: -70%;
         color: #f3eff2;
         margin-top: -2%;
         font-size: small;
@@ -67,11 +67,11 @@
 
     .btn-customized1 {
         top: 0px;
-        margin-top: 10px;
+        margin-top: 0px;
         color: #f3eff2;
         height: 40px;
         padding-top: 10px;
-        margin-right: -230%;
+        margin-right: -160%;
         display: flex;
         padding-left: 20%;
         width: 130%;
@@ -107,6 +107,7 @@
         margin-left: 60px;
         height: 80%;
         width: 100%;
+        background-color: transparent;
     }
 
     .username {
@@ -141,6 +142,11 @@
         margin-right: -70%;
     }
 
+    .textarea {
+        font-size: small;
+        color: #0da34b;
+    }
+
     .form-text {
         display: none;
     }
@@ -172,6 +178,13 @@
         pointer-events: none;
     }
 
+    .form-control2 {
+        cursor: not-allowed;
+        background-color: #243b55;
+        border-color: #ed5fdc;
+        box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
+    }
+
     .form-control1 {
         cursor: not-allowed;
         background-color: #243b55;
@@ -180,14 +193,7 @@
     }
 
     .form-control5 {
-        cursor: not-allowed;
-        background-color: #243b55;
-        border-color: #ed5fdc;
-        box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
-    }
-
-    .form-control6 {
-        cursor: not-allowed;
+        width: 190%;
         background-color: #243b55;
         border-color: #ed5fdc;
         box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
@@ -210,7 +216,8 @@
 </div>
 <br>
 <div class="container1">
-    <div class="title1 text-light text-center">EDIT CLIENT PROFILE</div>
+    <div class="title1 text-light text-center">EDIT CLIENT INFORMATION</div>
+    <br>
     <div class="content">
         <form method="POST">
             {% csrf_token %}
@@ -218,7 +225,7 @@
                 {{form | crispy}}
             </table>
             <div class="text-right">
-                <button type="submit" class="btn btn-customized1 float-right">Update Profile</button>
+                <button type="submit" class="btn btn-customized1 float-right">Update Information</button>
             </div>
             <br>
         </form>
