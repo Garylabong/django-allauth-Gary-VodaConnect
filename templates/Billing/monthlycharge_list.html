@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<br>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        background: linear-gradient(#141e30, #243b55);
+        background-attachment: fixed;
+    }
+
+    .container {
+        max-width: 90%;
+        width: 100%;
+        background: #243b55;
+        padding: 25px 30px;
+        border-radius: 15px;
+        box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+        margin-left: 7%;
+        margin-top: 1%;
+    }
+
+    .container .title {
+        font-size: 16px;
+        font-weight: 500;
+        margin-left: -89%;
+        color: #f5eff4;
+        margin-top: -10px;
+        margin-bottom: 3%;
+    }
+
+
+    form .table {
+        color: #f3eff2;
+        font-size: small;
+    }
+
+    .table {
+        width: 200%;
+        margin-top: -4.5%;
+    }
+
+    .table tbody th {
+        font-weight: normal;
+    }
+
+    .custom-select {
+        font-size: small;
+        margin-left: 133%;
+        margin-bottom: -93%;
+    }
+
+    .table thead th {
+        color: #0da34b;
+    }
+</style>
+
+<div class="container">
+    <div class="title text-center">MONTHLY CHARGE</div>
+    <div class="content">
+        <form action="#">
+            <table class="table table-dark table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Client Fullname</th>
+                        <th scope="col">Client Code</th>
+                        <th scope="col">Voda Connect Number</th>
+                        <th scope="col">Type Of Plan</th>
+                        <th scope="col">Total Cost</th>
+                        <th scope="col">Month Covered</th>
+                        <th scope="col">Date Of Payment </th>
+                        <th scope="col">Reference</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for monthlycharge in list %}
+                    <tr>
+                        <th scope="row">{{monthlycharge.client_full_name}}</th>
+                        <td>{{monthlycharge.client_code}}</td>
+                        <td>{{monthlycharge.vodaconnect_number}}</td>
+                        <td>{{monthlycharge.plan_type}}</td>
+                        <td>{{monthlycharge.total_cost}}</td>
+                        <td>{{monthlycharge.month_covered}}</td>
+                        <td>{{monthlycharge.date_payment}}</td>
+                        <td>{{monthlycharge.reference}}</td>
+                        <td>{{monthlycharge.status}}</td>
+                        <td><a href="{% url 'bill:month_detail' monthlycharge.id %}">View</td>
+                        <td><a href="{% url 'bill:month_create'%}">create</td>
+                        <td><a href="{% url 'bill:month_Update' monthlycharge.id %}">update</td>
+
+                        {% empty %}
+                        {% endfor %}
+
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+</div>
+
+
+{% endblock %}

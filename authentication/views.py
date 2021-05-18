@@ -68,7 +68,7 @@ class ClientInformationUpdate(UpdateView):
     success_url = reverse_lazy("auth:client_profile")
 
     def get_object(self):
-        return self.request.user
+        return self.request.user.client
 
 
 class ClientProfile(DetailView):

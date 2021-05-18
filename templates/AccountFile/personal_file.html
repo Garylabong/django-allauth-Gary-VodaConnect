@@ -59,7 +59,7 @@
     .container1 .title1 {
         font-size: 16px;
         font-weight: 500;
-        margin-left: -70%;
+        margin-left: -80%;
         color: #f3eff2;
         margin-top: -2%;
         font-size: small;
@@ -67,11 +67,11 @@
 
     .btn-customized1 {
         top: 0px;
-        margin-top: 0px;
+        margin-top: 10px;
         color: #f3eff2;
         height: 40px;
         padding-top: 10px;
-        margin-right: -160%;
+        margin-right: -230%;
         display: flex;
         padding-left: 20%;
         width: 130%;
@@ -142,11 +142,6 @@
         margin-right: -70%;
     }
 
-    .textarea {
-        font-size: small;
-        color: #0da34b;
-    }
-
     .form-text {
         display: none;
     }
@@ -165,6 +160,7 @@
 
     .textInput {
         font-size: small;
+        padding: 10px 10px;
     }
 
     .emailinput {
@@ -178,15 +174,13 @@
         pointer-events: none;
     }
 
-    .form-control2 {
-        cursor: not-allowed;
+    .form-control1 {
         background-color: #243b55;
         border-color: #ed5fdc;
         box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
     }
 
-    .form-control1 {
-        cursor: not-allowed;
+    .form-control2 {
         background-color: #243b55;
         border-color: #ed5fdc;
         box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
@@ -196,6 +190,7 @@
         width: 190%;
         padding-top: 15px;
         line-height: 8px;
+        font-size: small;
         background-color: #243b55;
         border-color: #ed5fdc;
         box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
@@ -218,8 +213,7 @@
 </div>
 <br>
 <div class="container1">
-    <div class="title1 text-light text-center">EDIT CLIENT INFORMATION</div>
-    <br>
+    <div class="title1 text-light text-center">EDIT CLIENT FILES</div>
     <div class="content">
         <form method="POST">
             {% csrf_token %}
@@ -227,7 +221,7 @@
                 {{form | crispy}}
             </table>
             <div class="text-right">
-                <button type="submit" class="btn btn-customized1 float-right">Update Information</button>
+                <button type="submit" class="btn btn-customized1 float-right">Update Profile</button>
             </div>
             <br>
         </form>

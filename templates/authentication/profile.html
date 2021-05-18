@@ -147,6 +147,7 @@
         margin-left: 60px;
         height: 80%;
         width: 100%;
+        background-color: transparent;
     }
 
     .username {
@@ -238,7 +239,7 @@
                         <td>{{user.client.affiliate_partner_name}}</td>
                     </tr>
                     <tr>
-                        <th>Lead information:</th>
+                        <th>Lead information</th>
                         <td>{{user.client.lead_information}}</td>
                     </tr>
                 </tbody>
@@ -273,7 +274,7 @@
                 </tbody>
             </table>
             <div class="text-right">
-                <a class="btn btn-customized1" href="{% url 'auth:update_profile'%}">Edit</a>
+                <a class="btn btn-customized1" href="{% url 'acc_file:personal_file'%}">Edit</a>
             </div>
         </form>
     </div>

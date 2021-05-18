@@ -32,7 +32,7 @@ class VoipListView(ListView):
 
 class VoipDetailView(DetailView):
     model = VoIpInformation
-    context_object_name = "voip"
+    context_object_name = "detail"
     template_name = "SubscribersInventory/voipinformation_detail.html"
 
 
@@ -42,15 +42,21 @@ class ActivationDetailListView(ListView):
     template_name = "SubscribersInventory/activationdetail_list.html"
 
 
-# class ActivationDetailView(DetailView):
-#     model = ActivationDetail
-#     context_object_name = "details"
-#     template_name = "SubscribersInventory/activation_detail.html"
-#     # queryset = ActivationDetail.objects.all()
+class ActivationDetailView(DetailView):
+    model = ActivationDetail
+    # context_object_name = "details"
+    template_name = "SubscribersInventory/activation_detail.html"
+    # queryset = ActivationDetail.objects.all()
 
-#     def get_object(self):
-#         id_ = self.kwargs.get("id")
-#         return get_object_or_404(ActivationDetail, id=id_)
+    # def get_object(self):
+    #     id_ = self.kwargs.get("id")
+    #     return get_object_or_404(ActivationDetail, id=id_)
+
+
+# class AccountFilesDetailView(DetailView):
+#     model = AccountFile
+#     # context_object_name = "list"
+#     template_name = "accountfiles/detail.html"
 
 
 class ActivationDetailAddView(SuccessMessageMixin, CreateView):
