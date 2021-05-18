@@ -12,6 +12,7 @@ from django.views.generic import (
     FormView,
 )
 
+from Billing.forms import MonthlyChargeCreateForm
 
 class MonthlyChargeList(ListView):
     model = MonthlyCharge
@@ -26,7 +27,7 @@ class MonthlyChargeDetail(DetailView):
 
 class MonthlyChargeCreate(CreateView):
     model = MonthlyCharge
-    fields = "__all__"
+    form_class = MonthlyChargeCreateForm
     success_url = reverse_lazy("bill:month_list")
 
 
