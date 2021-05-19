@@ -1,8 +1,6 @@
-from re import M
-from typing import List
-from django.db.models import fields
 from django.shortcuts import render
 from Billing.models import *
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import (
     UpdateView,
@@ -21,21 +19,30 @@ from Billing.forms import (
 )
 
 
-class MonthlyChargeList(ListView):
+class MonthlyChargeList(LoginRequiredMixin, ListView):
     model = MonthlyCharge
     context_object_name = "list"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["list"] = context["list"].filter(user=self.request.user)
+        return context
 
-class MonthlyChargeDetail(DetailView):
+
+class MonthlyChargeDetail(LoginRequiredMixin, DetailView):
     model = MonthlyCharge
     context_object_name = "detail"
     template_name = "Billing/monthlycharge_detail.html"
 
 
-class MonthlyChargeCreate(CreateView):
+class MonthlyChargeCreate(LoginRequiredMixin, CreateView):
     model = MonthlyCharge
     form_class = MonthlyChargeCreateForm
     success_url = reverse_lazy("bill:month_list")
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(MonthlyChargeCreate, self).form_valid(form)
 
 
 class MonthlyChargeUpdate(UpdateView):
@@ -45,14 +52,14 @@ class MonthlyChargeUpdate(UpdateView):
     success_url = reverse_lazy("bill:month_list")
 
 
-class MonthlyChargeEdit(UpdateView):
+class MonthlyChargeEdit(LoginRequiredMixin, UpdateView):
     model = VoIpInformation
     form_class = MonthlyChargeEditForm
     template_name = "Billing/monthlycharge_Update.html"
     success_url = reverse_lazy("bill:month_list")
 
 
-class MonthlyChargeDelete(DeleteView):
+class MonthlyChargeDelete(LoginRequiredMixin, DeleteView):
     model = VoIpInformation
     context_object_name = "delete"
     template_name = "Billing/monthlycharge_delete.html"

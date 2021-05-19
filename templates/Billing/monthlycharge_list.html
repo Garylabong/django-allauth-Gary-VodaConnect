@@ -100,9 +100,9 @@
                         <td>{{monthlycharge.date_payment}}</td>
                         <td>{{monthlycharge.reference}}</td>
                         <td>{{monthlycharge.status}}</td>
-                        <td><a href="{% url 'bill:month_detail' monthlycharge.id %}">View</td>
-                        <td><a href="{% url 'bill:month_Update' monthlycharge.id %}">Update</td>
-                        <td><a href="{% url 'bill:month_delete' monthlycharge.id %}">Delete</td>
+                        <!-- <td><a href="{% url 'bill:month_detail' monthlycharge.id %}">View</td> -->
+                        <td><a href="{% url 'bill:month_Update' monthlycharge.id %}">Details Update</td>
+                        <!-- <td><a href="{% url 'bill:month_delete' monthlycharge.id %}">Delete</td> -->
                         {% empty %}
                         {% endfor %}
 

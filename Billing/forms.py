@@ -17,7 +17,7 @@ class MonthlyChargeCreateForm(ModelForm):
         model = MonthlyCharge
 
         fields = (
-            "user",
+            # "user",
             "client_full_name",
             "client_code",
             "vodaconnect_number",

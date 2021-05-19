@@ -12,9 +12,6 @@ from django.views.generic import (
     CreateView,
     FormView,
 )
-
-# from django.conf.auth.decorators import login_required
-
 from authentication.models import *
 from .serializers import ClientSerializer
 
@@ -78,28 +75,6 @@ class ClientProfile(DetailView):
 
     def get_object(self):
         return self.request.user
-
-
-# class ClientProfileDetailView(DetailView):
-#     model = Client
-#     # form_class = ClientAddForm
-#     context_object_name = "add"
-#     # success_url = "/profile/"
-#     template_name = "authentication/clientprofile_form.html"
-
-
-# class ClientProfileAddView(CreateView):
-#     model = Client
-#     form_class = ClientAddForm
-#     context_object_name = "add"
-#     template_name = "authentication/clientprofile_form.html"
-
-#     def form_valid(self, form):
-#         client = form.save(commit=False)
-#         client.user = self.request.user.client
-#         client.save()
-#         messages.success(self.request, "You have been Created a Details!")
-#         return redirect("subs_Inv:activation_details_list")
 
 
 class ClientPersonalFileDetail(DetailView):
