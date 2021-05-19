@@ -15,4 +15,9 @@ urlpatterns = [
         MonthlyChargeUpdate.as_view(),
         name="month_Update",
     ),
+    path(
+        "monthlycharge_delete/<int:pk>/",
+        MonthlyChargeDelete.as_view(),
+        name="month_delete",
+    ),
 ]

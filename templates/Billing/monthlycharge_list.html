@@ -68,7 +68,7 @@
         color: #0da34b;
     }
 </style>
-
+<td><a href="{% url 'bill:month_create'%}">Create Monthly Charge</td>
 <div class="container">
     <div class="title text-center">MONTHLY CHARGE</div>
     <div class="content">
@@ -101,9 +101,8 @@
                         <td>{{monthlycharge.reference}}</td>
                         <td>{{monthlycharge.status}}</td>
                         <td><a href="{% url 'bill:month_detail' monthlycharge.id %}">View</td>
-                        <td><a href="{% url 'bill:month_create'%}">create</td>
-                        <td><a href="{% url 'bill:month_Update' monthlycharge.id %}">update</td>
-
+                        <td><a href="{% url 'bill:month_Update' monthlycharge.id %}">Update</td>
+                        <td><a href="{% url 'bill:month_delete' monthlycharge.id %}">Delete</td>
                         {% empty %}
                         {% endfor %}
 

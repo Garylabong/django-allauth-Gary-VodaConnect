@@ -162,12 +162,7 @@ class ClientEditForm(ModelForm):
             "last_name",
             "phone_number",
             "email",
-            # "affiliate_partner_code",
-            # "affiliate_partner_name",
             "create_pin",
-            # "company_name",
-            # "designation_name",
-            # "lead_information",
         )
 
     def __init__(self, *args, **kwargs):
