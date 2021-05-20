@@ -54,11 +54,12 @@
     }
 
     .container .title1 {
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 500;
         margin-left: -70%;
         margin-top: -15px;
         margin-bottom: 20px;
+        color: #0da34b;
     }
 
     a.btn-customized1 {
@@ -91,7 +92,7 @@
         background-color: #b84faf;
         color: #f3eff2;
         border-color: #ed5fdc;
-        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
+        box-shadow: none;
     }
 
     a.btn-customized2 {
@@ -124,7 +125,7 @@
         background-color: #b84faf;
         color: #f3eff2;
         border-color: #ed5fdc;
-        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
+        box-shadow: none;
     }
 
     .form-group {
@@ -178,34 +179,25 @@
 
     form .button button {
         height: 80%;
-        width: 130%;
-        border-radius: 20px;
+        width: 200%;
+        border-radius: 10px;
         border: none;
         color: #fff;
-        margin-left: 300%;
-        font-size: 15px;
-        font-weight: 400;
-        letter-spacing: 1px;
+        margin-left: 365%;
+        font-size: small;
         cursor: pointer;
-        transition: all 0.3s ease;
-        background: linear-gradient(135deg, #71b7e6, #9b59b6);
+        background-color: #e442d7;
+        margin-top: 10%;
     }
 
     form .button button:hover {
         transform: scale(0.9);
-        background: linear-gradient(-135deg, #71b7e6, #9b59b6);
-    }
-
-    @media(max-width: 584px) {
-        .container {
-            max-width: 100%;
-        }
     }
 
     .form-control:focus,
     .form-control:valid {
         border-color: #ed5fdc;
-        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
+        box-shadow: none;
     }
 </style>
 
@@ -218,7 +210,7 @@
         <a class="btn btn-customized1" href="{% url 'subs_Inv:subs_status' %}">Subscriber Status</a>
         <a class="btn btn-customized1" href="{% url 'subs_Inv:forward_info' %}">Forwarding Information</a>
         <div class="container1">
-            <div class="title1 text-light text-center">CREATE ACTIVATION DETAILS</div>
+            <div class="title1 text-center">CREATE ACTIVATION DETAILS</div>
             <div class="content ms-4">
                 <form method="post" action="">
                     {% csrf_token %}

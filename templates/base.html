@@ -32,7 +32,7 @@
 </head>
 
 <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="position: fixed;">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-transparent" style="position: fixed;">
         <div class="container-fluid ms-4">
             <a class="navbar-brand" href="#"><img class="circular3 ms-3 text-light"
                     src="{% static 'subsInventory/img/backgrounds/vodacon.png' %}"></a>
@@ -49,7 +49,7 @@
                     <button class="btn dropdown-toggle mr-5" id="dropdownMenuButton" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="true">
                     </button>
-                    <div class="dropdown-menu mt-1" aria-labelledby="dropdownMenuButton">
+                    <div class="dropdown-menu ms-5 mt-1" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="{% url 'auth:client_profile' %}">Profile</a>
                         <a class="dropdown-item" href="{% url 'auth:personal_file_list' %}">Files</a>
                         <a class="dropdown-item" href="{% url 'account_logout' %}">Log Out</a>
