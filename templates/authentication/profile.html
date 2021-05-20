@@ -55,16 +55,6 @@
         margin-left: 25%;
     }
 
-    .container3 {
-        max-width: 50%;
-        width: 100%;
-        background: #243b55;
-        padding: 25px 30px;
-        border-radius: 15px;
-        box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
-        margin-left: 25%;
-    }
-
     .container .title {
         font-size: 16px;
         font-weight: 500;
@@ -87,15 +77,6 @@
         font-size: 16px;
         font-weight: 500;
         margin-left: -72%;
-        color: #f3eff2;
-        margin-top: -2%;
-        font-size: small;
-    }
-
-    .container3 .title {
-        font-size: 16px;
-        font-weight: 500;
-        margin-left: -87%;
         color: #f3eff2;
         margin-top: -2%;
         font-size: small;
@@ -250,35 +231,4 @@
         </form>
     </div>
 </div>
-<br>
-<div class="container3">
-    <div class="title text-center">CLIENT FILES</div>
-    <div class="content">
-        <form action="#">
-            <table class="table table-dark table-bordered table-striped text-left">
-                <tbody>
-
-                    <tr>
-                        <th>File Title</th>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th>Url</th>
-                        <td></td>
-                    </tr>
-
-                    <tr>
-                        <th>Description</th>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="text-right">
-                <a class="btn btn-customized1" href="{% url 'acc_file:personal_file'%}">Edit</a>
-            </div>
-        </form>
-    </div>
-</div>
-
-
 {% endblock content %}

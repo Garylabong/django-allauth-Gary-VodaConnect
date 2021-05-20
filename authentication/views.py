@@ -2,6 +2,7 @@ from django.urls import reverse, reverse_lazy
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render, redirect
+from django.views.generic.edit import DeleteView
 from authentication.forms import *
 from django.contrib.auth.decorators import login_required
 from django.views.generic import (
@@ -13,6 +14,7 @@ from django.views.generic import (
     FormView,
 )
 from authentication.models import *
+from AccountFiles.models import *
 from .serializers import ClientSerializer
 
 from rest_framework import viewsets
@@ -81,3 +83,21 @@ class ClientPersonalFileDetail(DetailView):
     model = ClientPersonalFile
     template_name = ""
     context_object_name = "list"
+
+
+class PersonalFiles(ListView):
+    model = AccountFile
+    template_name = "authentication/personalfile_list.html"
+    context_object_name = "list"
+
+    def get_object(self):
+        return self.request.user
+
+
+class PersonalFilesUpdate(UpdateView):
+    form_class = ClientFileForm
+    template_name = "authentication/personalfile_update.html"
+    success_url = reverse_lazy("auth:personal_file_list")
+
+    def get_object(self):
+        return self.request.user

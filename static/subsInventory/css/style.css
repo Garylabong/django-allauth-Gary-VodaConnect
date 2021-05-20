@@ -57,11 +57,10 @@ img { max-width: 100%; }
 }
 
 .dropdown-menu {
-	top: 45px;
-	margin-right: 20px;
-	min-width: fit-content;
-	height: 90px;
-
+    top: 45px;
+    margin-right: 20px;
+    min-width: fit-content;
+    height: 130px;
 }
 
 .dropdown-item {

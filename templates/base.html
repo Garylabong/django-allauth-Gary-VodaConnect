@@ -51,7 +51,8 @@
                     </button>
                     <div class="dropdown-menu mt-1" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="{% url 'auth:client_profile' %}">Profile</a>
-                        <a class="dropdown-item" aria-hidden="true" href="{% url 'account_logout' %}">Log Out</a>
+                        <a class="dropdown-item" href="{% url 'auth:personal_file_list' %}">Files</a>
+                        <a class="dropdown-item" href="{% url 'account_logout' %}">Log Out</a>
                     </div>
                 </div>
             </div>

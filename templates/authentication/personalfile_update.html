@@ -1,0 +1,196 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% load static%}
+
+{% block content %}
+<br>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        background: linear-gradient(#141e30, #243b55);
+        background-attachment: fixed;
+
+    }
+
+    .container1 {
+        max-width: 50%;
+        width: 100%;
+        background: #243b55;
+        padding: 25px 30px;
+        border-radius: 15px;
+        box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+        margin-left: 25%;
+        margin-top: 0%;
+    }
+
+    .container1 .title1 {
+        font-size: 16px;
+        font-weight: 500;
+        margin-left: -80%;
+        color: #f3eff2;
+        margin-top: -2%;
+        font-size: small;
+    }
+
+    .btn-customized1 {
+        top: 0px;
+        margin-top: 10px;
+        color: #f3eff2;
+        height: 40px;
+        padding-top: 10px;
+        margin-right: -230%;
+        display: flex;
+        padding-left: 20%;
+        width: 130%;
+        font-size: small;
+        background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    }
+
+    .btn-customized1:hover {
+        background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+        color: #f3eff2;
+        transform: scale(0.9);
+    }
+
+    .btn-customized1:focus,
+    .btn-customized1:valid {
+        background-color: #b84faf;
+        color: #f3eff2;
+        border-color: #ed5fdc;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
+    }
+
+    form .table {
+        color: #f3eff2;
+        font-size: small;
+    }
+
+    .table {
+        width: 200%;
+    }
+
+    .card {
+        border-radius: 50px;
+        margin-left: 60px;
+        height: 80%;
+        width: 100%;
+        background-color: transparent;
+    }
+
+    .username {
+        color: #059629;
+        margin-top: 5px;
+        margin-right: -100%;
+        font-size: small;
+    }
+
+    .email {
+        margin-top: -7px;
+        color: #059629;
+        margin-left: 25px;
+        font-size: small;
+    }
+
+    .asteriskField {
+        display: none;
+    }
+
+    label {
+        margin-bottom: -30%;
+        font-size: small;
+        margin-left: -25%;
+    }
+
+    .content form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-left: 15%;
+        margin-right: -70%;
+    }
+
+    .form-text {
+        display: none;
+    }
+
+    .form-control:focus,
+    .form-control:valid {
+        border-color: #ed5fdc;
+        background-color: transparent;
+        color: white;
+        box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
+    }
+
+    .form-control {
+        width: 140%;
+    }
+
+    .textInput {
+        font-size: small;
+        padding: 10px 10px;
+    }
+
+    .emailinput {
+        font-size: small;
+        pointer-events: none;
+        cursor: not-allowed;
+    }
+
+    .select {
+        width: 140%;
+        pointer-events: none;
+    }
+
+    .form-control1 {
+        background-color: #243b55;
+        border-color: #ed5fdc;
+        box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
+    }
+
+    .form-control2 {
+        background-color: #243b55;
+        border-color: #ed5fdc;
+        box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
+    }
+
+    .form-control5 {
+        width: 190%;
+        padding-top: 15px;
+        line-height: 8px;
+        font-size: small;
+        background-color: #243b55;
+        border-color: #ed5fdc;
+        box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
+    }
+</style>
+
+<div class="container1">
+    <div class="title1 text-light text-center">EDIT CLIENT FILES</div>
+    <div class="content">
+        <form method="POST">
+            {% csrf_token %}
+            <table class="table table-dark table-bordered table-striped">
+                {{form | crispy}}
+            </table>
+            <div class="text-right">
+                <button type="submit" class="btn btn-customized1 float-right">Update Profile</button>
+            </div>
+            <br>
+        </form>
+    </div>
+</div>
+{% endblock content %}
