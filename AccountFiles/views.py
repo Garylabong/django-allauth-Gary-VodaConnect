@@ -21,3 +21,14 @@ class AccountFilesList(LoginRequiredMixin, ListView):
         context = super().get_context_data(**kwargs)
         context["list"] = context["list"].filter(user=self.request.user)
         return context
+
+
+class AccountFilesCreate(LoginRequiredMixin, CreateView):
+    model = AccountFile
+    fields = ["client_code", "client_full_name", "file_name", "url", "file_description"]
+    template_name = "AccountFiles/accountfile_add.html"
+    success_url = reverse_lazy("bill:month_list")
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(AccountFilesCreate, self).form_valid(form)

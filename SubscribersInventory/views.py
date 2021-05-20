@@ -1,9 +1,8 @@
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import ActivationDetailForm
-from django.utils.decorators import method_decorator
 from django.views.generic import (
     TemplateView,
     ListView,
@@ -16,23 +15,21 @@ from .views import *
 from .models import *
 
 
-@method_decorator(login_required, name="dispatch")
-class HomeView(TemplateView):
+class HomeView(LoginRequiredMixin, TemplateView):
     template_name = "SubscribersInventory/home.html"
 
 
-class SubsInvView(TemplateView):
+class SubsInvView(LoginRequiredMixin, TemplateView):
     template_name = "SubscribersInventory/subs_inventory.html"
 
 
-class VoipListView(ListView):
+class VoipListView(LoginRequiredMixin, ListView):
     model = VoIpInformation
-
     context_object_name = "list"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["list"] = context["list"].filter(user=self.request.vodaconnect_number)
+        context["list"] = context["list"].filter(user=self.request.user)
         return context
 
 
@@ -42,27 +39,15 @@ class VoipDetailView(DetailView):
     template_name = "SubscribersInventory/voipinformation_detail.html"
 
 
-class ActivationDetailListView(ListView):
+class ActivationDetailListView(LoginRequiredMixin, ListView):
     model = ActivationDetail
     context_object_name = "list"
     template_name = "SubscribersInventory/activationdetail_list.html"
 
-
-class ActivationDetailView(DetailView):
-    model = ActivationDetail
-    # context_object_name = "details"
-    template_name = "SubscribersInventory/activation_detail.html"
-    # queryset = ActivationDetail.objects.all()
-
-    # def get_object(self):
-    #     id_ = self.kwargs.get("id")
-    #     return get_object_or_404(ActivationDetail, id=id_)
-
-
-# class AccountFilesDetailView(DetailView):
-#     model = AccountFile
-#     # context_object_name = "list"
-#     template_name = "accountfiles/detail.html"
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["list"] = context["list"].filter(user=self.request.user)
+        return context
 
 
 class ActivationDetailAddView(SuccessMessageMixin, CreateView):
