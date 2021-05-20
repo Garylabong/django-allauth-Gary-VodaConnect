@@ -25,20 +25,6 @@ class OrderRequestListView(LoginRequiredMixin, ListView):
 class OrderRequestAddView(CreateView):
     model = OrderRequest
     form_class = OrderRequestForm
-    # fields = (
-    #     "date_request",
-    #     "plan_type",
-    #     "company_name",
-    #     "address",
-    #     "preferred_code",
-    #     "phone_number",
-    #     "fax",s
-    #     "request",
-    #     "category_request",
-    #     "email",
-    #     "order_status",
-    #     "notes",
-    # )
     context_object_name = "add"
     template_name = "OrderRequest/orderrequest_add.html"
 

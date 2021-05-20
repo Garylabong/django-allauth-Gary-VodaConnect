@@ -25,9 +25,9 @@ class AccountFilesList(LoginRequiredMixin, ListView):
 
 class AccountFilesCreate(LoginRequiredMixin, CreateView):
     model = AccountFile
-    fields = ["client_code", "client_full_name", "file_name", "url", "file_description"]
+    form_class = ClientFileForm
     template_name = "AccountFiles/accountfile_add.html"
-    success_url = reverse_lazy("bill:month_list")
+    success_url = reverse_lazy("acc_file:account_file")
 
     def form_valid(self, form):
         form.instance.user = self.request.user

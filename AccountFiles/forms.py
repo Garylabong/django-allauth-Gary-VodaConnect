@@ -9,6 +9,8 @@ class ClientFileForm(ModelForm):
     class Meta:
         model = AccountFile
         fields = (
+            "client_code",
+            "client_full_name",
             "file_name",
             "url",
             "file_description",
@@ -16,6 +18,11 @@ class ClientFileForm(ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(ClientFileForm, self).__init__(*args, **kwargs)
+        self.fields["client_full_name"] = forms.CharField(
+            required=True,
+            label="Client Full Name",
+            widget=forms.TextInput(attrs={"class": "form-control3"}),
+        )
         self.fields["file_name"] = forms.CharField(
             required=True,
             widget=forms.TextInput(attrs={"class": "form-control1"}),

@@ -165,7 +165,16 @@ class MonthlyChargeCreateForm(ModelForm):
         self.fields["client_full_name"] = forms.CharField(
             required=True,
             label="Client Full Name",
-            widget=forms.TextInput(attrs={"class": "form-control1"}),
+            widget=forms.TextInput(
+                attrs={"class": "form-control1", "placeholder": "Full Name"}
+            ),
+        )
+        self.fields["client_code"] = forms.CharField(
+            required=True,
+            label="Client Code",
+            widget=forms.TextInput(
+                attrs={"class": "form-control1", "placeholder": "Code"}
+            ),
         )
         self.fields["total_cost"] = forms.CharField(
             required=True,

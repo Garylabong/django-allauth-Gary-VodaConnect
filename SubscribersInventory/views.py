@@ -2,13 +2,14 @@ from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .forms import ActivationDetailForm
+from django.urls import reverse_lazy
+from .forms import ActivationDetailForm, PlanDetailsUpdateForm
 from django.views.generic import (
     TemplateView,
     ListView,
     DetailView,
     CreateView,
-    FormView,
+    UpdateView,
 )
 from django.views import View
 from .views import *
@@ -65,14 +66,24 @@ class ActivationDetailAddView(SuccessMessageMixin, CreateView):
         return redirect("subs_Inv:activation_details_list")
 
 
-class PlanDetailsView(TemplateView):
-    template_name = "SubscribersInventory/plan_details.html"
-
-
-class PlanDetailsListView(ListView):
+class PlanDetailsListView(LoginRequiredMixin, ListView):
     model = PlanDetail
     context_object_name = "list"
-    # template_name = "SubscribersInventory/activationdetail_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["list"] = context["list"].filter(user=self.request.user)
+        return context
+
+
+class PlanDetailsUpdateView(LoginRequiredMixin, UpdateView):
+    model = PlanDetail
+    form_class = PlanDetailsUpdateForm
+    template_name = "SubscribersInventory/plandetail_form.html"
+    success_url = reverse_lazy("subs_Inv:plan_details")
+    # form_class = MonthlyChargeUpdateForm
+    # template_name = "Billing/monthlycharge_Update.html"
+    # success_url = reverse_lazy("bill:month_list")
 
 
 class SubscribersStatusView(TemplateView):

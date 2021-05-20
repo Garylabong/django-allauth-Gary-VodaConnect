@@ -203,6 +203,7 @@
                                     <th scope="col">Did we set up recurring bill?</th>
                                     <th scope="col">Paypal Details for Billing</th>
                                     <th scope="col">Due Date</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -213,6 +214,8 @@
                                     <td>{{ PlanDetail.recurring_bill }}</td>
                                     <td>{{ PlanDetail.pypal_bill }}</td>
                                     <td>{{ PlanDetail.due_date }}</td>
+                                    <td><a href="{% url 'subs_Inv:plan_details_update' PlanDetail.id %}">Update Plan
+                                            Details</td>
                                 </tr>
                                 {% empty %}
                                 {% endfor %}

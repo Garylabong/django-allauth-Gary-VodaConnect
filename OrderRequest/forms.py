@@ -251,10 +251,9 @@ class OrderRequestForm(ModelForm):
             label="Email",
             widget=forms.TextInput(
                 attrs={
-                    "class": "form-control",
+                    "class": "form-control2",
                     "type": "email",
                     "placeholder": "PayPal Email Address for Billing",
-                    "style": "border-color: #ed5fdc;",
                 }
             ),
         )
@@ -267,10 +266,6 @@ class OrderRequestForm(ModelForm):
             required=True,
             label="Notes",
             widget=forms.Textarea(
-                attrs={
-                    "class": "form-control2",
-                    "placeholder": "Notes",
-                    "style": "color: #0da34b;",
-                }
+                attrs={"class": "form-control", "placeholder": "Notes"}
             ),
         )

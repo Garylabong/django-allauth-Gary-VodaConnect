@@ -45,7 +45,7 @@ class MonthlyChargeCreate(LoginRequiredMixin, CreateView):
         return super(MonthlyChargeCreate, self).form_valid(form)
 
 
-class MonthlyChargeUpdate(UpdateView):
+class MonthlyChargeUpdate(LoginRequiredMixin, UpdateView):
     model = MonthlyCharge
     form_class = MonthlyChargeUpdateForm
     template_name = "Billing/monthlycharge_Update.html"
