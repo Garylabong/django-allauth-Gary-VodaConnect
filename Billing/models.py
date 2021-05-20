@@ -130,7 +130,7 @@ class MonthlyCharge(models.Model):
     )
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     client_full_name = models.CharField(max_length=500, null=True, blank=True)
-    client_code = models.ForeignKey(ClientCode, on_delete=models.CASCADE)
+    client_code = models.CharField(max_length=100, null=True, blank=True)
     vodaconnect_number = models.ForeignKey(VodaConnectNumber, on_delete=models.CASCADE)
     plan_type = models.CharField(
         max_length=150,
@@ -168,6 +168,7 @@ class OtherCharge(models.Model):
         ("Paid", "Paid"),
         ("UnPaid", "UnPaid"),
     )
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     date = models.DateField(null=True, blank=True)
     vodaconnect_number = models.ForeignKey(VodaConnectNumber, on_delete=models.CASCADE)
     type_charge = models.CharField(max_length=250, null=True, blank=True)

@@ -28,5 +28,5 @@ urlpatterns = [
     path("monthly/charge", MonthlyChargeView.as_view(), name="monthly_charge"),
     # CRUD
     path("voip/information/", VoipListView.as_view(), name="voip_info"),
-    path("voip/information/<int:pk>", VoipDetailView.as_view(), name="voip_info"),
+    # path("voip/information/<int:pk>", VoipDetailView.as_view(), name="voip_info"),
 ]

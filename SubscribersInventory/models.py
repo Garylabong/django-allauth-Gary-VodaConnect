@@ -3,6 +3,7 @@ from authentication.models import *
 
 # Create your models here.
 class VodaConnectNumber(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     vodaconnect_number = models.CharField(max_length=100, null=True, blank=True)
 
     def __str__(self):
@@ -10,6 +11,7 @@ class VodaConnectNumber(models.Model):
 
 
 class VoIpInformation(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     vodaconnect_number = models.ForeignKey(VodaConnectNumber, on_delete=models.CASCADE)
     client_full_name = models.CharField(max_length=500, null=True, blank=True)
     client_code = models.ForeignKey(ClientCode, on_delete=models.CASCADE)
@@ -37,6 +39,7 @@ class ActivationDetail(models.Model):
         ("CallMe.Com.Ph", "CallMe.Com.Ph"),
         ("PsalmsGlobal.Com", "PsalmsGlobal.Com"),
     )
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     order_request_date = models.DateField(auto_now_add=False, auto_now=False, null=True)
     request_date_initiated = models.DateField(
         auto_now_add=False, auto_now=False, null=True
@@ -181,6 +184,7 @@ class PlanDetail(models.Model):
         ("Cancelled", "Cancelled"),
         ("Pending", "Pending"),
     )
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     plan_type = models.CharField(
         max_length=150,
         choices=PLAN_CHOICES,
@@ -240,6 +244,7 @@ class SubscriberStatus(models.Model):
         ("No", "No"),
         ("Not Applicable", "Not Applicable"),
     )
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     stat_production = models.CharField(
         max_length=100,
         choices=STATUS_IN_PRODUCTION,
@@ -262,6 +267,7 @@ class SubscriberStatus(models.Model):
 
 
 class ForwardingInfo(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     forwarding_num = models.CharField(
         max_length=100,
         null=True,
@@ -279,6 +285,7 @@ class ForwardingInfo(models.Model):
 
 
 class TotalNumExtension(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     extension_num = models.ForeignKey(
         ForwardingInfo, on_delete=models.CASCADE, verbose_name="Extension Number"
     )
@@ -290,6 +297,7 @@ class TotalNumExtension(models.Model):
 
 
 class ZiptrunkLoginDetail(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     ziptrunk_logins = models.CharField(max_length=100, null=True, blank=True)
     ziptrunk_details = models.TextField(max_length=100, null=True, blank=True)
     notes = models.TextField(null=True, blank=True)
@@ -299,6 +307,7 @@ class ZiptrunkLoginDetail(models.Model):
 
 
 class OtherLogin(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     other_logins = models.CharField(max_length=100, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     notes = models.TextField(null=True, blank=True)
@@ -308,6 +317,7 @@ class OtherLogin(models.Model):
 
 
 class Note(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     notes = models.TextField(null=True, blank=True)
 
     def __str__(self):

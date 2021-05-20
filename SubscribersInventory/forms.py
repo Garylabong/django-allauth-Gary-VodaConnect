@@ -25,3 +25,18 @@ class ActivationDetailForm(forms.ModelForm):
             "date_line_activated": DateInput(),
             "date_line_terminated": DateInput(),
         }
+
+    def __init__(self, *args, **kwargs):
+        super(ActivationDetailForm, self).__init__(*args, **kwargs)
+        CLIENT_COMPANY_USER_CATEGORY = (
+            ("", "-------"),
+            ("Vodaconnect", "Vodaconnect"),
+            ("Landmaster.Us", "Landmaster.Us"),
+            ("CallMe.Com.Ph", "CallMe.Com.Ph"),
+            ("PsalmsGlobal.Com", "PsalmsGlobal.Com"),
+        )
+        self.fields["client_company_user"] = forms.ChoiceField(
+            required=True,
+            label="Client Company User",
+            choices=CLIENT_COMPANY_USER_CATEGORY,
+        )

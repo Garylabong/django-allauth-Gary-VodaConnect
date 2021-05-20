@@ -1,17 +1,13 @@
 from django.urls import path
 
-from AccountFiles.views import AccountFilesDetailView, AccountFilesUpdate
+from AccountFiles.views import *
 
 app_name = "acc_file"
 urlpatterns = [
-    path(
-        "accountfiles/<int:pk>",
-        AccountFilesDetailView.as_view(),
-        name="detail_accfiles",
-    ),
-    path(
-        "profile/personal/file",
-        AccountFilesUpdate.as_view(),
-        name="personal_file",
-    ),
+    path("", AccountFilesList.as_view(), name="account_file"),
+    # path(
+    #     "order/request/add/",
+    #     OrderRequestAddView.as_view(),
+    #     name="orderrequest_add",
+    # ),
 ]

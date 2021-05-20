@@ -1,4 +1,4 @@
-{% extends 'base.html'  %}
+{% extends 'base.html' %}
 
 {% load crispy_forms_tags %}
 
@@ -90,12 +90,6 @@
         font-size: small;
     }
 
-    label {
-        margin-left: -60%;
-        margin-bottom: -10%;
-        font-size: small;
-    }
-
     .dateinput {
         color: #0da34b;
         font-size: small;
@@ -150,6 +144,18 @@
         box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
     }
 
+    .form-control9 {
+        width: 110%;
+        background-color: #243b55;
+        margin-left: 60%;
+        margin-top: 5%;
+    }
+
+    .form-control9:focus,
+    .form-control9:valid {
+        border-color: #ed5fdc;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
+    }
 </style>
 
 <div class="container">

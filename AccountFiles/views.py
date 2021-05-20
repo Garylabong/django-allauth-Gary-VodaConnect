@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 from AccountFiles.forms import ClientFileForm
 from AccountFiles.models import *
 from django.views.generic import (
@@ -11,41 +12,12 @@ from django.views.generic import (
     FormView,
 )
 
-# Create your views here.
-class AccountFilesDetailView(DetailView):
+
+class AccountFilesList(LoginRequiredMixin, ListView):
     model = AccountFile
-    # context_object_name = "list"
-    template_name = "accountfiles/detail.html"
+    context_object_name = "list"
 
-
-class AccountFilesUpdate(UpdateView):
-    form_class = ClientFileForm
-    template_name = "AccountFile/personal_file.html"
-    success_url = reverse_lazy("auth:client_profile")
-
-    def get_object(self):
-        return self.request.user.client
-
-    # def get_queryset(self, *args, **kwargs):
-    #     return self.request.accountfile
-
-    # def get_object(self):
-    #     return self.request.accountfile
-
-
-# class ClientProfileUpdate(UpdateView):
-#     form_class = ClientEditForm
-#     template_name = "authentication/profile_update.html"
-#     success_url = reverse_lazy("auth:client_profile")
-
-#     def get_object(self):
-#         return self.request.user
-
-
-# class ClientProfile(DetailView):
-#     model = Client
-#     template_name = "authentication/profile.html"
-#     context_object_name = "list"
-
-#     def get_object(self):
-#         return self.request.user
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["list"] = context["list"].filter(user=self.request.user)
+        return context

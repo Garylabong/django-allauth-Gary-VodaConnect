@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect
+from django.contrib.auth.mixins import LoginRequiredMixin
 from OrderRequest.models import *
 from OrderRequest.forms import *
 from django.views.generic import (
@@ -11,9 +12,14 @@ from django.views.generic import (
 )
 
 
-class OrderRequestListView(ListView):
+class OrderRequestListView(LoginRequiredMixin, ListView):
     model = OrderRequest
-    context_object_name = "OrderRequest"
+    context_object_name = "list"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["list"] = context["list"].filter(user=self.request.user)
+        return context
 
 
 class OrderRequestAddView(CreateView):

@@ -81,6 +81,7 @@ class ClientCode(models.Model):
 
 
 class ClientPersonalFile(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     client = models.ForeignKey(ClientCode, on_delete=models.CASCADE)
     file_title = models.CharField(max_length=100, null=True, blank=True)
     url = models.URLField(null=True, blank=True)

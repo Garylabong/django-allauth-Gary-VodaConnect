@@ -27,7 +27,13 @@ class SubsInvView(TemplateView):
 
 class VoipListView(ListView):
     model = VoIpInformation
-    context_object_name = "voip"
+
+    context_object_name = "list"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["list"] = context["list"].filter(user=self.request.vodaconnect_number)
+        return context
 
 
 class VoipDetailView(DetailView):

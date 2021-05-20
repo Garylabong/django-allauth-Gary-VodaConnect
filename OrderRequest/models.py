@@ -146,6 +146,7 @@ class OrderRequest(models.Model):
         ("PsalmsGlobal.Com", "PsalmsGlobal.Com"),
         ("Affiliate Partner", "Affiliate Partner"),
     )
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     date_request = models.DateField(null=True, blank=True)
     plan_type = models.CharField(
         max_length=150,
