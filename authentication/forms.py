@@ -1,4 +1,4 @@
-from allauth.account.forms import SignupForm
+from allauth.account.forms import SignupForm, LoginForm
 from django import forms
 from django.forms import ModelForm
 from django.db.models import fields
@@ -8,12 +8,32 @@ from django.db import transaction
 import datetime
 
 
+class MyCustomLoginForm(LoginForm):
+    class Meta:
+        model = User
+        fields = ("password",)
+
+    def __init__(self, *args, **kwargs):
+        super(MyCustomLoginForm, self).__init__(*args, **kwargs)
+        self.fields["password"] = forms.CharField(
+            required=True,
+            label="",
+            widget=forms.PasswordInput(
+                attrs={
+                    "class": "form-control2",
+                    "type": "password",
+                    "placeholder": "Password",
+                }
+            ),
+        )
+
+
 class MyCustomSignupForm(SignupForm):
     class Meta:
         model = User
         fields = (
-            "username",
             "first_name",
+            "username",
             "last_name",
             "email",
             "phone_number",

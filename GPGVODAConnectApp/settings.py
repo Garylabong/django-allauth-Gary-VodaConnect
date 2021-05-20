@@ -199,7 +199,11 @@ SITE_ID = 2
 
 AUTH_USER_MODEL = "authentication.User"
 # ACCOUNT_SIGNUP_FORM_CLASS = 'authentication.forms.MySignupForm'
-ACCOUNT_FORMS = {"signup": "authentication.forms.MyCustomSignupForm"}
+ACCOUNT_FORMS = {
+    "signup": "authentication.forms.MyCustomSignupForm",
+    "login": "authentication.forms.MyCustomLoginForm",
+}
+
 # LOGIN_URL = "login"
 
 # LOGOUT_URL = "logout"
