@@ -28,7 +28,7 @@ img { max-width: 100%; }
 ::selection { background: #f35b3f; color: #fff; text-shadow: none; }
 
 /***navbar***/
-/* .navbar button[data-toggle="dropdown"] {
+.navbar button[data-toggle="dropdown"] {
 	color: #eee;
 	width: 1px;
 	height: 2px;
@@ -36,9 +36,9 @@ img { max-width: 100%; }
 	margin-top: -15px;
 	margin-right: 5px;
 	box-shadow: none;
-}  */
+}  
 
-/* .navbar button:hover{
+.navbar button:hover{
 	color: #e442d7;
 }
 
@@ -60,16 +60,16 @@ img { max-width: 100%; }
     margin-right: 20px;
     min-width: fit-content;
     height: 130px;
-} */
+} 
 
-/* .dropdown-item {
+.dropdown-item {
 	font-weight: bolder;
 	font-style: normal;
 	font-variant: small;
 	font-size: small;
 	text-align: justify;
 	font-family: Poppins;
-}  */
+}  
 
 /***** Wrapper *****/
 

@@ -82,16 +82,6 @@
         <link rel="stylesheet" href="{% static 'subsInventory/css/style.css' %}">
         <link rel="stylesheet" href="{% static 'subsInventory/css/media-queries.css' %} ">
 
-        <!-- Favicon and touch icons -->
-        <link rel="shortcut icon" href="{% static 'subsInventory/img/backgrounds/gpg.png' %)">
-        <link rel="apple-touch-icon-precomposed" sizes="144x144"
-            href="{% static 'subsInventory/ico/apple-touch-icon-144-precomposed.png' %}">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114"
-            href="{% static 'subsInventory/ico/apple-touch-icon-114-precomposed.png' %}">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72"
-            href="{% static 'subsInventory/ico/apple-touch-icon-72-precomposed.png' %}">
-        <link rel="apple-touch-icon-precomposed"
-            href="{% static 'subsInventory/ico/apple-touch-icon-57-precomposed.png' %}">
 
     </head>
 
@@ -112,10 +102,10 @@
                 </div>
                 <ul class="list-unstyled menu-elements">
                     <li>
-                        <a href=""><i class="fas fa-home"></i> Home</a>
+                        <a href="{% url 'subs_Inv:home'  %}"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="{% url 'order_req:order_request' %}"><i class="fas fa-sort"></i>
+                        <a href="{% url 'order_req:order_request' %}"><i class="fab fa-first-order-alt fa-spin"></i>
                             Order Request</a>
                     </li>
                     <li>
@@ -125,7 +115,7 @@
                     <li>
                         <a href="#1otherSections" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"
                             role="button" aria-controls="1otherSections">
-                            <i class="fas fa-envelope fa-open"></i>Subscribers Data
+                            <i class="fas fa-database"></i>Subscribers Data
                         </a>
                         <ul class="collapse list-unstyled bg-transparent" id="1otherSections">
                             <li>
@@ -141,7 +131,7 @@
                         </a>
                         <ul class="collapse list-unstyled" id="otherSections">
                             <li>
-                                <a class="ms-3" href="{% url 'subs_Inv:other_charge' %}">Other Charge</a>
+                                <a class="ms-3 " href="{% url 'subs_Inv:other_charge' %}">Other Charge</a>
                             </li>
                             <li>
                                 <a class="ms-3" href="{% url 'bill:month_list' %}">Monthly Charge</a>
@@ -197,12 +187,12 @@
             <div class="container4">
                 <div class="open-menu">
                     <br>
-                    <a class=" btn-customized3 fa fa-home fa-lg" href="#"></a>
-                    <a class=" btn-customized3 fa fa-sort fa-lg" href="#"></a>
+                    <a class=" btn-customized3 fa fa-tachometer-alt fa-lg" href="#"></a>
+                    <a class=" btn-customized3 fab fa-first-order-alt fa-lg" href="#"></a>
                     <a class=" btn-customized3 fa fa-folder fa-lg" href="#"></a>
-                    <a class=" btn-customized3 fa fa-envelope fa-lg" href="#"></a>
+                    <a class=" btn-customized3 fa fa-database fa-lg" href="#"></a>
                     <a class=" btn-customized3 fa fa-credit-card fa-lg" href="#"></a>
-                    <a class=" btn-customized3 fa fa-cog fa-spin fa-lg" aria-hidden="true" href="#"></a>
+                    <a class=" btn-customized3 fa fa-cog fa-lg" aria-hidden="true" href="#"></a>
                     <a class=" btn-customized3 fa fa-paint-brush fa-lg" href="#"></a>
                     <br><br><br><br><br><br>
                 </div>
