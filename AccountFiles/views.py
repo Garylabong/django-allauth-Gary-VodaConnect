@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
+from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from AccountFiles.forms import ClientFileForm
 from AccountFiles.models import *
@@ -32,3 +33,7 @@ class AccountFilesCreate(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super(AccountFilesCreate, self).form_valid(form)
+
+    def form_valid(self, form):
+        messages.success(self.request, "Client File created successfully!")
+        return super().form_valid(form)

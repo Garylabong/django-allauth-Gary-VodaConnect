@@ -4,13 +4,14 @@
 <html lang="en">
 
 <head>
+    <!-- <br><br>
     <div class="alert-warning bg-transparent">
         {% if messages %}
         {% for message in messages %}
         {{ message }}
         {% endfor %}
         {% endif %}
-    </div>
+    </div> -->
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,7 +39,7 @@
 </head>
 
 <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-transparent" style="position: fixed;">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark " style="position: fixed;">
         <div class="container-fluid ms-4">
             <a class="navbar-brand" href="#"><img class="circular3 ms-3 text-light"
                     src="{% static 'subsInventory/img/backgrounds/vodacon.png' %}"></a>
@@ -222,15 +223,33 @@
 
     </html>
     </div>
-
+    <style>
+        .alert-warning {
+            color: skyblue;
+            background-color: transparent;
+            border-color: #ffeeba;
+            margin-top: -2%;
+            margin-bottom: -2.5%;
+            font-size: small;
+        }
+    </style>
     <div class="global-container">
-        <div class="justify-content-center">
-            {% block content %}
-
-            {% endblock %}
-            <br><br>
+        <br>
+        <div class="alert-warning">
+            {% if messages %}
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+            {% endif %}
         </div>
     </div>
+    <div class="justify-content-center">
+        {% block content %}
+
+        {% endblock %}
+        <br><br>
+    </div>
+
 
     <!-- Optional JavaScript; choose one of the two! -->
 

@@ -85,6 +85,10 @@ class PlanDetailsUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "SubscribersInventory/plandetail_form.html"
     success_url = reverse_lazy("subs_Inv:plan_details")
 
+    def form_valid(self, form):
+        messages.success(self.request, "Plan Details updated successfully!")
+        return super().form_valid(form)
+
 
 # SUBSCRIBER STATUS
 class SubscribersStatusListView(LoginRequiredMixin, ListView):

@@ -62,7 +62,7 @@ class ClientProfileUpdate(LoginRequiredMixin, UpdateView):
         return self.request.user
 
     def form_valid(self, form):
-        messages.success(self.request, "Client Profile updated success!")
+        messages.success(self.request, "Client Profile updated successfully!")
         return super().form_valid(form)
 
 
@@ -73,6 +73,10 @@ class ClientInformationUpdate(LoginRequiredMixin, UpdateView):
 
     def get_object(self):
         return self.request.user.client
+
+    def form_valid(self, form):
+        messages.success(self.request, "Client Information updated successfully!")
+        return super().form_valid(form)
 
 
 class ClientProfile(LoginRequiredMixin, DetailView):
