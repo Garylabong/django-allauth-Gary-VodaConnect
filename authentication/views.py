@@ -1,6 +1,7 @@
 from django.urls import reverse, reverse_lazy
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.views.generic.edit import DeleteView
 from authentication.forms import *
@@ -52,16 +53,17 @@ def index(request):
     return JsonResponse(authentications, safe=False)
 
 
-class ClientProfileUpdate(UpdateView):
+class ClientProfileUpdate(LoginRequiredMixin, UpdateView):
     form_class = ClientEditForm
     template_name = "authentication/profile_update.html"
     success_url = reverse_lazy("auth:client_profile")
 
     def get_object(self):
+        messages.success(self.request, "Client Profile updated success!")
         return self.request.user
 
 
-class ClientInformationUpdate(UpdateView):
+class ClientInformationUpdate(LoginRequiredMixin, UpdateView):
     form_class = ClientEditInfoForm
     template_name = "authentication/update_information.html"
     success_url = reverse_lazy("auth:client_profile")
@@ -70,7 +72,7 @@ class ClientInformationUpdate(UpdateView):
         return self.request.user.client
 
 
-class ClientProfile(DetailView):
+class ClientProfile(LoginRequiredMixin, DetailView):
     model = Client
     template_name = "authentication/profile.html"
     context_object_name = "list"
@@ -79,25 +81,39 @@ class ClientProfile(DetailView):
         return self.request.user
 
 
-class ClientPersonalFileDetail(DetailView):
+class ClientPersonalFileDetail(LoginRequiredMixin, DetailView):
     model = ClientPersonalFile
-    template_name = ""
     context_object_name = "list"
 
 
-class PersonalFiles(ListView):
-    model = AccountFile
-    template_name = "authentication/personalfile_list.html"
+class PersonalFilesListView(LoginRequiredMixin, ListView):
+    model = ClientPersonalFile
     context_object_name = "list"
 
-    def get_object(self):
-        return self.request.user
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["list"] = context["list"].filter(user=self.request.user)
+        return context
 
 
-class PersonalFilesUpdate(UpdateView):
-    form_class = ClientFileForm
-    template_name = "authentication/personalfile_update.html"
+class PersonalFilesCreateView(LoginRequiredMixin, CreateView):
+    model = ClientPersonalFile
+    fields = [
+        "client",
+        "file_title",
+        "url",
+        "description",
+    ]
+    template_name = "authentication/clientpersonalfile_create.html"
     success_url = reverse_lazy("auth:personal_file_list")
 
-    def get_object(self):
-        return self.request.user
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(PersonalFilesCreateView, self).form_valid(form)
+
+
+class PersonalFilesUpdateView(LoginRequiredMixin, UpdateView):
+    model = ClientPersonalFile
+    fields = ["client", "file_title", "url", "description"]
+    template_name = "authentication/clientpersonalfile_form.html"
+    success_url = reverse_lazy("auth:personal_file_list")

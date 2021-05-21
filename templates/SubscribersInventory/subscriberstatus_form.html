@@ -24,7 +24,7 @@
     }
 
     .container {
-        max-width: 60%;
+        max-width: 50%;
         width: 100%;
         background: #243b55;
         padding: 25px 30px;
@@ -34,9 +34,9 @@
     }
 
     .container .title {
-        font-size: small;
+        font-size: 14px;
         font-weight: 500;
-        margin-left: -80%;
+        margin-left: -70%;
         color: #e442d7;
         margin-top: -10px;
         margin-bottom: -1%;
@@ -54,45 +54,17 @@
         width: 45%;
         margin-left: 2%;
         margin-right: -5%;
-        margin-top: 4%;
     }
 
     .form-control {
         width: 110%;
         background-color: transparent;
         border-color: none;
+        font-size: small;
     }
 
     .form-control:focus,
     .form-control:valid {
-        border-color: #ed5fdc;
-        box-shadow: none;
-    }
-
-    .form-control2 {
-        width: 110%;
-        background-color: transparent;
-        border-color: none;
-    }
-
-    .form-control2:focus,
-    .form-control2:valid {
-        border-color: #ed5fdc;
-        box-shadow: none;
-    }
-
-    .form-control5 {
-        width: 240%;
-        line-height: 8px;
-        padding-top: 15px;
-        font-size: small;
-        color: #0da34b;
-        background-color: transparent;
-        border-color: none;
-    }
-
-    .form-control5:focus,
-    .form-control5:valid {
         border-color: #ed5fdc;
         box-shadow: none;
     }
@@ -102,15 +74,19 @@
     }
 
     .requiredField {
-        margin-top: -2%;
-        display: block;
+        margin-left: -10%;
+        margin-bottom: -10%;
         font-size: small;
-        position: absolute;
     }
 
-    .invalid-feedback {
-
+    .dateinput {
+        color: #0da34b;
         font-size: small;
+    }
+
+    .numberinput {
+        font-size: small;
+        color: #0da34b;
     }
 
     .select {
@@ -125,16 +101,15 @@
 
     form .btn-customized1 {
         top: 0px;
-        margin-top: 0px;
+        margin-top: -10px;
         color: #f3eff2;
         height: 40px;
         padding-top: 8px;
-        padding-left: 30px;
-        margin-right: -330%;
+        padding-left: 20px;
+        margin-right: -280%;
         display: flex;
         width: 90px;
         font-size: small;
-        border-color: #ffa5f7;
         border-radius: 10px;
     }
 
@@ -144,17 +119,36 @@
         transform: scale(0.9);
     }
 
+    form .btn-customized1:focus {
+        background-color: #b84faf;
+        color: #f3eff2;
+    }
+
     form .btn-customized1:focus,
     form .btn-customized1:valid {
         background-color: #b84faf;
         color: #f3eff2;
+        box-shadow: none;
+    }
+
+    .form-control2 {
+        width: 240%;
+        padding-top: 15px;
+        line-height: 8px;
+        font-size: small;
+        background-color: #243b55;
+        color: #0da34b;
+    }
+
+    .form-control2:focus,
+    .form-control2:valid {
         border-color: #ed5fdc;
         box-shadow: none;
     }
 </style>
 
 <div class="container">
-    <div class="title">ADD ACCOUNT FILE</div>
+    <div class="title">SUBSCRIBERS STATUS</div>
     <br>
     <div class="content">
         <form method="POST">
@@ -163,7 +157,7 @@
                 {{form | crispy}}
             </table>
             <div class="text-right">
-                <button type="submit" class="btn btn-customized1 float-right">Add</button>
+                <button type="submit" class="btn btn-customized1 float-right">Update</button>
             </div>
             <br>
         </form>

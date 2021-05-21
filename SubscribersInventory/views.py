@@ -24,6 +24,7 @@ class SubsInvView(LoginRequiredMixin, TemplateView):
     template_name = "SubscribersInventory/subs_inventory.html"
 
 
+# vOIPiNFO
 class VoipListView(LoginRequiredMixin, ListView):
     model = VoIpInformation
     context_object_name = "list"
@@ -40,6 +41,7 @@ class VoipDetailView(DetailView):
     template_name = "SubscribersInventory/voipinformation_detail.html"
 
 
+# ACTIVATION DETAILS
 class ActivationDetailListView(LoginRequiredMixin, ListView):
     model = ActivationDetail
     context_object_name = "list"
@@ -66,6 +68,7 @@ class ActivationDetailAddView(SuccessMessageMixin, CreateView):
         return redirect("subs_Inv:activation_details_list")
 
 
+# PLAN DETAILS
 class PlanDetailsListView(LoginRequiredMixin, ListView):
     model = PlanDetail
     context_object_name = "list"
@@ -81,30 +84,33 @@ class PlanDetailsUpdateView(LoginRequiredMixin, UpdateView):
     form_class = PlanDetailsUpdateForm
     template_name = "SubscribersInventory/plandetail_form.html"
     success_url = reverse_lazy("subs_Inv:plan_details")
-    # form_class = MonthlyChargeUpdateForm
-    # template_name = "Billing/monthlycharge_Update.html"
-    # success_url = reverse_lazy("bill:month_list")
 
 
-class SubscribersStatusView(TemplateView):
-    template_name = "SubscribersInventory/subs_status.html"
+# SUBSCRIBER STATUS
+class SubscribersStatusListView(LoginRequiredMixin, ListView):
+    model = SubscriberStatus
+    context_object_name = "list"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["list"] = context["list"].filter(user=self.request.user)
+        return context
 
 
-class ForwardingInfoView(TemplateView):
-    template_name = "SubscribersInventory/forwarding_info.html"
+class SubscribersStatusUpdateView(LoginRequiredMixin, UpdateView):
+    model = SubscriberStatus
+    fields = ["stat_production", "type_of_request", "ready_for_testimony"]
+    template_name = "SubscribersInventory/subscriberstatus_form.html"
+    success_url = reverse_lazy("subs_Inv:plan_details")
 
 
-class ProfileView(TemplateView):
-    template_name = "SubscribersInventory/profile.html"
+# FORWARDING INFORMATION
+class ForwardingInfoListView(LoginRequiredMixin, ListView):
+    models = ["ForwardingInfo", "TotalNumExtension"]
+    context_object_name = "list"
+    template_name = "SubscribersInventory/forwardinginfo_list.html"
 
-
-class OtherChargeView(TemplateView):
-    template_name = "SubscribersInventory/other_charge.html"
-
-
-class MonthlyChargeView(TemplateView):
-    template_name = "SubscribersInventory/monthly_charge.html"
-
-
-class OrderRequestView(TemplateView):
-    template_name = "SubscribersInventory/order_request.html"
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["list"] = context["list"].filter(user=self.request.user)
+        return context

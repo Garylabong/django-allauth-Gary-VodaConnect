@@ -127,10 +127,11 @@
         display: none;
     }
 
-    label {
-        margin-bottom: -30%;
+    .requiredField {
+        margin-top: -2%;
+        display: block;
         font-size: small;
-        margin-left: -25%;
+        position: absolute;
     }
 
     .content form {
@@ -154,7 +155,14 @@
     }
 
     .form-control {
-        width: 140%;
+        width: 120%;
+    }
+
+    .form-group {
+        width: 47%;
+        margin-left: -6%;
+        margin-right: -2%;
+        margin-top: 4%;
     }
 
     .textInput {
@@ -211,6 +219,7 @@
 <br>
 <div class="container1">
     <div class="title1 text-light text-center">EDIT CLIENT PROFILE</div>
+    <br>
     <div class="content">
         <form method="POST">
             {% csrf_token %}

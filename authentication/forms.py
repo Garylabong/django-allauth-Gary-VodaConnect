@@ -280,10 +280,12 @@ class ClientEditInfoForm(ModelForm):
         )
         self.fields["affiliate_partner_code"] = forms.CharField(
             required=False,
+            label="Affiliate Partner Code",
             widget=forms.TextInput(attrs={"class": "form-control3"}),
         )
         self.fields["affiliate_partner_name"] = forms.CharField(
             required=False,
+            label="Affiliate Partner Name",
             widget=forms.TextInput(attrs={"class": "form-control4"}),
         )
         self.fields["lead_information"] = forms.CharField(

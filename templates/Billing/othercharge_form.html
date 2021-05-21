@@ -24,7 +24,7 @@
     }
 
     .container {
-        max-width: 60%;
+        max-width: 56%;
         width: 100%;
         background: #243b55;
         padding: 25px 30px;
@@ -34,9 +34,9 @@
     }
 
     .container .title {
-        font-size: small;
+        font-size: 14px;
         font-weight: 500;
-        margin-left: -80%;
+        margin-left: -77%;
         color: #e442d7;
         margin-top: -10px;
         margin-bottom: -1%;
@@ -54,7 +54,7 @@
         width: 45%;
         margin-left: 2%;
         margin-right: -5%;
-        margin-top: 4%;
+        margin-top: 3%;
     }
 
     .form-control {
@@ -65,34 +65,6 @@
 
     .form-control:focus,
     .form-control:valid {
-        border-color: #ed5fdc;
-        box-shadow: none;
-    }
-
-    .form-control2 {
-        width: 110%;
-        background-color: transparent;
-        border-color: none;
-    }
-
-    .form-control2:focus,
-    .form-control2:valid {
-        border-color: #ed5fdc;
-        box-shadow: none;
-    }
-
-    .form-control5 {
-        width: 240%;
-        line-height: 8px;
-        padding-top: 15px;
-        font-size: small;
-        color: #0da34b;
-        background-color: transparent;
-        border-color: none;
-    }
-
-    .form-control5:focus,
-    .form-control5:valid {
         border-color: #ed5fdc;
         box-shadow: none;
     }
@@ -108,9 +80,14 @@
         position: absolute;
     }
 
-    .invalid-feedback {
-
+    .dateinput {
+        color: #0da34b;
         font-size: small;
+    }
+
+    .numberinput {
+        font-size: small;
+        color: #0da34b;
     }
 
     .select {
@@ -134,27 +111,45 @@
         display: flex;
         width: 90px;
         font-size: small;
-        border-color: #ffa5f7;
         border-radius: 10px;
     }
 
     form .btn-customized1:hover {
         background: #e442d7;
-        color: #f3eff2;
         transform: scale(0.9);
+    }
+
+    form .btn-customized1:focus {
+        background-color: #b84faf;
+        color: #f3eff2;
     }
 
     form .btn-customized1:focus,
     form .btn-customized1:valid {
-        background-color: #b84faf;
+        background-color: #c54fbb;
         color: #f3eff2;
+        box-shadow: none;
+    }
+
+    .form-control5 {
+        width: 240%;
+        line-height: 8px;
+        padding-top: 15px;
+        font-size: small;
+        background-color: #243b55;
+        color: #0da34b;
+
+    }
+
+    .form-control5:focus,
+    .form-control5:valid {
         border-color: #ed5fdc;
         box-shadow: none;
     }
 </style>
 
 <div class="container">
-    <div class="title">ADD ACCOUNT FILE</div>
+    <div class="title">ADD OTHER CHARGES</div>
     <br>
     <div class="content">
         <form method="POST">

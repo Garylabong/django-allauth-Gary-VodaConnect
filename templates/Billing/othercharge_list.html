@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<br>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        background: linear-gradient(#141e30, #243b55);
+        background-attachment: fixed;
+    }
+
+    .container {
+        max-width: 90%;
+        width: 100%;
+        background: #243b55;
+        padding: 25px 30px;
+        border-radius: 15px;
+        box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+        margin-left: 7%;
+        margin-top: 1%;
+    }
+
+    .container .title {
+        font-size: 14px;
+        font-weight: 500;
+        margin-left: -88.5%;
+        color: #f5eff4;
+        margin-top: -30px;
+        margin-bottom: 3%;
+    }
+
+
+    form .table {
+        color: #f3eff2;
+        font-size: small;
+    }
+
+    .table {
+        width: 200%;
+        margin-top: -4.5%;
+    }
+
+    .table tbody th {
+        font-weight: normal;
+    }
+
+    .custom-select {
+        font-size: small;
+        margin-left: 133%;
+        margin-bottom: -93%;
+    }
+
+    .table thead th {
+        color: #0da34b;
+    }
+
+    a.btn-customized4 {
+        color: #eef0f1;
+        font-weight: 20;
+        background-color: #e442d7;
+        font-size: small;
+        margin-bottom: -10px;
+        margin-left: 80%;
+        margin-right: -4%;
+        border-radius: 10px;
+    }
+
+    a.btn-customized4:hover {
+        background: #e442d7;
+        color: #f3eff2;
+        transform: scale(0.9);
+    }
+
+    a.btn-customized4:focus,
+    a.btn-customized4:valid {
+        background-color: #b84faf;
+        color: #f3eff2;
+        border-color: #ed5fdc;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
+    }
+
+    a.btn-customized5 {
+        color: #f3eff2;
+        height: 35px;
+        margin-left: -10px;
+        margin-right: -10px;
+        padding-top: 7px;
+        width: 115px;
+        font-size: small;
+        padding-left: 5px;
+        padding-right: 5px;
+        background: linear-gradient(#141e30, #243b55);
+        border-radius: 10px;
+        margin-top: 10px;
+    }
+
+    a.btn-customized5:hover {
+        color: #f3eff2;
+    }
+
+    a.btn-customized5:focus {
+        color: #f3eff2;
+    }
+
+    a.btn-customized5:focus,
+    a.btn-customized5:valid {
+        box-shadow: none;
+    }
+</style>
+<div class="container">
+    <a class=" btn btn-customized4" href="{% url 'bill:othercharge_create'%}">Create Other Charge</a>
+    <div class="title text-center">OTHER CHARGES</div>
+    <div class="content">
+        <form action="#">
+            <table class="table table-dark table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Date </th>
+                        <th scope="col">Vodaconnect Number</th>
+                        <th scope="col">Type charge</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Payment Reference</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Notes</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for OtherCharge in list %}
+                    <tr>
+                        <th scope="row">{{OtherCharge.date}}</th>
+                        <td>{{OtherCharge.vodaconnect_number}}</td>
+                        <td>{{OtherCharge.type_charge}}</td>
+                        <td>{{OtherCharge.amount}}</td>
+                        <td>{{OtherCharge.pay_ref}}</td>
+                        <td>{{OtherCharge.status}}</td>
+                        <td>{{OtherCharge.notes}}</td>
+                        <td><a class="btn btn-customized5"
+                                href="{% url 'bill:othercharge_update' OtherCharge.id %}">Update
+                                Details</td>
+                        {% empty %}
+                        {% endfor %}
+
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+</div>
+
+
+{% endblock %}
