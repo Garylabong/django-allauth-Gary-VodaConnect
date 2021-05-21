@@ -59,8 +59,11 @@ class ClientProfileUpdate(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy("auth:client_profile")
 
     def get_object(self):
-        messages.success(self.request, "Client Profile updated success!")
         return self.request.user
+
+    def form_valid(self, form):
+        messages.success(self.request, "Client Profile updated success!")
+        return super().form_valid(form)
 
 
 class ClientInformationUpdate(LoginRequiredMixin, UpdateView):
