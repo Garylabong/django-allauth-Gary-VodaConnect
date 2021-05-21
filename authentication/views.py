@@ -35,7 +35,7 @@ class ClientViewSet(viewsets.ModelViewSet):
     serializer_class = ClientSerializer
 
 
-from django.http import JsonResponse
+from django.http import JsonResponse, request
 from authentication.models import Client
 
 
@@ -85,7 +85,7 @@ class ClientProfile(LoginRequiredMixin, DetailView):
     context_object_name = "list"
 
     def get_object(self):
-        return self.request.user
+        return self.request.user.client
 
 
 class ClientPersonalFileDetail(LoginRequiredMixin, DetailView):
@@ -124,3 +124,16 @@ class PersonalFilesUpdateView(LoginRequiredMixin, UpdateView):
     fields = ["client", "file_title", "url", "description"]
     template_name = "authentication/clientpersonalfile_form.html"
     success_url = reverse_lazy("auth:personal_file_list")
+
+
+# def profilepicture(request):
+#     client = request.user.client
+#     form = ClientEditForm(instance=client)
+
+#     if request.method == "POST":
+#         form = ClientEditForm(request.POST, request.FILES, instance=client)
+#         if form.is_valid():
+#             form.save
+
+#     context = {"form": form}
+#     return render(request, "authentication/profile.html", context)

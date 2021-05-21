@@ -24,4 +24,6 @@ urlpatterns = [
         PersonalFilesUpdateView.as_view(),
         name="personal_file_update",
     ),
+    # path("profile/", profilepicture, name="client_profile"),
+    # path("profile/update", profilepicture, name="update_profile"),
 ]

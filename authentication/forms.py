@@ -249,7 +249,8 @@ class ClientEditInfoForm(ModelForm):
             "affiliate_partner_name",
             "company_name",
             "designation_name",
-            "lead_information",
+            # "lead_information",
+            "profile_picture",
         )
 
     def __init__(self, *args, **kwargs):
@@ -288,11 +289,11 @@ class ClientEditInfoForm(ModelForm):
             label="Affiliate Partner Name",
             widget=forms.TextInput(attrs={"class": "form-control4"}),
         )
-        self.fields["lead_information"] = forms.CharField(
-            required=True,
-            label="Lead Information",
-            widget=forms.Textarea(attrs={"class": "form-control5"}),
-        )
+        # self.fields["lead_information"] = forms.CharField(
+        #     required=True,
+        #     label="Lead Information",
+        #     widget=forms.Textarea(attrs={"class": "form-control5"}),
+        # )
 
 
 class ClientAddForm(forms.ModelForm):
@@ -303,6 +304,7 @@ class ClientAddForm(forms.ModelForm):
             "last_name",
             "email",
             "phone_number",
+            "profile_picture",
             "pin",
             "company_name",
             "designation_name",
