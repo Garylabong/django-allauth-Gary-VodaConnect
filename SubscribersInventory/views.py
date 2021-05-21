@@ -64,7 +64,7 @@ class ActivationDetailAddView(SuccessMessageMixin, CreateView):
         activationdetail = form.save(commit=False)
         activationdetail.user = self.request.user
         activationdetail.save()
-        messages.success(self.request, "You have been Created a Details!")
+        messages.success(self.request, "✔ You have been Created a Details.")
         return redirect("subs_Inv:activation_details_list")
 
 
@@ -86,7 +86,7 @@ class PlanDetailsUpdateView(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy("subs_Inv:plan_details")
 
     def form_valid(self, form):
-        messages.success(self.request, "Plan Details updated successfully!")
+        messages.success(self.request, " ✔ Plan Details updated successfully.")
         return super().form_valid(form)
 
 
@@ -106,6 +106,10 @@ class SubscribersStatusUpdateView(LoginRequiredMixin, UpdateView):
     fields = ["stat_production", "type_of_request", "ready_for_testimony"]
     template_name = "SubscribersInventory/subscriberstatus_form.html"
     success_url = reverse_lazy("subs_Inv:plan_details")
+
+    def form_valid(self, form):
+        messages.success(self.request, " ✔ Status Updated Successfully.")
+        return super().form_valid(form)
 
 
 # FORWARDING INFORMATION
