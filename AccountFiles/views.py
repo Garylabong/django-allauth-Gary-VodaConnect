@@ -35,5 +35,5 @@ class AccountFilesCreate(LoginRequiredMixin, CreateView):
         return super(AccountFilesCreate, self).form_valid(form)
 
     def form_valid(self, form):
-        messages.success(self.request, "✔ Client File created successfully.")
+        messages.success(self.request, "Client File created successfully.")
         return super().form_valid(form)
