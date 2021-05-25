@@ -1,7 +1,5 @@
 {% extends 'base.html' %}
 
-
-
 {% block content %}
 <br>
 <style>
@@ -210,26 +208,7 @@
                     {% include 'SubscribersInventory/forwardiinginfo/otherlogins.html' %}
                     <br>
                     <div class="title5 text-center">Note</div>
-                    <table class="table table-dark text-left table-striped">
-                        <thead>
-                            <tr>
-                                <th scope="col">Notes</th>
-                                <th scope="col">Create</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for Note in list %}
-                            <tr>
-                                <th scope="row">{{ Note.notes }}</th>
-                                <td><a class="text-primary" href="">Add Notes</td>
-                                <td><a class="text-primary" href="">Update</td>
-                            </tr>
-                            {% empty %}
-
-                            {% endfor %}
-                        </tbody>
-                    </table>
+                    {% include 'SubscribersInventory/forwardiinginfo/notes.html' %}
                 </form>
             </div>
         </div>

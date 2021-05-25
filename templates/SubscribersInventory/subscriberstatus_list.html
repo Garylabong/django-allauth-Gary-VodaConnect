@@ -236,6 +236,8 @@
     }
 </style>
 
+{% load crispy_forms_tags %}
+
 <div class="container">
     <div class="title text-center">PHONELINES INVENTORY</div>
     <br>
@@ -266,8 +268,8 @@
                                     <td>{{ SubscriberStatus.type_of_request }}</td>
                                     <td>{{ SubscriberStatus.ready_for_testimony }}</td>
                                     <td><a class="btn btn-customized5"
-                                            href="{% url 'subs_Inv:subs_status_update' SubscriberStatus.id %}">Update
-                                            Status</td>
+                                            href="{% url 'subs_Inv:subs_status_update' SubscriberStatus.id %}">
+                                            Update Status</td>
                                 </tr>
                                 {% empty %}
                                 {% endfor %}
