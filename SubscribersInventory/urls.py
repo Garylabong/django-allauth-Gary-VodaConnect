@@ -37,6 +37,6 @@ urlpatterns = [
     ),
     # FORWARDING INFORMATION
     path(
-        "forwarding_information/", ForwardingInfoListView.as_view(), name="forward_info"
+        "forwardinginformation/", ForwardingInfoListView.as_view(), name="forward_info"
     ),
 ]

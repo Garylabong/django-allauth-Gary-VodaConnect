@@ -192,7 +192,7 @@
                 </div>
             </div>
             <div class="container4">
-                <div class="open-menu">
+                <div class="open-menu" type="button" id="liveToastBtn">
                     <br>
                     <a class=" btn-customized3 fa fa-tachometer-alt fa-lg" href="#"></a>
                     <a class=" btn-customized3 fab fa-first-order-alt fa-lg" href="#"></a>
@@ -204,6 +204,25 @@
                     <br><br><br><br><br><br>
                 </div>
             </div>
+            <div class="toast toast-sm-2 position-fixed text-light end-0 top"
+                style="z-index: 5; background-color: #d61bd6;" id="liveToast" role="alert" aria-live="assertive"
+                aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body" style="background-color: #d61bd6;">
+                        <i class="fa fa-bell fa-lg mr-3" aria-hidden="true"></i>Sidebar mini has been Activated.
+                    </div>
+                    <button style="background-color: #d61bd6;" type="button"
+                        class="btn-close btn-close-dark me-2 m-auto" data-bs-dismiss="toast"
+                        aria-label="Close"></button>
+                </div>
+            </div>
+
+
+            <script>
+                $("#liveToastBtn").click(function () {
+                    $("#liveToast").toast('show')
+                });
+            </script>
             <!-- Javascript -->
             <script src="{% static 'subsInventory/js/jquery-3.3.1.min.js' %}"></script>
             <script src="{% static 'subsInventory/js/jquery-migrate-3.0.0.min.js' %}"></script>
@@ -287,11 +306,22 @@
             transform: rotate(180deg);
         }
     </style>
+
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path
+                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+        </symbol>
+    </svg>
+
     <div class="global-container">
         <br>
         {% for message in messages %}
         <div class="col-4">
-            <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+            <div class="alert {{ message.tags }} alert-dismissible" role="alert" id="success-alert">
+                <svg class="bi flex-shrink-0" width="24" height="18" role="img" aria-label="Success:">
+                    <use xlink:href="#check-circle-fill" />
+                </svg>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true"></span>
                 </button>
@@ -299,6 +329,15 @@
             </div>
         </div>
         {% endfor %}
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#success-alert").hide();
+                $("#success-alert").fadeTo(2000, 5000).slideUp(500, function () {
+                    $("#success-alert").slideUp(500);
+                });
+            });
+        </script>
+
         <!-- <div class="alert-warning">
             {% if messages %}
             {% for message in messages %}

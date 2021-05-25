@@ -1,0 +1,25 @@
+<table class="table table-dark text-left
+ table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Extension Number</th>
+            <th scope="col">Extension logins</th>
+            <th scope="col">Notes</th>
+            <th scope="col">Create</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for TotalNumExtension in list %}
+        <tr>
+            <th scope="row">{{ TotalNumExtension.extension_num }}</th>
+            <td>{{ TotalNumExtension.extension_logins }}</td>
+            <td>{{ TotalNumExtension.notes }}</td>
+            <td><a class="text-primary" href="">Add Extension</td>
+            <td><a class="text-primary" href="">Update</td>
+        </tr>
+        {% empty %}
+
+        {% endfor %}
+    </tbody>
+</table>

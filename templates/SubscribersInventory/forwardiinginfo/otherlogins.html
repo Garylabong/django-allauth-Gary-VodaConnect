@@ -1,0 +1,24 @@
+<table class="table table-dark text-left table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Other logins</th>
+            <th scope="col">Description</th>
+            <th scope="col">Notes</th>
+            <th scope="col">Create</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for OtherLogin in list %}
+        <tr>
+            <th scope="row">{{ OtherLogin.other_logins }}</th>
+            <td>{{ OtherLogin.description }}</td>
+            <td>{{ OtherLogin.notes }}</td>
+            <td><a class="text-primary" href="">Add Extension</td>
+            <td><a class="text-primary" href="">Update</td>
+        </tr>
+        {% empty %}
+
+        {% endfor %}
+    </tbody>
+</table>
