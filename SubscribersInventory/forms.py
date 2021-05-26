@@ -1,7 +1,15 @@
 from django import forms
 from django.forms import ModelForm
 
-from .models import ActivationDetail, PlanDetail
+from .models import (
+    ActivationDetail,
+    PlanDetail,
+    ForwardingInfo,
+    TotalNumExtension,
+    ZiptrunkLoginDetail,
+    OtherLogin,
+    Note,
+)
 
 
 class DateInput(forms.DateInput):
@@ -210,4 +218,228 @@ class PlanDetailsUpdateForm(forms.ModelForm):
             required=True,
             label="Total Cost",
             widget=forms.TextInput(attrs={"class": "form-control3", "type": "number"}),
+        )
+
+
+class ForwardingInfoCreateForm(forms.ModelForm):
+    class Meta:
+        model = ForwardingInfo
+        fields = ("forwarding_num",)
+
+    def __init__(self, *args, **kwargs):
+        super(ForwardingInfoCreateForm, self).__init__(*args, **kwargs)
+        self.fields["forwarding_num"] = forms.IntegerField(
+            required=True,
+            label="Forwarding Number:(Customer Phone Line)",
+            widget=forms.TextInput(attrs={"class": "form-control3", "type": "number"}),
+        )
+
+
+class ForwardingInfoUpdateForm(forms.ModelForm):
+    class Meta:
+        model = ForwardingInfo
+        fields = ("forwarding_num",)
+
+    def __init__(self, *args, **kwargs):
+        super(ForwardingInfoUpdateForm, self).__init__(*args, **kwargs)
+        self.fields["forwarding_num"] = forms.IntegerField(
+            required=True,
+            label="Forwarding Number:(Customer Phone Line)",
+            widget=forms.TextInput(attrs={"class": "form-control3", "type": "number"}),
+        )
+
+
+class TotalNumExtensionCreateForm(forms.ModelForm):
+    class Meta:
+        model = TotalNumExtension
+        fields = (
+            "extension_num",
+            "extension_logins",
+            "notes",
+        )
+
+    def __init__(self, *args, **kwargs):
+        super(TotalNumExtensionCreateForm, self).__init__(*args, **kwargs)
+        self.fields["extension_num"] = forms.IntegerField(
+            required=True,
+            label="Extension Number",
+            widget=forms.TextInput(attrs={"class": "form-control3", "type": "number"}),
+        )
+        self.fields["extension_logins"] = forms.CharField(
+            required=True,
+            label="Extension Login",
+            widget=forms.TextInput(attrs={"class": "form-control3"}),
+        )
+        self.fields["notes"] = forms.CharField(
+            required=True,
+            label="Note",
+            widget=forms.Textarea(attrs={"class": "form-control4"}),
+        )
+
+
+class TotalNumExtensionUpdateForm(forms.ModelForm):
+    class Meta:
+        model = TotalNumExtension
+        fields = (
+            "extension_num",
+            "extension_logins",
+            "notes",
+        )
+
+    def __init__(self, *args, **kwargs):
+        super(TotalNumExtensionUpdateForm, self).__init__(*args, **kwargs)
+        self.fields["extension_num"] = forms.IntegerField(
+            required=True,
+            label="Extension Number",
+            widget=forms.TextInput(attrs={"class": "form-control3", "type": "number"}),
+        )
+        self.fields["extension_logins"] = forms.CharField(
+            required=True,
+            label="Extension Login",
+            widget=forms.TextInput(attrs={"class": "form-control3"}),
+        )
+        self.fields["notes"] = forms.CharField(
+            required=True,
+            label="Note",
+            widget=forms.Textarea(attrs={"class": "form-control4"}),
+        )
+
+
+class ZiptrunkLoginDetailCreateForm(forms.ModelForm):
+    class Meta:
+        model = ZiptrunkLoginDetail
+        fields = (
+            "ziptrunk_logins",
+            "ziptrunk_details",
+            "notes",
+        )
+
+    def __init__(self, *args, **kwargs):
+        super(ZiptrunkLoginDetailCreateForm, self).__init__(*args, **kwargs)
+        self.fields["ziptrunk_logins"] = forms.EmailField(
+            required=True,
+            label="Ziptrunk Login",
+            widget=forms.TextInput(attrs={"class": "form-control3", "type": "email"}),
+        )
+        self.fields["ziptrunk_details"] = forms.CharField(
+            required=True,
+            label="Details",
+            widget=forms.TextInput(attrs={"class": "form-control3"}),
+        )
+        self.fields["notes"] = forms.CharField(
+            required=True,
+            label="Note",
+            widget=forms.Textarea(attrs={"class": "form-control4"}),
+        )
+
+
+class ZiptrunkLoginDetailUpdateForm(forms.ModelForm):
+    class Meta:
+        model = ZiptrunkLoginDetail
+        fields = (
+            "ziptrunk_logins",
+            "ziptrunk_details",
+            "notes",
+        )
+
+    def __init__(self, *args, **kwargs):
+        super(ZiptrunkLoginDetailUpdateForm, self).__init__(*args, **kwargs)
+        self.fields["ziptrunk_logins"] = forms.EmailField(
+            required=True,
+            label="Ziptrunk Login",
+            widget=forms.TextInput(attrs={"class": "form-control3", "type": "email"}),
+        )
+        self.fields["ziptrunk_details"] = forms.CharField(
+            required=True,
+            label="Details",
+            widget=forms.TextInput(attrs={"class": "form-control3"}),
+        )
+        self.fields["notes"] = forms.CharField(
+            required=True,
+            label="Note",
+            widget=forms.Textarea(attrs={"class": "form-control4"}),
+        )
+
+
+class OtherLoginCreateForm(forms.ModelForm):
+    class Meta:
+        model = OtherLogin
+        fields = (
+            "other_logins",
+            "description",
+            "notes",
+        )
+
+    def __init__(self, *args, **kwargs):
+        super(OtherLoginCreateForm, self).__init__(*args, **kwargs)
+        self.fields["other_logins"] = forms.EmailField(
+            required=True,
+            label="Other Login",
+            widget=forms.TextInput(attrs={"class": "form-control3", "type": "email"}),
+        )
+        self.fields["description"] = forms.CharField(
+            required=True,
+            label="Description",
+            widget=forms.TextInput(attrs={"class": "form-control3"}),
+        )
+        self.fields["notes"] = forms.CharField(
+            required=True,
+            label="Note",
+            widget=forms.Textarea(attrs={"class": "form-control4"}),
+        )
+
+
+class OtherLoginUpdateForm(forms.ModelForm):
+    class Meta:
+        model = OtherLogin
+        fields = (
+            "other_logins",
+            "description",
+            "notes",
+        )
+
+    def __init__(self, *args, **kwargs):
+        super(OtherLoginUpdateForm, self).__init__(*args, **kwargs)
+        self.fields["other_logins"] = forms.EmailField(
+            required=True,
+            label="Other Login",
+            widget=forms.TextInput(attrs={"class": "form-control3", "type": "email"}),
+        )
+        self.fields["description"] = forms.CharField(
+            required=True,
+            label="Description",
+            widget=forms.TextInput(attrs={"class": "form-control3"}),
+        )
+        self.fields["notes"] = forms.CharField(
+            required=True,
+            label="Note",
+            widget=forms.Textarea(attrs={"class": "form-control4"}),
+        )
+
+
+class NoteCreateForm(forms.ModelForm):
+    class Meta:
+        model = Note
+        fields = ("notes",)
+
+    def __init__(self, *args, **kwargs):
+        super(NoteCreateForm, self).__init__(*args, **kwargs)
+        self.fields["notes"] = forms.CharField(
+            required=True,
+            label="Note",
+            widget=forms.Textarea(attrs={"class": "form-control4"}),
+        )
+
+
+class NoteUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Note
+        fields = ("notes",)
+
+    def __init__(self, *args, **kwargs):
+        super(NoteUpdateForm, self).__init__(*args, **kwargs)
+        self.fields["notes"] = forms.CharField(
+            required=True,
+            label="Note",
+            widget=forms.Textarea(attrs={"class": "form-control4"}),
         )

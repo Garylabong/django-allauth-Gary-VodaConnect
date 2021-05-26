@@ -1,24 +1,102 @@
-<table class="table table-dark text-left table-striped">
-    <thead>
-        <tr>
-            <th scope="col">Other logins</th>
-            <th scope="col">Description</th>
-            <th scope="col">Notes</th>
-            <th scope="col">Create</th>
-            <th scope="col">Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for OtherLogin in list %}
-        <tr>
-            <th scope="row">{{ OtherLogin.other_logins }}</th>
-            <td>{{ OtherLogin.description }}</td>
-            <td>{{ OtherLogin.notes }}</td>
-            <td><a class="text-primary" href="">Add Extension</td>
-            <td><a class="text-primary" href="">Update</td>
-        </tr>
-        {% empty %}
+<style>
+    .table {
+        width: 100%;
+        margin-top: 0%;
+        margin-bottom: -11px;
+    }
 
-        {% endfor %}
-    </tbody>
-</table>
+    .table tbody th {
+        font-weight: normal;
+        font-size: small;
+        font-family: 'Poppins';
+    }
+
+    .table tbody td {
+        font-weight: normal;
+        font-size: small;
+    }
+
+    .table thead th {
+        color: #0da34b;
+    }
+
+    .tableFixHead {
+        overflow-y: auto;
+        height: 100px;
+        width: 200%;
+        margin-top: -5%;
+        border-radius: 10px;
+    }
+
+    .tableFixHead thead th {
+        position: sticky;
+        top: 0;
+        color: #0da34b;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td {
+        padding-top: 50%;
+    }
+
+    th {
+        background: #eee;
+    }
+
+    a.btn-customized5 {
+        color: #f3eff2;
+        height: 35px;
+        margin-left: -10px;
+        margin-right: -40px;
+        display: flex;
+        padding-top: 7px;
+        width: 70px;
+        font-size: small;
+        padding-left: 10px;
+        background: linear-gradient(#141e30, #243b55);
+        border-radius: 10px;
+    }
+
+    a.btn-customized5:hover {
+        color: #f3eff2;
+    }
+
+    a.btn-customized5:focus {
+        color: #f3eff2;
+    }
+
+    a.btn-customized5:focus,
+    a.btn-customized5:valid {
+        box-shadow: none;
+    }
+</style>
+
+<div class="tableFixHead">
+    <table class="table table-dark text-left table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Other logins</th>
+                <th scope="col">Description</th>
+                <th scope="col">Notes</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for OtherLogin in otherlogin_list %}
+            <tr>
+                <th scope="row">{{ OtherLogin.other_logins }}</th>
+                <td>{{ OtherLogin.description }}</td>
+                <td>{{ OtherLogin.notes }}</td>
+                <td><a class="btn btn-customized5" href="{% url 'subs_Inv:otherlogin_update' OtherLogin.id %}">Update
+                </td>
+            </tr>
+            {% empty %}
+
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

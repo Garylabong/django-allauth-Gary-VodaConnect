@@ -39,4 +39,54 @@ urlpatterns = [
     path(
         "forwardinginformation/", ForwardingInfoListView.as_view(), name="forward_info"
     ),
+    path(
+        "forwardinginformation/add/",
+        ForwardingInfoCreateView.as_view(),
+        name="forwardinginformation_add",
+    ),
+    path(
+        "totalnumextension/add/",
+        TotalNumExtensionCreateView.as_view(),
+        name="totalnumextension_add",
+    ),
+    path(
+        "ziptrunklogindetail/add/",
+        ZiptrunkLoginDetailCreateView.as_view(),
+        name="ziptrunklogindetail_add",
+    ),
+    path(
+        "otherlogin/add/",
+        OtherLoginCreateView.as_view(),
+        name="otherlogin_add",
+    ),
+    path(
+        "notes/add/",
+        NoteCreateView.as_view(),
+        name="notes_add",
+    ),
+    path(
+        "forwardinfo/update/<int:pk>/",
+        ForwardingInfoUpdateView.as_view(),
+        name="forwardinfo_update",
+    ),
+    path(
+        "totalnum/extension/update/<int:pk>/",
+        TotalNumExtensionUpdateView.as_view(),
+        name="totalnumextension_update",
+    ),
+    path(
+        "ziptrunk/update/<int:pk>/",
+        ZiptrunkLoginDetailUpdateView.as_view(),
+        name="ziptrunklogindetail_update",
+    ),
+    path(
+        "otherlogin/update/<int:pk>/",
+        OtherLoginUpdateView.as_view(),
+        name="otherlogin_update",
+    ),
+    path(
+        "notes/update/<int:pk>/",
+        NoteUpdateView.as_view(),
+        name="notes_update",
+    ),
 ]

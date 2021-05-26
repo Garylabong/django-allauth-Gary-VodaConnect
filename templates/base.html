@@ -4,17 +4,10 @@
 <html lang="en">
 
 <head>
-    <!-- <br><br>
-    <div class="alert-warning bg-transparent">
-        {% if messages %}
-        {% for message in messages %}
-        {{ message }}
-        {% endfor %}
-        {% endif %}
-    </div> -->
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="style.css">
 
@@ -36,6 +29,7 @@
 
     <title>VODA CONNECT</title>
     <link rel="icon" href="/static/subsInventory/img/backgrounds/Vod.png">
+    <link href="{% static 'subsInventory/css/bootstrap.min.css' %}" rel="stylesheet">
 </head>
 
 <body>
@@ -237,6 +231,13 @@
             <script src="{% static 'subsInventory/js/jquery.waypoints.min.js' %}"></script>
             <script src="{% static 'subsInventory/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
             <script src="{% static 'subsInventory/js/scripts.js' %}"></script>
+
+
+            <script src="{% static 'subsInventory/js/jquery-3.1.1.min.js' %}"></script>
+            <script src="{% static 'subsInventory/js/bootstrap.min.js' %}"></script>
+            <script src="{% static 'subsInventory/js/plugin.js' %}"></script>
+            {% block javascript %}
+            {% endblock %}
 
     </body>
 
