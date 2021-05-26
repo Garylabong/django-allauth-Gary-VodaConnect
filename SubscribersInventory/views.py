@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from .forms import (
@@ -155,7 +155,7 @@ class ForwardingInfoListView(LoginRequiredMixin, ListView):
         return context
 
 
-class ForwardingInfoCreateView(LoginRequiredMixin, CreateView):
+class ForwardingInfoCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = ForwardingInfo
     context_object_name = "add"
     form_class = ForwardingInfoCreateForm
@@ -179,7 +179,7 @@ class ForwardingInfoUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateVi
         return super().form_valid(form)
 
 
-class TotalNumExtensionCreateView(LoginRequiredMixin, CreateView):
+class TotalNumExtensionCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = TotalNumExtension
     context_object_name = "add"
     form_class = TotalNumExtensionCreateForm
@@ -203,7 +203,9 @@ class TotalNumExtensionUpdateView(LoginRequiredMixin, SuccessMessageMixin, Updat
         return super().form_valid(form)
 
 
-class ZiptrunkLoginDetailCreateView(LoginRequiredMixin, CreateView):
+class ZiptrunkLoginDetailCreateView(
+    LoginRequiredMixin, SuccessMessageMixin, CreateView
+):
     model = ZiptrunkLoginDetail
     context_object_name = "add"
     form_class = ZiptrunkLoginDetailCreateForm
@@ -229,7 +231,7 @@ class ZiptrunkLoginDetailUpdateView(
         return super().form_valid(form)
 
 
-class OtherLoginCreateView(LoginRequiredMixin, CreateView):
+class OtherLoginCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = OtherLogin
     context_object_name = "add"
     form_class = OtherLoginCreateForm
@@ -253,7 +255,7 @@ class OtherLoginUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
         return super().form_valid(form)
 
 
-class NoteCreateView(LoginRequiredMixin, CreateView):
+class NoteCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Note
     context_object_name = "add"
     form_class = NoteCreateForm

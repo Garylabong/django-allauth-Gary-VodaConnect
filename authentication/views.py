@@ -1,18 +1,14 @@
-from django.urls import reverse, reverse_lazy
+from django.urls import reverse_lazy
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render, redirect
-from django.views.generic.edit import DeleteView
 from authentication.forms import *
 from django.contrib.auth.decorators import login_required
 from django.views.generic import (
     UpdateView,
-    TemplateView,
     ListView,
     DetailView,
     CreateView,
-    FormView,
 )
 from authentication.models import *
 from AccountFiles.models import *
@@ -53,7 +49,7 @@ def index(request):
     return JsonResponse(authentications, safe=False)
 
 
-class ClientProfileUpdate(LoginRequiredMixin, UpdateView):
+class ClientProfileUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     form_class = ClientEditForm
     template_name = "authentication/profile_update.html"
     success_url = reverse_lazy("auth:client_profile")
@@ -66,7 +62,7 @@ class ClientProfileUpdate(LoginRequiredMixin, UpdateView):
         return super().form_valid(form)
 
 
-class ClientInformationUpdate(LoginRequiredMixin, UpdateView):
+class ClientInformationUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     form_class = ClientEditInfoForm
     template_name = "authentication/update_information.html"
     success_url = reverse_lazy("auth:client_profile")

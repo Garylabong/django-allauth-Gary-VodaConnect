@@ -1,14 +1,12 @@
 from django.contrib import messages
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
+from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 from OrderRequest.models import *
 from OrderRequest.forms import *
 from django.views.generic import (
-    TemplateView,
     ListView,
-    DetailView,
     CreateView,
-    FormView,
 )
 
 
@@ -22,7 +20,7 @@ class OrderRequestListView(LoginRequiredMixin, ListView):
         return context
 
 
-class OrderRequestAddView(CreateView):
+class OrderRequestAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = OrderRequest
     form_class = OrderRequestForm
     context_object_name = "add"

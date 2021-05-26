@@ -1,15 +1,13 @@
-from django.shortcuts import render
 from Billing.models import *
+from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.views.generic import (
     UpdateView,
-    TemplateView,
     ListView,
     DetailView,
     CreateView,
-    FormView,
     DeleteView,
 )
 
@@ -38,7 +36,7 @@ class MonthlyChargeDetail(LoginRequiredMixin, DetailView):
     template_name = "Billing/monthlycharge_detail.html"
 
 
-class MonthlyChargeCreate(LoginRequiredMixin, CreateView):
+class MonthlyChargeCreate(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = MonthlyCharge
     form_class = MonthlyChargeCreateForm
     success_url = reverse_lazy("bill:month_list")
@@ -52,7 +50,7 @@ class MonthlyChargeCreate(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class MonthlyChargeUpdate(LoginRequiredMixin, UpdateView):
+class MonthlyChargeUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = MonthlyCharge
     form_class = MonthlyChargeUpdateForm
     template_name = "Billing/monthlycharge_Update.html"
@@ -88,7 +86,7 @@ class OtherChargeListView(LoginRequiredMixin, ListView):
         return context
 
 
-class OtherChargeCreateView(LoginRequiredMixin, CreateView):
+class OtherChargeCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = OtherCharge
     form_class = OtherChargeCreateForm
     success_url = reverse_lazy("bill:othercharge_list")
@@ -102,7 +100,7 @@ class OtherChargeCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class OtherChargeUpdateView(LoginRequiredMixin, UpdateView):
+class OtherChargeUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = OtherCharge
     form_class = OtherChargeUpdateForm
     template_name = "Billing/othercharge_update.html"

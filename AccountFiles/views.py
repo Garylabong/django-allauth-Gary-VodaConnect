@@ -1,16 +1,12 @@
-from django.shortcuts import render
-from django.urls import reverse, reverse_lazy
+from django.urls import reverse_lazy
 from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 from AccountFiles.forms import ClientFileForm
 from AccountFiles.models import *
 from django.views.generic import (
-    UpdateView,
-    TemplateView,
     ListView,
-    DetailView,
     CreateView,
-    FormView,
 )
 
 
@@ -24,7 +20,7 @@ class AccountFilesList(LoginRequiredMixin, ListView):
         return context
 
 
-class AccountFilesCreate(LoginRequiredMixin, CreateView):
+class AccountFilesCreate(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = AccountFile
     form_class = ClientFileForm
     template_name = "AccountFiles/accountfile_add.html"
