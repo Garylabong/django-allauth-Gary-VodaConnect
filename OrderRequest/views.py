@@ -30,5 +30,5 @@ class OrderRequestAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
         orderrequest = form.save(commit=False)
         orderrequest.user = self.request.user
         orderrequest.save()
-        messages.success(self.request, "You have been Created a Details!")
+        messages.success(self.request, "Request added successfully.")
         return redirect("order_req:order_request")

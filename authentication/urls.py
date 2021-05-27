@@ -20,9 +20,9 @@ urlpatterns = [
         name="personalfile_create",
     ),
     path(
-        "personal_file/<int:pk>/",
+        "personalfile_update/<int:pk>/",
         PersonalFilesUpdateView.as_view(),
-        name="personal_file_update",
+        name="personalfile_update",
     ),
     # path("profile/", profilepicture, name="client_profile"),
     # path("profile/update", profilepicture, name="update_profile"),

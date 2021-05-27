@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% load static%}
+
+{% block content %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        background: linear-gradient(#141e30, #243b55);
+        background-attachment: fixed;
+
+    }
+
+    .container1 {
+        max-width: 30%;
+        width: 50%;
+        background: #243b55;
+        padding: 25px 30px;
+        border-radius: 15px;
+        box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+        margin-left: 35%;
+        margin-top: 0%;
+    }
+
+    .container1 .title1 {
+        font-size: 16px;
+        font-weight: 700;
+        margin-left: -49%;
+        color: #e442d7;
+        margin-top: -5%;
+        font-size: small;
+        margin-bottom: 15%;
+    }
+
+    .btn-customized1 {
+        margin-top: -10px;
+        color: #f3eff2;
+        height: 30px;
+        padding-top: 5px;
+        margin-right: -20%;
+        border-radius: 10px;
+        padding-left: 11%;
+        width: 60%;
+        font-size: small;
+        background: #e442d7;
+    }
+
+    .btn-customized1:hover {
+        color: #f3eff2;
+        transform: scale(0.9);
+    }
+
+    .btn-customized1:focus,
+    .btn-customized1:valid {
+        color: #f3eff2;
+        box-shadow: none;
+    }
+
+    .asteriskField {
+        display: none;
+    }
+
+    .content form {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-left: 15%;
+        margin-right: -10%;
+    }
+
+    .form-text {
+        display: none;
+    }
+
+    .form-control:focus,
+    .form-control:valid {
+        border-color: #ed5fdc;
+        background-color: transparent;
+        color: white;
+        box-shadow: none;
+    }
+
+    .form-group {
+        width: 101%;
+        margin-left: -2.5%;
+        margin-right: -5%;
+        margin-top: 18%;
+    }
+
+    .textInput {
+        font-size: small;
+        padding: 10px 10px;
+        color: #059629;
+    }
+
+    .requiredField {
+        margin-top: -2%;
+        display: block;
+        font-size: small;
+        position: absolute;
+        margin-left: 1%;
+    }
+
+    .form-control {
+        width: 140%;
+        color: #0da34b;
+    }
+
+    .textInput {
+        font-size: small;
+        padding: 10px 10px;
+        line-height: 2%;
+    }
+
+    .form-control1 {
+        width: 190%;
+        background-color: #243b55;
+        box-shadow: none;
+        font-size: small;
+        color: #0da34b;
+    }
+
+    .form-control2 {
+        width: 190%;
+        background-color: #243b55;
+        font-size: small;
+        box-shadow: none;
+        color: #0da34b;
+    }
+
+    .form-control5 {
+        width: 190%;
+        padding-top: 15px;
+        line-height: 8px;
+        font-size: small;
+        background-color: #243b55;
+        box-shadow: none;
+        border-top: none;
+        color: #0da34b;
+    }
+</style>
+
+<div class="container1">
+    <div class="title1 text-center">EDIT CLIENT FILES</div>
+    <div class="content">
+        <form method="POST">
+            {% csrf_token %}
+            {{form | crispy}}
+            </table>
+            <div class="text-right">
+                <button type="submit" class="btn btn-customized1 float-right">Update</button>
+            </div>
+            <br>
+        </form>
+    </div>
+</div>
+{% endblock content %}

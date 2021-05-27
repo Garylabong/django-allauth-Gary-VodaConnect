@@ -57,12 +57,6 @@
         font-weight: normal;
     }
 
-    .custom-select {
-        font-size: small;
-        margin-left: 133%;
-        margin-bottom: -93%;
-    }
-
     .table thead th {
         color: #0da34b;
     }
@@ -72,9 +66,9 @@
         font-weight: 20;
         background-color: #e442d7;
         font-size: small;
-        margin-bottom: -10px;
+        margin-bottom: -5px;
         margin-left: 80%;
-        margin-right: -4%;
+        margin-right: -8%;
         border-radius: 10px;
     }
 
@@ -104,7 +98,7 @@
         padding-right: 5px;
         background: linear-gradient(#141e30, #243b55);
         border-radius: 10px;
-        margin-top: 10px;
+        margin-top: 2px;
     }
 
     a.btn-customized5:hover {
@@ -119,36 +113,72 @@
     a.btn-customized5:valid {
         box-shadow: none;
     }
+
+    .table {
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: -11px;
+        border-radius: 10px;
+    }
+
+    .table tbody th {
+        font-weight: normal;
+    }
+
+    .table thead th {
+        color: #0da34b;
+    }
+
+    .tableFixHead {
+        overflow-y: auto;
+        height: 350px;
+        width: 200%;
+        margin-top: -5%;
+    }
+
+    .tableFixHead thead th {
+        position: sticky;
+        top: 0;
+    }
+
+    td {
+        padding-top: 50%;
+    }
+
+    th {
+        background: #eee;
+    }
 </style>
 <div class="container">
-    <a class=" btn btn-customized4" href="{% url 'auth:personalfile_create'%}">Create Other Charge</a>
+    <a class=" btn btn-customized4" href="{% url 'auth:personalfile_create'%}">Add Client Files</a>
     <div class="title text-center">Client Files</div>
     <div class="content">
         <form action="#">
-            <table class="table table-dark table-bordered table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Client Code</th>
-                        <th scope="col">File Title </th>
-                        <th scope="col">Url</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for ClientPersonalFile in list %}
-                    <tr>
-                        <th scope="row">{{ClientPersonalFile.client}}</th>
-                        <td>{{ClientPersonalFile.file_title}}</td>
-                        <td>{{ClientPersonalFile.url}}</td>
-                        <td>{{ClientPersonalFile.description}}</td>
-                        <td><a class="btn btn-customized5" href="">Update
-                                Details</td>
-                        {% empty %}
-                        {% endfor %}
+            <div class="tableFixHead">
+                <table class="table table-dark table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">File Title </th>
+                            <th scope="col">Url</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for ClientPersonalFile in list %}
+                        <tr>
+                            <th scope="row">{{ClientPersonalFile.file_title}}</th>
+                            <td>{{ClientPersonalFile.url}}</td>
+                            <td>{{ClientPersonalFile.description}}</td>
+                            <td><a class="btn btn-customized5"
+                                    href="{% url 'auth:personalfile_update' ClientPersonalFile.id %}">Update
+                                    Details</td>
+                            {% empty %}
+                            {% endfor %}
 
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
         </form>
     </div>
 </div>

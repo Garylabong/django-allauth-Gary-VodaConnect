@@ -3,7 +3,7 @@ from django import forms
 from django.forms import ModelForm
 from django.db.models import fields
 from AccountFiles.models import AccountFile
-from authentication.models import User, Client
+from authentication.models import User, Client, ClientPersonalFile
 from django.db import transaction
 import datetime
 
@@ -310,18 +310,18 @@ class ClientAddForm(forms.ModelForm):
         )
 
 
-class ClientFileForm(ModelForm):
+class ClientFileUpdateForm(ModelForm):
     class Meta:
-        model = AccountFile
+        model = ClientPersonalFile
         fields = (
-            "file_name",
+            "file_title",
             "url",
-            "file_description",
+            "description",
         )
 
     def __init__(self, *args, **kwargs):
-        super(ClientFileForm, self).__init__(*args, **kwargs)
-        self.fields["file_name"] = forms.CharField(
+        super(ClientFileUpdateForm, self).__init__(*args, **kwargs)
+        self.fields["file_title"] = forms.CharField(
             required=True,
             widget=forms.TextInput(attrs={"class": "form-control1"}),
         )
@@ -329,7 +329,38 @@ class ClientFileForm(ModelForm):
             required=True,
             widget=forms.TextInput(attrs={"class": "form-control2"}),
         )
-        self.fields["file_description"] = forms.CharField(
+        self.fields["description"] = forms.CharField(
             required=True,
             widget=forms.Textarea(attrs={"class": "form-control5"}),
+        )
+
+
+class ClientFileCreateForm(ModelForm):
+    class Meta:
+        model = ClientPersonalFile
+        fields = (
+            "file_title",
+            "url",
+            "description",
+        )
+
+    def __init__(self, *args, **kwargs):
+        super(ClientFileCreateForm, self).__init__(*args, **kwargs)
+        self.fields["file_title"] = forms.CharField(
+            required=True,
+            widget=forms.TextInput(
+                attrs={"class": "form-control1", "style": "color: #0da34b;"}
+            ),
+        )
+        self.fields["url"] = forms.CharField(
+            required=True,
+            widget=forms.TextInput(
+                attrs={"class": "form-control2", "style": "color: #0da34b;"}
+            ),
+        )
+        self.fields["description"] = forms.CharField(
+            required=True,
+            widget=forms.Textarea(
+                attrs={"class": "form-control5", "style": "color: #0da34b;"}
+            ),
         )

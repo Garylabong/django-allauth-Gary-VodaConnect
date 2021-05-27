@@ -1,5 +1,6 @@
 from django.urls import reverse_lazy
 from django.contrib import messages
+from django.shortcuts import render, redirect
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 from authentication.forms import *
@@ -21,7 +22,7 @@ from rest_framework.permissions import IsAuthenticated
 
 @login_required
 def dashboard(request):
-    return render(request, "")
+    return render(request, "home.html")
 
 
 class ClientViewSet(viewsets.ModelViewSet):
@@ -89,6 +90,7 @@ class ClientPersonalFileDetail(LoginRequiredMixin, DetailView):
     context_object_name = "list"
 
 
+# PERSONAL FILES
 class PersonalFilesListView(LoginRequiredMixin, ListView):
     model = ClientPersonalFile
     context_object_name = "list"
@@ -99,27 +101,27 @@ class PersonalFilesListView(LoginRequiredMixin, ListView):
         return context
 
 
-class PersonalFilesCreateView(LoginRequiredMixin, CreateView):
+class PersonalFilesCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = ClientPersonalFile
-    fields = [
-        "client",
-        "file_title",
-        "url",
-        "description",
-    ]
+    form_class = ClientFileCreateForm
     template_name = "authentication/clientpersonalfile_create.html"
     success_url = reverse_lazy("auth:personal_file_list")
 
     def form_valid(self, form):
+        messages.success(self.request, "Files Added Successfully.")
         form.instance.user = self.request.user
         return super(PersonalFilesCreateView, self).form_valid(form)
 
 
-class PersonalFilesUpdateView(LoginRequiredMixin, UpdateView):
+class PersonalFilesUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = ClientPersonalFile
-    fields = ["client", "file_title", "url", "description"]
+    form_class = ClientFileUpdateForm
     template_name = "authentication/clientpersonalfile_form.html"
     success_url = reverse_lazy("auth:personal_file_list")
+
+    def form_valid(self, form):
+        messages.success(self.request, "Files Updated Successfully.")
+        return super().form_valid(form)
 
 
 # def profilepicture(request):

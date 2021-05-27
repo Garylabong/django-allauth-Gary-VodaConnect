@@ -164,7 +164,7 @@ class ForwardingInfoCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateVi
         forwardinginfo = form.save(commit=False)
         forwardinginfo.user = self.request.user
         forwardinginfo.save()
-        messages.success(self.request, "Forwarding Number Added")
+        messages.success(self.request, "Forwarding Number Added successfully.")
         return redirect("subs_Inv:forward_info")
 
 
@@ -188,7 +188,7 @@ class TotalNumExtensionCreateView(LoginRequiredMixin, SuccessMessageMixin, Creat
         totalnumextension = form.save(commit=False)
         totalnumextension.user = self.request.user
         totalnumextension.save()
-        messages.success(self.request, "Message")
+        messages.success(self.request, "Number Extension Added successfully.")
         return redirect("subs_Inv:forward_info")
 
 
@@ -214,7 +214,7 @@ class ZiptrunkLoginDetailCreateView(
         ziptrunklogindetail = form.save(commit=False)
         ziptrunklogindetail.user = self.request.user
         ziptrunklogindetail.save()
-        messages.success(self.request, "Message")
+        messages.success(self.request, "Ziptrunk Login Created successfully.")
         return redirect("subs_Inv:forward_info")
 
 
@@ -240,7 +240,7 @@ class OtherLoginCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
         otherlogin = form.save(commit=False)
         otherlogin.user = self.request.user
         otherlogin.save()
-        messages.success(self.request, "Other Login updated successfully")
+        messages.success(self.request, "Other Login Created successfully")
         return redirect("subs_Inv:forward_info")
 
 
@@ -264,7 +264,7 @@ class NoteCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
         notes = form.save(commit=False)
         notes.user = self.request.user
         notes.save()
-        messages.success(self.request, "Note added successfilly.")
+        messages.success(self.request, "Note added successfully.")
         return redirect("subs_Inv:forward_info")
 
 

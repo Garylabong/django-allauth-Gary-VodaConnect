@@ -323,6 +323,7 @@ class ZiptrunkLoginDetailCreateForm(forms.ModelForm):
         )
         self.fields["ziptrunk_details"] = forms.CharField(
             required=True,
+            max_length=25,
             label="Details",
             widget=forms.TextInput(attrs={"class": "form-control3"}),
         )
@@ -351,11 +352,13 @@ class ZiptrunkLoginDetailUpdateForm(forms.ModelForm):
         )
         self.fields["ziptrunk_details"] = forms.CharField(
             required=True,
+            max_length=25,
             label="Details",
             widget=forms.TextInput(attrs={"class": "form-control3"}),
         )
         self.fields["notes"] = forms.CharField(
             required=True,
+            max_length=40,
             label="Note",
             widget=forms.Textarea(attrs={"class": "form-control4"}),
         )

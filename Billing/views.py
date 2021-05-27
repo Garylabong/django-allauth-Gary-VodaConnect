@@ -96,7 +96,7 @@ class OtherChargeCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView)
         return super(OtherChargeCreateView, self).form_valid(form)
 
     def form_valid(self, form):
-        messages.success(self.request, "Other Charge Created Successfully.")
+        messages.success(self.request, "Charge Created Successfully.")
         return super().form_valid(form)
 
 
@@ -107,5 +107,5 @@ class OtherChargeUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView)
     success_url = reverse_lazy("bill:othercharge_list")
 
     def form_valid(self, form):
-        messages.success(self.request, "Other Charge Updated Successfully.")
+        messages.success(self.request, "Charge Updated Successfully.")
         return super().form_valid(form)
