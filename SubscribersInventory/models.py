@@ -286,8 +286,8 @@ class ForwardingInfo(models.Model):
 
 class TotalNumExtension(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
-    extension_num = models.ForeignKey(
-        ForwardingInfo, on_delete=models.CASCADE, verbose_name="Extension Number"
+    extension_num = models.CharField(
+        max_length=100, null=True, blank=True, verbose_name="Extension Number"
     )
     extension_logins = models.CharField(max_length=100, null=True, blank=True)
     notes = models.TextField(null=True, blank=True)
