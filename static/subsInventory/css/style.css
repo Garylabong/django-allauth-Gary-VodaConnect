@@ -264,6 +264,7 @@ ul li:hover a{
 
 .sidebar .dark-light-success-buttons { padding: 10px 20px 30px 20px; text-align: center; }
 
+
 /* sidebar light */
 
 .sidebar.light { background: #fff; color: #888; }
@@ -345,6 +346,8 @@ ul li:hover a{
 .sidebar.light a.btn-customized-4.btn-customized-success.btn.btn-primary:not(:disabled):not(.disabled):active:focus {
 	background: rgb(6, 155, 18); color: #fff;
 }
+
+
 
 /***** Content *****/
 .content {

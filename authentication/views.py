@@ -22,7 +22,13 @@ from rest_framework.permissions import IsAuthenticated
 
 @login_required
 def dashboard(request):
-    return render(request, "home.html")
+    dict = {
+        "total_number": User.objects.count(),
+        # "total_question": Question.objects.all().count(),
+        # "total_student": Student.objects.all().count(),
+        # "total_quiz": Quiz.objects.all().count(),
+    }
+    return render(request, "home.html", context=dict)
 
 
 class ClientViewSet(viewsets.ModelViewSet):
