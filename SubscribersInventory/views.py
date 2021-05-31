@@ -29,8 +29,14 @@ from .views import *
 from .models import *
 
 
-class HomeView(LoginRequiredMixin, TemplateView):
-    template_name = "SubscribersInventory/home.html"
+def home(request):
+    # dict = {
+    #     "total_number": User.objects.objects.all().count(),
+    #     "total_question": Question.objects.all().count(),
+    #     "total_student": Student.objects.all().count(),
+    #     "total_quiz": Quiz.objects.all().count(),
+    # }
+    return render(request, "SubscribersInventory/home.html")
 
 
 class SubsInvView(LoginRequiredMixin, TemplateView):

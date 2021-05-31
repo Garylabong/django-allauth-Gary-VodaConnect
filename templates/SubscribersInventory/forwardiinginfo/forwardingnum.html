@@ -89,7 +89,9 @@
                         href="{% url 'subs_Inv:forwardinfo_update' ForwardingInfo.id %}">Update</td>
             </tr>
             {% empty %}
-
+            <tr>
+                <td class="text-secondary text-center" colspan="10">No records to show.</td>
+            </tr>
             {% endfor %}
         </tbody>
     </table>

@@ -90,7 +90,9 @@
                 <td><a class="btn btn-customized5" href="{% url 'subs_Inv:notes_update' Note.id %}">Update</td>
             </tr>
             {% empty %}
-
+            <tr>
+                <td class="text-secondary text-center" colspan="10">No records to show.</td>
+            </tr>
             {% endfor %}
         </tbody>
     </table>

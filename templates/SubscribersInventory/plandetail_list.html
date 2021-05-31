@@ -162,17 +162,11 @@
     .table {
         width: 200%;
         margin-top: 0%;
+        margin-bottom: -11px;
     }
 
     .table tbody th {
         font-weight: normal;
-        font-size: small;
-        font-family: 'Poppins';
-    }
-
-    .table tbody td {
-        font-weight: normal;
-        font-size: small;
     }
 
     .custom-select {
@@ -187,9 +181,10 @@
 
     .tableFixHead {
         overflow-y: auto;
-        height: 200px;
+        height: 270px;
         width: 200%;
         margin-top: -5%;
+        border-radius: 20px;
     }
 
     .tableFixHead thead th {
@@ -248,6 +243,9 @@
                                             Details</td>
                                 </tr>
                                 {% empty %}
+                                <tr>
+                                    <td class="text-secondary text-center" colspan="10">No records to show.</td>
+                                </tr>
                                 {% endfor %}
                             </tbody>
                         </table>
@@ -256,7 +254,7 @@
             </div>
         </div>
     </div>
-    <br><br><br><br>
+    <br><br>
 </div>
 
 </div>

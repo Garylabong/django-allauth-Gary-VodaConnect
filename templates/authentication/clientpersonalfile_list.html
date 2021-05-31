@@ -23,13 +23,13 @@
     }
 
     .container {
-        max-width: 90%;
+        max-width: 70%;
         width: 100%;
         background: #243b55;
         padding: 25px 30px;
         border-radius: 15px;
         box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
-        margin-left: 7%;
+        margin-left: 20%;
         margin-top: 1%;
     }
 
@@ -43,24 +43,6 @@
     }
 
 
-    form .table {
-        color: #f3eff2;
-        font-size: small;
-    }
-
-    .table {
-        width: 200%;
-        margin-top: -4.5%;
-    }
-
-    .table tbody th {
-        font-weight: normal;
-    }
-
-    .table thead th {
-        color: #0da34b;
-    }
-
     a.btn-customized4 {
         color: #eef0f1;
         font-weight: 20;
@@ -68,7 +50,7 @@
         font-size: small;
         margin-bottom: -5px;
         margin-left: 80%;
-        margin-right: -8%;
+        margin-right: -6%;
         border-radius: 10px;
     }
 
@@ -116,9 +98,10 @@
 
     .table {
         width: 100%;
+        font-size: small;
         margin-top: 0;
         margin-bottom: -11px;
-        border-radius: 10px;
+        border-radius: 20px;
     }
 
     .table tbody th {
@@ -133,7 +116,8 @@
         overflow-y: auto;
         height: 350px;
         width: 200%;
-        margin-top: -5%;
+        margin-top: -4%;
+        border-radius: 10px;
     }
 
     .tableFixHead thead th {
@@ -174,6 +158,9 @@
                                     href="{% url 'auth:personalfile_update' ClientPersonalFile.id %}">Update
                                     Details</td>
                             {% empty %}
+                            <tr>
+                                <td class="text-secondary text-center" colspan="10">No records to show.</td>
+                               </tr>
                             {% endfor %}
 
                     </tbody>

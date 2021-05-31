@@ -4,7 +4,7 @@ from SubscribersInventory.views import *
 
 app_name = "subs_Inv"
 urlpatterns = [
-    path("", HomeView.as_view(), name="home"),
+    path("", home, name="home"),
     path("subscribers/inventory/", SubsInvView.as_view(), name="subs_inv"),
     # vOIPiNFO
     path("voip/information/", VoipListView.as_view(), name="voip_info"),

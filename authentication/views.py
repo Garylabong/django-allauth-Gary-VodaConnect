@@ -21,7 +21,7 @@ from rest_framework.permissions import IsAuthenticated
 
 
 @login_required
-def dashboard(request):
+def home(request):
     dict = {
         "total_number": User.objects.count(),
         # "total_question": Question.objects.all().count(),
