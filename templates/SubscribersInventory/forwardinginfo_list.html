@@ -1,367 +1,63 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
-    }
-
-    body {
-        height: 100vh;
-        justify-content: center;
-        align-items: center;
-        padding: 10px;
-        background: linear-gradient(#141e30, #243b55);
-        background-attachment: fixed;
-    }
-
-    .container {
-        max-width: 70%;
-        width: 100%;
-        background: #243b55;
-        padding: 25px 30px;
-        border-radius: 15px;
-        box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
-        margin-left: 25%;
-    }
-
-    .container1 {
-        max-width: 170%;
-        width: 750%;
-        background: #243b55;
-        padding: 25px 30px;
-        border-radius: 15px;
-        box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
-        margin-left: 30%;
-        margin-top: -77%;
-        transition: 10s;
-    }
-
-    .container .title {
-        font-size: 16px;
-        font-weight: 500;
-        margin-left: -80%;
-        color: #e442d7;
-        margin-top: -10px;
-        margin-bottom: -1%;
-    }
-
-    .container1 .title1 {
-        font-size: small;
-        font-weight: 500;
-        margin-left: -71%;
-        margin-top: -15px;
-        margin-bottom: 20px;
-        color: #0da34b;
-    }
-
-    .container1 .title2 {
-        font-size: small;
-        font-weight: 500;
-        margin-left: -41%;
-        margin-top: -15px;
-        margin-bottom: 20px;
-        color: #0da34b;
-    }
-
-    .container1 .title3 {
-        font-size: small;
-        font-weight: 500;
-        margin-left: -50%;
-        margin-top: 20%;
-        margin-bottom: 20px;
-        color: #0da34b;
-    }
-
-    .container1 .title4 {
-        font-size: small;
-        font-weight: 500;
-        margin-left: -74%;
-        margin-top: 15%;
-        margin-bottom: 18px;
-        color: #0da34b;
-    }
-
-    .container1 .title5 {
-        font-size: small;
-        font-weight: 500;
-        margin-left: -88%;
-        margin-top: 20%;
-        margin-bottom: 20px;
-        color: #0da34b;
-    }
-
-    a.btn-customized1 {
-        top: 0px;
-        margin-top: 15px;
-        color: #f3eff2;
-        height: 55px;
-        padding-top: 15px;
-        margin-left: -10px;
-        display: flex;
-        padding-top: 8px;
-        width: 130px;
-        font-size: small;
-        border-color: #ffa5f7;
-        border-radius: 10px;
-    }
-
-    a.btn-customized1:hover {
-        background: #e442d7;
-        color: #f3eff2;
-    }
-
-    a.btn-customized1:focus {
-        background-color: #b84faf;
-        color: #f3eff2;
-    }
-
-    a.btn-customized1:focus,
-    a.btn-customized1:valid {
-        background-color: #b84faf;
-        color: #f3eff2;
-        border-color: #ed5fdc;
-        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
-    }
-
-    a.btn-customized2 {
-        top: 0px;
-        margin-top: 15px;
-        color: #f3eff2;
-        height: 55px;
-        margin-left: -10px;
-        display: flex;
-        padding-top: 18px;
-        width: 130px;
-        font-size: small;
-        padding-left: 25px;
-        border-color: #ffa5f7;
-        border-radius: 10px;
-    }
-
-    a.btn-customized2:hover {
-        background: #e442d7;
-        color: #f3eff2;
-    }
-
-    a.btn-customized2:focus {
-        background-color: #b84faf;
-        color: #f3eff2;
-    }
-
-    a.btn-customized2:focus,
-    a.btn-customized2:valid {
-        background-color: #b84faf;
-        color: #f3eff2;
-        border-color: #ed5fdc;
-        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
-    }
-
-    a.btn-customized6 {
-        top: 0px;
-        margin-top: -50px;
-        color: #f3eff2;
-        height: 30px;
-        margin-left: 160%;
-        display: flex;
-        padding-top: 5px;
-        width: 130px;
-        font-size: small;
-        padding-left: 25px;
-        background-color: #b84faf;
-        border-radius: 10px;
-        margin-bottom: -3%;
-    }
-
-    a.btn-customized6:hover {
-        color: #f3eff2;
-    }
-
-    a.btn-customized6:focus,
-    a.btn-customized6:valid {
-        background-color: #b84faf;
-        color: #f3eff2;
-        border-color: #ed5fdc;
-        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
-    }
-
-    a.btn-customized7 {
-        top: 0px;
-        margin-top: -10px;
-        color: #f3eff2;
-        height: 30px;
-        margin-left: 160%;
-        display: flex;
-        padding-top: 5px;
-        width: 130px;
-        font-size: small;
-        padding-left: 25px;
-        background-color: #b84faf;
-        border-radius: 10px;
-        margin-bottom: -9%;
-    }
-
-    a.btn-customized7:hover {
-        color: #f3eff2;
-    }
-
-    a.btn-customized7:focus,
-    a.btn-customized7:valid {
-        background-color: #b84faf;
-        color: #f3eff2;
-        border-color: #ed5fdc;
-        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
-    }
-
-    a.btn-customized8 {
-        margin-top: 10%;
-        color: #f3eff2;
-        height: 30px;
-        margin-left: 160%;
-        display: flex;
-        padding-top: 5px;
-        width: 130px;
-        font-size: small;
-        padding-left: 25px;
-        background-color: #b84faf;
-        border-radius: 10px;
-        margin-bottom: -29%;
-    }
-
-    a.btn-customized8:hover {
-        color: #f3eff2;
-    }
-
-    a.btn-customized8:focus,
-    a.btn-customized8:valid {
-        background-color: #b84faf;
-        color: #f3eff2;
-        border-color: #ed5fdc;
-        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
-    }
-
-    a.btn-customized9 {
-        margin-top: 8%;
-        color: #f3eff2;
-        height: 30px;
-        margin-left: 160%;
-        display: flex;
-        padding-top: 5px;
-        width: 130px;
-        font-size: small;
-        padding-left: 25px;
-        background-color: #b84faf;
-        border-radius: 10px;
-        margin-bottom: -23%;
-    }
-
-    a.btn-customized9:hover {
-        color: #f3eff2;
-    }
-
-    a.btn-customized9:focus,
-    a.btn-customized9:valid {
-        background-color: #b84faf;
-        color: #f3eff2;
-        border-color: #ed5fdc;
-        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
-    }
-
-    a.btn-customized10 {
-        margin-top: 8%;
-        color: #f3eff2;
-        height: 30px;
-        margin-left: 160%;
-        display: flex;
-        padding-top: 5px;
-        width: 130px;
-        font-size: small;
-        padding-left: 25px;
-        background-color: #b84faf;
-        border-radius: 10px;
-        margin-bottom: -29%;
-    }
-
-    a.btn-customized10:hover {
-        color: #f3eff2;
-    }
-
-    a.btn-customized10:focus,
-    a.btn-customized10:valid {
-        background-color: #b84faf;
-        color: #f3eff2;
-        border-color: #ed5fdc;
-        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
-    }
-
-    form .table {
-        color: #f3eff2;
-        font-size: small;
-    }
-
-    .table {
-        width: 200%;
-        margin-top: -3.5%;
-    }
-
-    .table tbody th {
-        font-weight: normal;
-    }
-
-    .table thead th {
-        color: #0da34b;
-    }
-</style>
-
-<div class="container">
-    <div class="title text-center">PHONELINES INVENTORY</div>
-    <div class="content">
-        <a class="mt-5 btn btn-customized1" href="{% url 'subs_Inv:voip_info' %}">VOIP Information</a>
-        <a class="btn btn-customized1" href="{% url 'subs_Inv:activation_details_list' %}">Activation Details</a>
-        <a class="btn btn-customized2" href="{% url 'subs_Inv:plan_details' %}">Plan Details</a>
-        <a class="btn btn-customized1" href="{% url 'subs_Inv:subs_status' %}">Subscriber Status</a>
-        <a class="btn btn-customized1" href="{% url 'subs_Inv:forward_info' %}">Forwarding Information</a>
-        <div class="container1">
-            <div class="title1 text-center">FORWARDING INFORMATION</div>
-            <div class="content">
-                <form action="#">
-                    <a class="btn btn-customized6" href="{% url 'subs_Inv:forwardinginformation_add' %}">Add
-                        Number</a>
-                    <br>
-                    {% include 'SubscribersInventory/forwardiinginfo/forwardingnum.html' %}
-
-                    <a class="btn btn-customized7" href="{% url 'subs_Inv:totalnumextension_add' %}">Add
-                        Extension</a>
-                    <div class="title2 text-center">TOTAL NUMBER OF EXTENSION</div>
-                    {% include 'SubscribersInventory/forwardiinginfo/totalnumextension.html' %}
-
-                    <a class="btn btn-customized8" href="{% url 'subs_Inv:ziptrunklogindetail_add' %}">Add Ziptrunk</a>
-                    <div class="title3 text-center">ZIPTRUNK LOG IN DETAILS</div>
-                    {% include 'SubscribersInventory/forwardiinginfo/ziptrunkdetails.html' %}
-
-                    <a class="btn btn-customized9" href="{% url 'subs_Inv:otherlogin_add' %}">Add Extension</a>
-                    <div class="title4 text-center">OTHER LOGIN</div>
-                    {% include 'SubscribersInventory/forwardiinginfo/otherlogins.html' %}
-
-                    <a class="btn btn-customized10" href="{% url 'subs_Inv:notes_add' %}">Add Notes</a>
-                    <div class="title5 text-center">NOTE</div>
-                    {% include 'SubscribersInventory/forwardiinginfo/notes.html' %}
-                </form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'subsInventory/css/subscribersInventory/forwardinginfo_list.css' %} ">
+</head>
+<body>
+    <div class="container">
+        <div class="title text-center">PHONELINES INVENTORY</div>
+        <div class="content">
+            <a class="mt-5 btn btn-customized1" href="{% url 'subs_Inv:voip_info' %}">VOIP Information</a>
+            <a class="btn btn-customized1" href="{% url 'subs_Inv:activation_details_list' %}">Activation Details</a>
+            <a class="btn btn-customized2" href="{% url 'subs_Inv:plan_details' %}">Plan Details</a>
+            <a class="btn btn-customized1" href="{% url 'subs_Inv:subs_status' %}">Subscriber Status</a>
+            <a class="btn btn-customized1" href="{% url 'subs_Inv:forward_info' %}">Forwarding Information</a>
+            <div class="container1">
+                <div class="title1 text-center">FORWARDING INFORMATION</div>
+                <div class="content">
+                    <form action="#">
+                        <a class="btn btn-customized6" href="{% url 'subs_Inv:forwardinginformation_add' %}">Add
+                            Number</a>
+                        <br>
+                        {% include 'SubscribersInventory/forwardiinginfo/forwardingnum.html' %}
+    
+                        <a class="btn btn-customized7" href="{% url 'subs_Inv:totalnumextension_add' %}">Add
+                            Extension</a>
+                        <div class="title2 text-center">TOTAL NUMBER OF EXTENSION</div>
+                        {% include 'SubscribersInventory/forwardiinginfo/totalnumextension.html' %}
+    
+                        <a class="btn btn-customized8" href="{% url 'subs_Inv:ziptrunklogindetail_add' %}">Add Ziptrunk</a>
+                        <div class="title3 text-center">ZIPTRUNK LOG IN DETAILS</div>
+                        {% include 'SubscribersInventory/forwardiinginfo/ziptrunkdetails.html' %}
+    
+                        <a class="btn btn-customized9" href="{% url 'subs_Inv:otherlogin_add' %}">Add Extension</a>
+                        <div class="title4 text-center">OTHER LOGIN</div>
+                        {% include 'SubscribersInventory/forwardiinginfo/otherlogins.html' %}
+    
+                        <a class="btn btn-customized10" href="{% url 'subs_Inv:notes_add' %}">Add Notes</a>
+                        <div class="title5 text-center">NOTE</div>
+                        {% include 'SubscribersInventory/forwardiinginfo/notes.html' %}
+                    </form>
+                </div>
+               
             </div>
         </div>
+        <br><br>
     </div>
-</div>
-
-</div>
-
-
-</div>
-
-
+    
+    </div>
+    
+    
+    </div>
+    
+</body>
+</html>
 
 {% endblock %}

@@ -1,203 +1,68 @@
 {% extends 'base.html' %}
-
-
-
+{% load static %}
 {% block content %}
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
-    }
-
-    body {
-        height: 100vh;
-        justify-content: center;
-        align-items: center;
-        padding: 10px;
-        background: linear-gradient(#141e30, #243b55);
-        background-attachment: fixed;
-    }
-
-    .container {
-        max-width: 90%;
-        width: 100%;
-        background: #243b55;
-        padding: 25px 30px;
-        border-radius: 15px;
-        box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
-        margin-left: 7%;
-        margin-top: 1%;
-    }
-
-    .container .title {
-        font-size: 14px;
-        font-weight: 500;
-        margin-left: -88.5%;
-        color: #f5eff4;
-        margin-top: -30px;
-        margin-bottom: 3%;
-    }
-
-
-    form .table {
-        color: #f3eff2;
-        font-size: small;
-    }
-
-    .table {
-        width: 150%;
-        margin-top: 0%;
-        margin-bottom: -11px;
-    }
-
-    .table tbody th {
-        font-weight: normal;
-    }
-
-    .custom-select {
-        font-size: small;
-        margin-left: 133%;
-        margin-bottom: -93%;
-    }
-
-    .table thead th {
-        color: #0da34b;
-    }
-
-    .tableFixHead {
-        overflow-y: auto;
-        height: 350px;
-        width: 200%;
-        margin-top: -4.3%;
-        border-radius: 20px;
-    }
-
-    .tableFixHead thead th {
-        position: sticky;
-        top: 0;
-    }
-
-    table {
-        border-collapse: collapse;
-        width: 100%;
-    }
-
-    td {
-        padding-top: 50%;
-    }
-
-    th {
-        background: #eee;
-    }
-
-
-    a.btn-customized4 {
-        color: #eef0f1;
-        font-weight: 20;
-        background-color: #e442d7;
-        font-size: small;
-        margin-bottom: -10px;
-        margin-left: 80%;
-        margin-right: -4%;
-        border-radius: 10px;
-    }
-
-    a.btn-customized4:hover {
-        background: #e442d7;
-        color: #f3eff2;
-        transform: scale(0.9);
-    }
-
-    a.btn-customized4:focus,
-    a.btn-customized4:valid {
-        background-color: #b84faf;
-        color: #f3eff2;
-        border-color: #ed5fdc;
-        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
-    }
-
-    a.btn-customized5 {
-        color: #f3eff2;
-        height: 35px;
-        margin-left: -10px;
-        margin-right: -10px;
-        padding-top: 7px;
-        width: 115px;
-        font-size: small;
-        padding-left: 5px;
-        padding-right: 5px;
-        background: linear-gradient(#141e30, #243b55);
-        border-radius: 10px;
-        margin-top: 10px;
-    }
-
-    a.btn-customized5:hover {
-        color: #f3eff2;
-    }
-
-    a.btn-customized5:focus {
-        color: #f3eff2;
-    }
-
-    a.btn-customized5:focus,
-    a.btn-customized5:valid {
-        box-shadow: none;
-    }
-</style>
-<div class="container">
-    <a class=" btn btn-customized4" href="{% url 'bill:month_create'%}">Create Monthly Charge</a>
-    <div class="title text-center">MONTHLY CHARGE</div>
-    <div class="content">
-        <form action="#">
-            <div class="tableFixHead">
-            <table class="table table-dark  table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Client Fullname</th>
-                        <th scope="col">Client Code</th>
-                        <th scope="col">Voda Connect Number</th>
-                        <th scope="col">Type Of Plan</th>
-                        <th scope="col">Total Cost</th>
-                        <th scope="col">Month Covered</th>
-                        <th scope="col">Date Of Payment </th>
-                        <th scope="col">Reference</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for monthlycharge in list %}
-                    <tr>
-                        <th scope="row">{{monthlycharge.client_full_name}}</th>
-                        <td>{{monthlycharge.client_code}}</td>
-                        <td>{{monthlycharge.vodaconnect_number}}</td>
-                        <td>{{monthlycharge.plan_type}}</td>
-                        <td>{{monthlycharge.total_cost}}</td>
-                        <td>{{monthlycharge.month_covered}}</td>
-                        <td>{{monthlycharge.date_payment}}</td>
-                        <td>{{monthlycharge.reference}}</td>
-                        <td>{{monthlycharge.status}}</td>
-                        <!-- <td><a href="{% url 'bill:month_detail' monthlycharge.id %}">View</td> -->
-                        <td><a class="btn btn-customized5" href=" {% url 'bill:month_Update' monthlycharge.id %}">Update
-                                Details</td>
-                        <!-- <td><a href="{% url 'bill:month_delete' monthlycharge.id %}">Delete</td> -->
-                        {% empty %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'subsInventory/css/billing/monthlycharge_list.css' %} ">
+</head>
+<body>
+    <div class="container">
+        <a class=" btn btn-customized4" href="{% url 'bill:month_create'%}">Create Monthly Charge</a>
+        <div class="title text-center">MONTHLY CHARGE</div>
+        <div class="content">
+            <form action="#">
+                <div class="tableFixHead">
+                <table class="table table-dark  table-striped">
+                    <thead>
                         <tr>
-                            <td class="text-secondary text-center" colspan="10">No records to show.</td>
+                            <th scope="col">Client Fullname</th>
+                            <th scope="col">Client Code</th>
+                            <th scope="col">Voda Connect Number</th>
+                            <th scope="col">Type Of Plan</th>
+                            <th scope="col">Total Cost</th>
+                            <th scope="col">Month Covered</th>
+                            <th scope="col">Date Of Payment </th>
+                            <th scope="col">Reference</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Action</th>
                         </tr>
-                        {% endfor %}
-
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {% for monthlycharge in list %}
+                        <tr>
+                            <th scope="row">{{monthlycharge.client_full_name}}</th>
+                            <td>{{monthlycharge.client_code}}</td>
+                            <td>{{monthlycharge.vodaconnect_number}}</td>
+                            <td>{{monthlycharge.plan_type}}</td>
+                            <td>{{monthlycharge.total_cost}}</td>
+                            <td>{{monthlycharge.month_covered}}</td>
+                            <td>{{monthlycharge.date_payment}}</td>
+                            <td>{{monthlycharge.reference}}</td>
+                            <td>{{monthlycharge.status}}</td>
+                            <!-- <td><a href="{% url 'bill:month_detail' monthlycharge.id %}">View</td> -->
+                            <td><a class="btn btn-customized5" href=" {% url 'bill:month_Update' monthlycharge.id %}">Update
+                                    Details</td>
+                            <!-- <td><a href="{% url 'bill:month_delete' monthlycharge.id %}">Delete</td> -->
+                            {% empty %}
+                            <tr>
+                                <td class="text-secondary text-center" colspan="10">No records to show.</td>
+                            </tr>
+                            {% endfor %}
+    
+                    </tbody>
+                </table>
+            </div>
+            </form>
         </div>
-        </form>
     </div>
-</div>
-</div>
-
+    </div>
+    
+</body>
+</html>
 
 {% endblock %}

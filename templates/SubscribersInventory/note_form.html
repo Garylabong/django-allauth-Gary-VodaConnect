@@ -1,153 +1,38 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
-
+{% loade static %}
 {% block content %}
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
-    }
-
-    body {
-        height: 100vh;
-        justify-content: center;
-        align-items: center;
-        padding: 10px;
-        background: linear-gradient(#141e30, #243b55);
-        background-attachment: fixed;
-    }
-
-    .container {
-        max-width: 65%;
-        width: 35%;
-        background: #243b55;
-        padding: 25px 30px;
-        border-radius: 15px;
-        box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
-        margin-left: 35%;
-    }
-
-    .container .title {
-        font-size: small;
-        font-weight: 700;
-        margin-left: -63%;
-        color: #e442d7;
-        margin-top: -10px;
-        margin-bottom: -4%;
-    }
-
-    .form-group {
-        width: 101%;
-        margin-left: 2%;
-        margin-right: -5%;
-        margin-top: 15%;
-    }
-
-    .asteriskField {
-        display: none;
-    }
-
-    .requiredField {
-        margin-top: -2%;
-        display: block;
-        font-size: small;
-        position: absolute;
-        margin-left: 3%;
-    }
-
-
-    .textarea {
-        font-size: small;
-        color: #0da34b;
-    }
-
-    .textinput {
-        font-size: small;
-    }
-
-    form .button {
-        height: 45px;
-        margin-left: 130px;
-    }
-
-    form .button a:hover {
-        background: transparent;
-        color: rgb(243, 166, 226);
-        box-shadow: none;
-    }
-
-    form .button button {
-        height: 70%;
-        width: 100%;
-        border-radius: 10px;
-        border: none;
-        color: #fff;
-        margin-left: 50%;
-        font-size: small;
-        cursor: pointer;
-        margin-top: -4%;
-        background: #e442d7;
-    }
-
-    form .button button:hover {
-        transform: scale(0.9);
-    }
-
-    .form-control3 {
-        width: 170%;
-        color: #0da34b;
-        background-color: transparent;
-        margin-top: 0%;
-        margin-left: 16%;
-    }
-
-    .form-control3:focus,
-    .form-control3:valid {
-        border-color: #ed5fdc;
-        box-shadow: none;
-    }
-
-    .form-control4 {
-        width: 170%;
-        color: #0da34b;
-        background-color: transparent;
-        margin-top: 0%;
-        margin-left: 16%;
-        line-height: 8px;
-        padding-top: 10px;
-    }
-
-    .form-control4:focus,
-    .form-control4:valid {
-        border-color: #ed5fdc;
-        box-shadow: none;
-    }
-</style>
-
-<div class="container">
-    <div class="title text-center">ADD NOTES</div>
-    <br>
-    <div class="content">
-        <form method="post" action="">
-            {% csrf_token %}
-            {{ form | crispy }}
-            <div class="button text-center">
-                <button type="submit">Submit</button>
-            </div>
-        </form>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'subsInventory/css/subscribersInventory/note_form.css' %} ">
+</head>
+<body>
+    <div class="container">
+        <div class="title text-center">ADD NOTES</div>
+        <br>
+        <div class="content">
+            <form method="post" action="">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <div class="button text-center">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+    
+        </div>
+        <br>
     </div>
-    <br>
-</div>
-
-</div>
-
-
-</div>
-
+    
+    </div>
+    
+    
+    </div>
+</body>
+</html>
 
 {% endblock %}

@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: linear-gradient(#141e30, #243b55);
+    background-attachment: fixed;
+}
+
+.container {
+    max-width: 60%;
+    width: 100%;
+    background: #243b55;
+    padding: 25px 30px;
+    border-radius: 15px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+    margin-left: 25%;
+}
+
+.container .title {
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: -82%;
+    color: #e442d7;
+    margin-top: -10px;
+    margin-bottom: -1%;
+}
+
+.content form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 0%;
+    margin-right: -70%;
+}
+
+.form-group {
+    width: 45%;
+    margin-left: 2%;
+    margin-right: -5%;
+    margin-top: 3%;
+}
+
+.form-control {
+    width: 110%;
+    background-color: transparent;
+    border-color: none;
+}
+
+.form-control:focus,
+.form-control:valid {
+    border-color: #ed5fdc;
+    box-shadow: none
+}
+
+.form-control6 {
+    width: 110%;
+    background-color: transparent;
+    border-color: none;
+}
+
+.form-control6:focus,
+.form-control6:valid {
+    border-color: #ed5fdc;
+    box-shadow: none
+}
+
+.asteriskField {
+    display: none;
+}
+
+.requiredField {
+    margin-top: -2%;
+    display: block;
+    font-size: small;
+    position: absolute;
+}
+
+.dateinput {
+    color: #0da34b;
+    font-size: small;
+}
+
+.numberinput {
+    font-size: small;
+    color: #0da34b;
+}
+
+.select {
+    font-size: small;
+    color: #0da34b;
+}
+
+.textinput {
+    font-size: small;
+    color: #0da34b;
+}
+
+form .btn-customized1 {
+    top: 0px;
+    margin-top: 0px;
+    color: #f3eff2;
+    height: 40px;
+    padding-top: 8px;
+    padding-left: 20px;
+    margin-right: -330%;
+    display: flex;
+    width: 90px;
+    font-size: small;
+    border-radius: 10px;
+}
+
+form .btn-customized1:hover {
+    background: #e442d7;
+    color: #f3eff2;
+    transform: scale(0.9);
+}
+
+form .btn-customized1:focus {
+    background-color: #b84faf;
+    color: #f3eff2;
+}
+
+form .btn-customized1:focus,
+form .btn-customized1:valid {
+    background-color: #b84faf;
+    color: #f3eff2;
+    box-shadow: none
+}
+
+.form-control5 {
+    background-color: transparent;
+    border-color: #ed5fdc;
+    cursor: not-allowed;
+    color: #6b666a;
+}
+@media only screen and (min-width: 1514px) {
+.container {
+    max-width: 60%;
+    width: 100%;
+    background: #243b55;
+    padding: 25px 30px;
+    border-radius: 15px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+    margin-left: 25%;
+    margin-top: 1%;
+}
+}

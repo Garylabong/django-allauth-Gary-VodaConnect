@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: linear-gradient(#141e30, #243b55);
+    background-attachment: fixed;
+}
+
+.container {
+    max-width: 89%;
+    width: 100%;
+    background: #243b55;
+    padding: 25px 30px;
+    border-radius: 15px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+    margin-left: 9%;
+    margin-top: 1%;
+}
+
+.container .title {
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: -90%;
+    color: #f5eff4;
+    margin-top: -34px;
+    margin-bottom: .5%;
+}
+
+
+form .table {
+    color: #f3eff2;
+    font-size: small;
+}
+
+.table {
+    width: 100%;
+    margin-top: 0%;
+    margin-bottom: -11px;
+}
+
+.table tbody th {
+    font-weight: normal;
+}
+
+.custom-select {
+    font-size: small;
+    margin-left: 133%;
+    margin-bottom: -93%;
+}
+
+.table thead th {
+    color: #0da34b;
+}
+
+.tableFixHead {
+    overflow-y: auto;
+    height: 350px;
+    width: 200%;
+    margin-top: 1%;
+    border-radius: 20px;
+}
+
+.tableFixHead thead th {
+    position: sticky;
+    top: 0;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td {
+    padding-top: 50%;
+}
+
+th {
+    background: #eee;
+}
+
+a.btn-customized4 {
+    color: #eef0f1;
+    font-weight: 20;
+    background-color: #e442d7;
+    font-size: small;
+    margin-bottom: 0px;
+    margin-left: 85%;
+
+}
+
+a.btn-customized4:hover {
+    background: #e442d7;
+    color: #f3eff2;
+    transform: scale(0.9);
+}
+
+a.btn-customized4:focus,
+a.btn-customized4:valid {
+    background-color: #b84faf;
+    color: #f3eff2;
+    box-shadow: none;
+}

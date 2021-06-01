@@ -3,231 +3,104 @@
 {% load static%}
 
 {% block content %}
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
-    }
-
-    body {
-        height: 100vh;
-        justify-content: center;
-        align-items: center;
-        padding: 10px;
-        background: linear-gradient(#141e30, #243b55);
-        background-attachment: fixed;
-
-    }
-
-    .container {
-        max-width: 20%;
-        width: 100%;
-        background: #243b55;
-        padding: 25px 30px;
-        border-radius: 15px;
-        box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
-        margin-left: 78%;
-    }
-
-    .container1 {
-        max-width: 50%;
-        width: 100%;
-        background: #243b55;
-        padding: 25px 30px;
-        border-radius: 15px;
-        box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
-        margin-left: 25%;
-        margin-top: -13.5%;
-    }
-
-    .container2 {
-        max-width: 50%;
-        width: 100%;
-        background: #243b55;
-        padding: 25px 30px;
-        border-radius: 15px;
-        box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
-        margin-left: 25%;
-    }
-
-    .container .title {
-        font-size: 16px;
-        font-weight: 500;
-        margin-left: -5%;
-        color: #e442d7;
-        margin-top: -15px;
-        margin-bottom: 5px;
-    }
-
-    .container1 .title1 {
-        font-size: 16px;
-        font-weight: 500;
-        margin-left: -80%;
-        color: #f3eff2;
-        margin-top: -2%;
-        font-size: small;
-    }
-
-    .container2 .title {
-        font-size: 16px;
-        font-weight: 500;
-        margin-left: -72%;
-        color: #f3eff2;
-        margin-top: -2%;
-        font-size: small;
-    }
-
-    a.btn-customized1 {
-        margin-top: 15px;
-        color: #f3eff2;
-        height: 40px;
-        padding-top: 10px;
-        margin-left: 88%;
-        display: flex;
-        border-radius: 10px;
-        padding-left: 12%;
-        width: 100px;
-        font-size: small;
-        background: #e442d7;
-    }
-
-    a.btn-customized1:hover {
-        background: #e442d7;
-        color: #f3eff2;
-        transform: scale(0.9);
-    }
-
-    a.btn-customized1:focus,
-    a.btn-customized1:valid {
-        background-color: #b84faf;
-        color: #f3eff2;
-        border-color: #ed5fdc;
-        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 10, 10, 0.6);
-    }
-
-    form .table {
-        color: #f3eff2;
-        font-size: small;
-    }
-
-    .table th {
-        color: #059629;
-    }
-
-    .table {
-        width: 200%;
-    }
-
-    .card {
-        border-radius: 50px;
-        margin-left: 60px;
-        height: 80%;
-        width: 100%;
-        background-color: transparent;
-    }
-
-    .username {
-        color: #059629;
-        margin-top: 5px;
-        margin-right: -100%;
-        font-size: small;
-    }
-
-    .email {
-        margin-top: -7px;
-        color: #059629;
-        margin-left: 20px;
-        font-size: small;
-    }
-</style>
-<div class="container">
-    <div class="title text-center">YOUR PROFILE</div>
-    <div class="content">
-        <img class="card" src="{{ request.user.user.profile_picture.url }}">
-        <div class="username">
-            {{user.first_name}} {{user.last_name}}
-        </div>
-        <div class="email">
-            {{user.email}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'subsInventory/css/authentication/profile.css' %} ">
+    
+</head>
+<body>
+    <div class="container">
+        <div class="title text-center">YOUR PROFILE</div>
+        <div class="content">
+            <img class="card" src="{{ request.user.user.profile_picture.url }}">
+            <div class="username">
+                {{user.first_name}} {{user.last_name}}
+            </div>
+            <div class="email">
+                {{user.email}}
+            </div>
         </div>
     </div>
-</div>
-<br>
-<div class="container1">
-    <div class="title1 text-light text-center">EDIT CLIENT PROFILE</div>
-    <div class="content">
-        <form action="#">
-            <table class="table table-dark table-bordered table-striped text-left">
-                <tbody>
-                    <tr>
-                        <th>User Name</th>
-                        <td>{{user.username}}</td>
-                    </tr>
-                    <tr>
-                        <th>First Name</th>
-                        <td>{{user.first_name}}</td>
-                    </tr>
-                    <tr>
-                        <th>Last Name</th>
-                        <td>{{user.last_name}}</td>
-                    </tr>
-                    <tr>
-                        <th>Phone number</th>
-                        <td>{{user.phone_number}}</td>
-                    </tr>
-                    <tr>
-                        <th>Email Address</th>
-                        <td>{{user.email}}</td>
-                    </tr>
-                    <tr>
-                        <th>Pin Number</th>
-                        <td>{{user.create_pin}}</td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="text-right">
-                <a class="btn btn-customized1" href="{% url 'auth:update_profile'%}">Edit</a>
-            </div>
-        </form>
+    <br>
+    <div class="container1">
+        <div class="title1 text-light text-center">EDIT CLIENT PROFILE</div>
+        <div class="content">
+            <form action="#">
+                <table class="table table-dark table-bordered table-striped text-left">
+                    <tbody>
+                        <tr>
+                            <th>User Name</th>
+                            <td>{{user.username}}</td>
+                        </tr>
+                        <tr>
+                            <th>First Name</th>
+                            <td>{{user.first_name}}</td>
+                        </tr>
+                        <tr>
+                            <th>Last Name</th>
+                            <td>{{user.last_name}}</td>
+                        </tr>
+                        <tr>
+                            <th>Phone number</th>
+                            <td>{{user.phone_number}}</td>
+                        </tr>
+                        <tr>
+                            <th>Email Address</th>
+                            <td>{{user.email}}</td>
+                        </tr>
+                        <tr>
+                            <th>Pin Number</th>
+                            <td>{{user.create_pin}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="text-right">
+                    <a class="btn btn-customized1" href="{% url 'auth:update_profile'%}">Edit</a>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
-<br>
-<div class="container2">
-    <div class="title text-center">EDIT CLIENT INFORMATION</div>
-    <div class="content">
-        <form action="#">
-            <table class="table table-dark table-bordered table-striped text-left">
-                <tbody>
-                    <tr>
-                        <th>Company name</th>
-                        <td>{{user.company_name}}</td>
-                    </tr>
-                    <tr>
-                        <th>Designation name</th>
-                        <td>{{user.designation_name}}</td>
-                    </tr>
-                    <tr>
-                        <th>Affiliate partner code</th>
-                        <td>{{user.client.affiliate_partner_code}}</td>
-                    </tr>
-                    <tr>
-                        <th>Affiliate partner name</th>
-                        <td>{{user.client.affiliate_partner_name}}</td>
-                    </tr>
-                    <tr>
-                        <th>Lead information</th>
-                        <td>{{user.client.lead_information}}</td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="text-right">
-                <a class="btn btn-customized1" href="{% url 'auth:update_information'%}">Edit</a>
-            </div>
-        </form>
+    <br><br><br>
+    <div class="container2">
+        <div class="title text-center">EDIT CLIENT INFORMATION</div>
+        <div class="content">
+            <form action="#">
+                <table class="table table-dark table-bordered table-striped text-left">
+                    <tbody>
+                        <tr>
+                            <th>Company name</th>
+                            <td>{{user.company_name}}</td>
+                        </tr>
+                        <tr>
+                            <th>Designation name</th>
+                            <td>{{user.designation_name}}</td>
+                        </tr>
+                        <tr>
+                            <th>Affiliate partner code</th>
+                            <td>{{user.client.affiliate_partner_code}}</td>
+                        </tr>
+                        <tr>
+                            <th>Affiliate partner name</th>
+                            <td>{{user.client.affiliate_partner_name}}</td>
+                        </tr>
+                        <tr>
+                            <th>Lead information</th>
+                            <td>{{user.client.lead_information}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="text-right">
+                    <a class="btn btn-customized1" href="{% url 'auth:update_information'%}">Edit</a>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
+    
+</body>
+</html>
+
 {% endblock content %}

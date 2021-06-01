@@ -1,0 +1,73 @@
+.table {
+    width: 100%;
+    margin-top: 0%;
+    margin-bottom: -11px;
+}
+
+.table tbody th {
+    font-weight: normal;
+    font-size: small;
+    font-family: 'Poppins';
+}
+
+.table tbody td {
+    font-weight: normal;
+    font-size: small;
+}
+
+.table thead th {
+    color: #0da34b;
+}
+
+.tableFixHead {
+    overflow-x: auto;
+    height: 200px;
+    width: 200%;
+    margin-top: -5%;
+}
+
+.tableFixHead thead th {
+    position: sticky;
+    top: 0;
+    color: #0da34b;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td {
+    padding-top: 50%;
+}
+
+th {
+    background: #eee;
+}
+
+a.btn-customized5 {
+    color: #f3eff2;
+    height: 35px;
+    margin-left: -10px;
+    margin-right: -40px;
+    display: flex;
+    padding-top: 7px;
+    width: 70px;
+    font-size: small;
+    padding-left: 10px;
+    background: linear-gradient(#141e30, #243b55);
+    border-radius: 10px;
+}
+
+a.btn-customized5:hover {
+    color: #f3eff2;
+}
+
+a.btn-customized5:focus {
+    color: #f3eff2;
+}
+
+a.btn-customized5:focus,
+a.btn-customized5:valid {
+    box-shadow: none;
+}

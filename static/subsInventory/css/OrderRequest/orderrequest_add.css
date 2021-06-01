@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: linear-gradient(#141e30, #243b55);
+    background-attachment: fixed;
+}
+
+.container {
+    max-width: 65%;
+    width: 100%;
+    background: #243b55;
+    padding: 25px 30px;
+    border-radius: 15px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+    margin-left: 25%;
+}
+
+.container .title {
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: -75%;
+    color: #e442d7;
+    margin-top: -10px;
+    margin-bottom: -1%;
+}
+
+
+.form-group {
+    width: 45%;
+    margin-left: 2%;
+    margin-right: -5%;
+    margin-top: 3.5%;
+}
+
+.form-control {
+    width: 110%;
+    background-color: transparent;
+    border-color: none;
+}
+
+.content form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 0%;
+    margin-right: -70%;
+}
+
+.asteriskField {
+    display: none;
+}
+
+.requiredField {
+    margin-top: -2%;
+    display: block;
+    font-size: small;
+    position: absolute;
+}
+
+.dateinput {
+    color: #0da34b;
+    font-size: small;
+}
+
+.numberinput {
+    font-size: small;
+    color: #0da34b;
+}
+
+.select {
+    font-size: small;
+    color: #0da34b;
+}
+
+.textarea {
+    font-size: small;
+    color: #0da34b;
+    padding-top: 15px;
+    line-height: 15px;
+}
+
+.emailinput {
+    font-size: small;
+    color: #0da34b;
+}
+
+.textinput {
+    font-size: small;
+    color: #0da34b;
+}
+
+form .button {
+    height: 45px;
+    margin-left: 130px;
+}
+
+form .button a:hover {
+    background: transparent;
+    color: rgb(243, 166, 226);
+    box-shadow: none;
+}
+
+form .button button {
+    height: 90%;
+    width: 190%;
+    border-radius: 10px;
+    border: none;
+    color: #fff;
+    margin-left: 420%;
+    font-size: small;
+    cursor: pointer;
+    margin-top: 30%;
+    background: #e442d7;
+}
+
+form .button button:hover {
+    transform: scale(0.9);
+}
+
+.form-control:focus,
+.form-control:valid {
+    border-color: #ed5fdc;
+    box-shadow: none;
+}
+
+.form-control1 {
+    width: 110%;
+    background-color: #243b55;
+}
+
+.form-control1:focus,
+.form-control1:valid {
+    border-color: #ed5fdc;
+    box-shadow: none;
+}
+
+.form-control3 {
+    width: 110%;
+    color: #0da34b;
+    background-color: transparent;
+    margin-top: 0%;
+}
+
+.form-control3:focus,
+.form-control3:valid {
+    border-color: #ed5fdc;
+    box-shadow: none;
+}
+
+.form-control2 {
+    width: 110%;
+    color: #0da34b;
+    background-color: transparent;
+    margin-top: 0%;
+}
+
+.form-control2:focus {
+    border-color: #ed5fdc;
+    box-shadow: none;
+}
+
+.form-control2:valid {
+    background-color: #243b55;
+    border-color: #ed5fdc;
+    box-shadow: none;
+}
+@media only screen and (min-width: 1514px) {
+    .container {
+    max-width: 65%;
+    width: 100%;
+    background: #243b55;
+    padding: 25px 30px;
+    border-radius: 15px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+    margin-left: 25%;
+    margin-top: 1%;
+}
+}

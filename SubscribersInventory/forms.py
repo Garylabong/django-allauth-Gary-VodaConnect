@@ -43,10 +43,22 @@ class ActivationDetailForm(forms.ModelForm):
             ("CallMe.Com.Ph", "CallMe.Com.Ph"),
             ("PsalmsGlobal.Com", "PsalmsGlobal.Com"),
         )
+        PHONE_LINE_STATUS_CHOICES = (
+            ("", "--------"),
+            ("Active", "Active"),
+            ("Inactive", "Inactive"),
+            ("Cancelled", "Cancelled"),
+            ("Pending", "Pending"),
+        )
         self.fields["client_company_user"] = forms.ChoiceField(
             required=True,
             label="Client Company User",
             choices=CLIENT_COMPANY_USER_CATEGORY,
+        )
+        self.fields["phone_line_status"] = forms.ChoiceField(
+            required=True,
+            label="Phone Line Status",
+            choices=PHONE_LINE_STATUS_CHOICES ,
         )
 
 

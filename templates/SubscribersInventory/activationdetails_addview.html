@@ -1,233 +1,49 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
-
+{% load static %}
 {% block content %}
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'subsInventory/css/subscribersInventory/activationdetails_addview.css' %} ">
 
-    body {
-        height: 100vh;
-        justify-content: center;
-        align-items: center;
-        padding: 10px;
-        background: linear-gradient(#141e30, #243b55);
-        background-attachment: fixed;
-    }
-
-    .container {
-        max-width: 70%;
-        width: 100%;
-        background: #243b55;
-        padding: 25px 30px;
-        border-radius: 15px;
-        box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
-        margin-left: 25%;
-        margin-top: 3px;
-    }
-
-    .container1 {
-        max-width: 169%;
-        width: 750%;
-        background: #243b55;
-        padding: 25px 30px;
-        border-radius: 15px;
-        box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
-        margin-left: 30%;
-        margin-top: -78%;
-    }
-
-    .container .title {
-        font-size: 16px;
-        font-weight: 500;
-        margin-left: -80%;
-        color: #e442d7;
-        margin-top: -10px;
-        margin-bottom: -1%;
-    }
-
-    .container .title1 {
-        font-size: 14px;
-        font-weight: 500;
-        margin-left: -70%;
-        margin-top: -15px;
-        margin-bottom: 20px;
-        color: #0da34b;
-    }
-
-    a.btn-customized1 {
-        top: 0px;
-        margin-top: 15px;
-        color: #f3eff2;
-        height: 55px;
-        padding-top: 15px;
-        margin-left: -10px;
-        display: flex;
-        padding-top: 8px;
-        width: 130px;
-        font-size: small;
-        border-color: #ffa5f7;
-        border-radius: 10px;
-    }
-
-    a.btn-customized1:hover {
-        background: #e442d7;
-        color: #f3eff2;
-    }
-
-    a.btn-customized1:focus {
-        background-color: #b84faf;
-        color: #f3eff2;
-    }
-
-    a.btn-customized1:focus,
-    a.btn-customized1:valid {
-        background-color: #b84faf;
-        color: #f3eff2;
-        border-color: #ed5fdc;
-        box-shadow: none;
-    }
-
-    a.btn-customized2 {
-        top: 0px;
-        margin-top: 15px;
-        color: #f3eff2;
-        height: 55px;
-        margin-left: -10px;
-        display: flex;
-        padding-top: 18px;
-        width: 130px;
-        font-size: small;
-        padding-left: 25px;
-        border-color: #ffa5f7;
-        border-radius: 10px;
-    }
-
-    a.btn-customized2:hover {
-        background: #e442d7;
-        color: #f3eff2;
-    }
-
-    a.btn-customized2:focus {
-        background-color: #b84faf;
-        color: #f3eff2;
-    }
-
-    a.btn-customized2:focus,
-    a.btn-customized2:valid {
-        background-color: #b84faf;
-        color: #f3eff2;
-        border-color: #ed5fdc;
-        box-shadow: none;
-    }
-
-    .form-group {
-        width: 40%;
-
-    }
-
-    .form-control {
-        width: 110%;
-        background-color: #243b55;
-    }
-
-    .content form {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        margin-left: 0%;
-        margin-right: -70%;
-    }
-
-    .asteriskField {
-        display: none;
-    }
-
-    .requiredField {
-        margin-left: -40%;
-        margin-bottom: -10%;
-        font-size: small;
-    }
-
-    .dateinput {
-        color: #0da34b;
-        font-size: small;
-    }
-
-    .select {
-        font-size: small;
-        color: #0da34b;
-    }
-
-    form .button {
-        height: 45px;
-        margin-left: 85px;
-    }
-
-    form .button a:hover {
-        background: transparent;
-        color: rgb(243, 166, 226);
-        box-shadow: none;
-    }
-
-    form .button button {
-        height: 80%;
-        width: 200%;
-        border-radius: 10px;
-        border: none;
-        color: #fff;
-        margin-left: 365%;
-        font-size: small;
-        cursor: pointer;
-        background-color: #e442d7;
-        margin-top: 10%;
-    }
-
-    form .button button:hover {
-        transform: scale(0.9);
-    }
-
-    .form-control:focus,
-    .form-control:valid {
-        border-color: #ed5fdc;
-        box-shadow: none;
-    }
-</style>
-
-<div class="container">
-    <div class="title text-center">PHONELINES INVENTORY</div>
-    <div class="content">
-        <a class="mt-5 btn btn-customized1" href="{% url 'subs_Inv:voip_info' %}">VOIP Information</a>
-        <a class="btn btn-customized1" href="{% url 'subs_Inv:activation_details_list' %}">Activation Details</a>
-        <a class="btn btn-customized2" href="{% url 'subs_Inv:plan_details' %}">Plan Details</a>
-        <a class="btn btn-customized1" href="{% url 'subs_Inv:subs_status' %}">Subscriber Status</a>
-        <a class="btn btn-customized1" href="{% url 'subs_Inv:forward_info' %}">Forwarding Information</a>
-        <div class="container1">
-            <div class="title1 text-center">CREATE ACTIVATION DETAILS</div>
-            <div class="content ms-4">
-                <form method="post" action="">
-                    {% csrf_token %}
-                    {{ form | crispy }}
-                    <div class="button text-center">
-                        <button type="submit">Submit</button>
-                    </div>
-                </form>
+</head>
+<body>
+    <div class="container">
+        <div class="title text-center">PHONELINES INVENTORY</div>
+        <div class="content">
+            <a class="mt-5 btn btn-customized1" href="{% url 'subs_Inv:voip_info' %}">VOIP Information</a>
+            <a class="btn btn-customized1" href="{% url 'subs_Inv:activation_details_list' %}">Activation Details</a>
+            <a class="btn btn-customized2" href="{% url 'subs_Inv:plan_details' %}">Plan Details</a>
+            <a class="btn btn-customized1" href="{% url 'subs_Inv:subs_status' %}">Subscriber Status</a>
+            <a class="btn btn-customized1" href="{% url 'subs_Inv:forward_info' %}">Forwarding Information</a>
+            <div class="container1">
+                <div class="title1 text-center">CREATE ACTIVATION DETAILS</div>
+                <div class="content ms-4">
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        {{ form | crispy }}
+                        <div class="button text-center">
+                            <button type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
+    
     </div>
-
-</div>
-
-</div>
-
-
-</div>
+    
+    </div>
+    
+    
+    </div>
+    
+</body>
+</html>
 
 
 {% endblock %}
